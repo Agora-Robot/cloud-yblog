@@ -32,7 +32,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /** @author 游政杰 2021/6/4 */
-@Api(value = "文章归档控制器")
+@Api(value = "文章归档 web api")
 @Controller
 @RequestMapping(path = "/archive")
 public class ArchiveController {

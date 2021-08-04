@@ -15,7 +15,7 @@ import java.util.List;
 
 /** @author 游政杰  */
 @Controller
-@Api("客户端分类")
+@Api("分类Api")
 @RequestMapping(path = "/feign/category")
 public class CategoryController {
 

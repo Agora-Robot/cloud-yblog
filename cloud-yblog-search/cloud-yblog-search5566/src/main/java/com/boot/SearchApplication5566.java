@@ -11,7 +11,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Import;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-@SpringBootApplication //SpringBoot启动类，排除SpringSecurity自动配置类
+@SpringBootApplication
 @Import(SwaggerConfig.class) //导入swaggerConfig的配置类
 @EnableSwagger2  //开启Swagger2
 @EnableConfigurationProperties(ScanClassProperties.class)

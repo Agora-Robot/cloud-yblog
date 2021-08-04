@@ -5,6 +5,7 @@ import com.boot.data.ResponseData.layuiData;
 import com.boot.pojo.Visitor;
 import com.boot.service.VisitorService;
 import com.github.pagehelper.PageHelper;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -21,6 +22,7 @@ import java.util.List;
 @Controller
 @RequestMapping(path = "/feign/visitor")
 @CrossOrigin
+@Api("访问Api")
 public class VisitorController {
 
     @Autowired

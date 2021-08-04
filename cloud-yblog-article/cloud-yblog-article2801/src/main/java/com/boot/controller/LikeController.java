@@ -7,6 +7,7 @@ import com.boot.pojo.Like;
 import com.boot.service.ArticleService;
 import com.boot.service.LikeService;
 import com.boot.utils.SpringSecurityUtil;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +19,7 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping(path = "/feign/like")
+@Api("喜欢功能Api")
 public class LikeController {
 
     @Autowired

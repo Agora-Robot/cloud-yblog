@@ -33,7 +33,7 @@ import java.util.concurrent.TimeUnit;
  * @author 游政杰
  */
 @Controller
-@Api("客户端分类")
+@Api("客户端分类 web api")
 @RequestMapping(path = "/category")
 public class CategoryController {
 

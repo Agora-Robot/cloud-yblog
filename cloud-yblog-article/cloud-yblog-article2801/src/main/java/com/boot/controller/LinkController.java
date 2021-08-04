@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
-@Api(value = "友链控制器")
+@Api(value = "友链Api")
 @Controller
 @RequestMapping(path = "/feign/link")
 public class LinkController {

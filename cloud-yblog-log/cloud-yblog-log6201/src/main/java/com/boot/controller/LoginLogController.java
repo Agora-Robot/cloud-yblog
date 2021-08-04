@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping(path = "/feign/loginlog")
-@Api("登入日志控制器")
+@Api("登入日志Api")
 public class LoginLogController {
 
     @Autowired

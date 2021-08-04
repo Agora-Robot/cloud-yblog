@@ -37,7 +37,7 @@ import java.util.concurrent.TimeUnit;
 
 /** @author 游政杰 2021/8/3 12:05*/
 @Controller
-@Api("客户端首页控制器")
+@Api("客户端首页 web api")
 @Slf4j
 public class IndexController {
 

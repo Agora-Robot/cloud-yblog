@@ -27,7 +27,7 @@ import java.util.Map;
  */
 @Controller
 @RequestMapping(path = "/feign/article")
-@Api("文章控制器")
+@Api("文章Api")
 @Slf4j
 public class ArticleController {
 

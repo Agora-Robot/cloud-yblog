@@ -21,7 +21,7 @@ import java.util.List;
  */
 @Controller
 @RequestMapping(path = "/feign/log")
-@Api("日志控制器")
+@Api("日志Api")
 public class logController {
 
     @Autowired
