@@ -16,8 +16,6 @@ public interface UserService {
 
     User selectUserInfoByuserName(String username);
 
-
-
     String selectPasswordByuserName(String username);
 
     void updatePassword(String username, String password);

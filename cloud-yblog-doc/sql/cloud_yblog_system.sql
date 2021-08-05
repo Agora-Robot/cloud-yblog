@@ -11,7 +11,7 @@
  Target Server Version : 50711
  File Encoding         : 65001
 
- Date: 01/08/2021 11:56:05
+ Date: 04/08/2021 22:47:33
 */
 
 SET NAMES utf8mb4;
@@ -72,5 +72,27 @@ INSERT INTO `t_setting` VALUES (12, 'deep', '/user/img/bloglogo.jpg', '2021 &cop
 INSERT INTO `t_setting` VALUES (14, '8310894', '/user/img/4f8c8e189a444f2d8f87e33d9be2a05d.jpg', '----2022---', 'calmlog');
 INSERT INTO `t_setting` VALUES (15, '981305', '/user/img/bloglogo.jpg', '----2021----', 'calmlog');
 INSERT INTO `t_setting` VALUES (16, '71135975', '/user/img/bloglogo.jpg', '----2021----', 'calmlog');
+
+-- ----------------------------
+-- Table structure for undo_log
+-- ----------------------------
+DROP TABLE IF EXISTS `undo_log`;
+CREATE TABLE `undo_log`  (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `branch_id` bigint(20) NOT NULL,
+  `xid` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `context` varchar(128) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `rollback_info` longblob NOT NULL,
+  `log_status` int(11) NOT NULL,
+  `log_created` datetime(0) NOT NULL,
+  `log_modified` datetime(0) NOT NULL,
+  `ext` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  UNIQUE INDEX `ux_undo_log`(`xid`, `branch_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of undo_log
+-- ----------------------------
 
 SET FOREIGN_KEY_CHECKS = 1;

@@ -4,6 +4,7 @@ import com.boot.data.CommonResult;
 import com.boot.pojo.UserDetail;
 import com.boot.service.UserDetailService;
 import io.swagger.annotations.Api;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,12 +16,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Api("用户详情Api")
 public class UserDetailController {
 
+    @Autowired
     private UserDetailService userDetailService;
 
 
     @ResponseBody
     @GetMapping(path = "/selectUserDetailByUserName")
     public UserDetail selectUserDetailByUserName(@RequestParam("name") String name){
+
         UserDetail userDetail = userDetailService.selectUserDetailByUserName(name);
         return userDetail;
     }

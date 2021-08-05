@@ -1,0 +1,46 @@
+server:
+  port: 1660
+spring:
+  application:
+    name: cloud-yblog-async
+  redis:
+    port: 6379
+    password:
+    host: localhost
+    database: 12     #使用db12
+  thymeleaf:
+    cache: false
+  #springcloud配置
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848    #单机部署
+    sentinel:
+      transport:
+        port: 8720
+        dashboard: localhost:8080
+  main:
+    allow-bean-definition-overriding: true    #不然多个feign接口连接相同的微服务则会报错
+
+  mail:
+    username: 1550324080@qq.com
+    host: smtp.qq.com
+    default-encoding: UTF-8
+    password: xxx
+  # rabbitmq
+  rabbitmq:
+      username: guest
+      virtual-host: /ems
+      password: guest
+      host: localhost
+
+#开启feign对sentinel的支持
+feign:
+  sentinel:
+    enabled: true
+
+#设置ribbon的超时时间
+ribbon:
+  ReadTimeout: 3000
+  ConnectTimeout: 3000
+

@@ -7,7 +7,9 @@ import com.boot.data.CommonResult;
 import com.boot.data.ResponseData.RememberJSON;
 import com.boot.feign.log.LoginLogFeign;
 import com.boot.feign.system.SettingFeign;
+import com.boot.feign.user.UserDetailFeign;
 import com.boot.feign.user.UserFeign;
+import com.boot.filter.VerifyCodeFilter;
 import com.boot.pojo.LoginLog;
 import com.boot.utils.AesUtil;
 import com.boot.utils.BrowserOS;
@@ -27,6 +29,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
 
 import javax.servlet.ServletException;
@@ -58,10 +61,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private SettingFeign settingFeign;
 
     @Autowired
+    private UserDetailFeign userDetailFeign;
+
+    @Autowired
     private LoginLogFeign loginLogFeign;
 
-//    @Autowired
-//    private VerifyCodeFilter verifyCodeFilter;
+    @Autowired
+    private VerifyCodeFilter verifyCodeFilter;
 
     private final String key="@%&^=*remember-yblog=@#&%"; //密钥，切勿泄露出去
 
@@ -91,7 +97,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         //配置过滤器
-//        http.addFilterBefore(verifyCodeFilter, UsernamePasswordAuthenticationFilter.class);
+        http.addFilterBefore(verifyCodeFilter, UsernamePasswordAuthenticationFilter.class);
         http.
                 formLogin()
                 .usernameParameter("username")

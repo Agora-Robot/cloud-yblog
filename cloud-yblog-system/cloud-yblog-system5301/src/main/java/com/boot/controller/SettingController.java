@@ -6,10 +6,7 @@ import com.boot.service.SettingService;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping(path = "/feign/setting")
@@ -27,6 +24,26 @@ public class SettingController {
 
         return setting;
     }
+
+    @ResponseBody
+    @PostMapping(path = "/addSettingByUser")
+    public String addSettingByUser(@RequestBody Setting setting){
+
+        try{
+
+            settingService.addSettingByUser(setting);
+
+            System.out.println("addSettingByUser=========================");
+
+            int i=10/0;
+        }catch (Exception e){
+            throw new RuntimeException("addSetting------------");
+        }
+
+
+        return "success";
+    }
+
 
 
 

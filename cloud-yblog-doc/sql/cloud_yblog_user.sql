@@ -11,7 +11,7 @@
  Target Server Version : 50711
  File Encoding         : 65001
 
- Date: 01/08/2021 11:56:14
+ Date: 04/08/2021 22:47:39
 */
 
 SET NAMES utf8mb4;
@@ -146,5 +146,27 @@ INSERT INTO `t_user_detail` VALUES (4, 'tom', '马化腾11', 'Java架构师', '�
 INSERT INTO `t_user_detail` VALUES (6, '8310894', 'yblog', '编程', '暂无详情', 'https://github.com/', 'https://weibo.com/', '/user_img/0323477285af430a9399e2bca7c616a2.jpg');
 INSERT INTO `t_user_detail` VALUES (16, '981305', '981305', '编程', '暂无详情', 'https://github.com/', 'https://weibo.com/', NULL);
 INSERT INTO `t_user_detail` VALUES (17, '71135975', '71135975', '编程', '暂无详情', 'https://github.com/', 'https://weibo.com/', NULL);
+
+-- ----------------------------
+-- Table structure for undo_log
+-- ----------------------------
+DROP TABLE IF EXISTS `undo_log`;
+CREATE TABLE `undo_log`  (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `branch_id` bigint(20) NOT NULL,
+  `xid` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `context` varchar(128) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `rollback_info` longblob NOT NULL,
+  `log_status` int(11) NOT NULL,
+  `log_created` datetime(0) NOT NULL,
+  `log_modified` datetime(0) NOT NULL,
+  `ext` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  UNIQUE INDEX `ux_undo_log`(`xid`, `branch_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of undo_log
+-- ----------------------------
 
 SET FOREIGN_KEY_CHECKS = 1;

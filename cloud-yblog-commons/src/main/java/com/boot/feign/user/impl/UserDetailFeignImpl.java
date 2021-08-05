@@ -16,4 +16,6 @@ public class UserDetailFeignImpl implements UserDetailFeign {
         log.error("UserDetailFeignImpl---selectUserDetailByUserName---fallback");
         return null;
     }
+
+
 }

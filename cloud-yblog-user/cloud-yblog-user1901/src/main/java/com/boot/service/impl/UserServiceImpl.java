@@ -1,18 +1,21 @@
 package com.boot.service.impl;
 
+import com.boot.dao.UserMapper;
 import com.boot.pojo.User;
 import com.boot.pojo.UserAuthority;
 import com.boot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
 
     @Autowired
-    private com.boot.dao.UserMapper userMapper;
+    private UserMapper userMapper;
 
     @Override
     public void addUser(User user) {

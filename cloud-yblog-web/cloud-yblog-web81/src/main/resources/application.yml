@@ -5,6 +5,8 @@ spring:
     name: cloud-yblog-web
   messages:
     basename: i18n.logo
+  thymeleaf:
+    cache: false    #关闭thymeleaf的缓存
   redis:
     port: 6379
     password:

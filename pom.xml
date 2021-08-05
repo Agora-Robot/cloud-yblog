@@ -20,6 +20,7 @@
         <module>cloud-yblog-search</module>
         <module>cloud-yblog-monitor</module>
         <module>cloud-yblog-article</module>
+        <module>cloud-yblog-async</module>
     </modules>
 
     <properties>

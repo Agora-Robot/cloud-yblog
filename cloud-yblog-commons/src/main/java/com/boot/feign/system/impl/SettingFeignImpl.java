@@ -16,4 +16,10 @@ public class SettingFeignImpl implements SettingFeign {
         log.error("SettingFeignImpl--selectUserSetting--fallback");
         return null;
     }
+
+    @Override
+    public String addSettingByUser(Setting setting) {
+        log.error("SettingFeignImpl--addSettingByUser--fallback");
+        throw new RuntimeException("addSettingByUser fallback");
+    }
 }

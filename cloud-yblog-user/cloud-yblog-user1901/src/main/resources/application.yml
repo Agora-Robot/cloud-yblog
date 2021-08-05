@@ -13,39 +13,21 @@ spring:
     username: root
     password: 18420163207
     driver-class-name: com.mysql.jdbc.Driver
-    type: com.alibaba.druid.pool.DruidDataSource
-    filters: stat,wall
-    # 通过connectProperties属性来打开mergeSql功能；慢SQL记录  慢查询：增删改查
-    druid:
-      connection-properties:
-        druid:
-          stat:
-            mergeSql: true
-      filter:
-        stat:
-          slow-sql-millis: 10
-      test-on-borrow: false
-      # 最长等待时间ms
-      max-wait: 60000
-      # 最小连接池数量
-      min-idle: 5
-      # 最大连接池数量
-      max-active: 30
-      # 初始化时建立物理连接的个数
-      initial-size: 5
   #springcloud配置
   cloud:
     nacos:
       discovery:
         server-addr: localhost:8848    #单机部署
+    #配置seata
+    alibaba:
+      seata:
+        tx-service-group: my_test_tx_group
     sentinel:
       transport:
         port: 8720
         dashboard: localhost:8080
   main:
     allow-bean-definition-overriding: true    #不然多个feign接口连接相同的微服务则会报错
-
-
 #开启feign对sentinel的支持
 feign:
   sentinel:
@@ -57,7 +39,14 @@ ribbon:
   ConnectTimeout: 3000
 
 mybatis:
-  mapper-locations: classpath:mapper/*.xml
+  mapperLocations: classpath:mapper/*.xml
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
 
 #自定义扫描包
 scan:

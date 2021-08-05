@@ -18,7 +18,7 @@
 <form id="fm" class="layui-form" th:action="@{/login}" autocomplete="off" method="post">
     <div class="layui-form-item">
         <img class="logo" th:src="@{/pear-admin/images/logo2.png}" />
-        <div class="title">yblog Admin</div>
+        <div class="title">cloud yblog</div>
     </div>
     <div class="layui-form-item">
         <input name="username" placeholder="帐号" lay-verify="required" hover class="layui-input"  />
@@ -60,48 +60,6 @@
 <script th:src="@{/component/pear/pear.js}"></script>
 <script>
 
-
-    // // 获取<meta>标签中封装的_csrf信息 ,否则会请求403
-    // var token = $("meta[name='_csrf']").attr("content");
-    // var header = $("meta[name='_csrf_header']").attr("content");
-    // var headers = {"X-CSRF-TOKEN": token}
-    // layui.use(['form','jquery','layer','button','popup'], function() {
-    //     let form = layui.form;
-    //     let $ = layui.jquery;
-    //     let layer = layui.layer;
-    //     let button = layui.button;
-    //     let popup = layui.popup;
-    //
-    //
-    //     form.on('submit(login)', function (data) {
-    //         let loader = layer.load();
-    //         let btn = button.load({elem: '.login'});
-    //         $.ajax({
-    //             url: '/login',
-    //             data: $('#fm').serialize(),
-    //             type: "post",
-    //             dataType: 'json',
-    //             headers:headers,
-    //             contentType:false,
-    //             success: function (result) {
-    //                 alert(result.msg);
-    //                 layer.close(loader);
-    //                 btn.stop(function () {
-    //                     if (result.success) {
-    //                         popup.success(result.msg, function () {
-    //                             location.href = "/";
-    //                         })
-    //                     } else {
-    //                         popup.failure(result.msg, function () {
-    //                             document.getElementById("cap").src = '/pear/captcha?r=' + Math.random();
-    //                         });
-    //                     }
-    //                 })
-    //             }
-    //         });
-    //         return false;
-    //     });
-    // })
 
     function refreshCaptcha() {
         document.getElementById('cap').src = '/pear/captcha?r=' + Math.random();
