@@ -13,40 +13,26 @@ import org.springframework.web.bind.annotation.*;
 @Api("设置Api")
 public class SettingController {
 
-    @Autowired
-    private SettingService settingService;
+  @Autowired private SettingService settingService;
 
-    @ResponseBody
-    @GetMapping(path = "/selectUserSetting")
-    public Setting selectUserSetting(@RequestParam(value = "name",required = true) String name){
+  @ResponseBody
+  @GetMapping(path = "/selectUserSetting")
+  public Setting selectUserSetting(@RequestParam(value = "name", required = true) String name) {
 
-        Setting setting = settingService.selectUserSetting(name);
+    Setting setting = settingService.selectUserSetting(name);
 
-        return setting;
-    }
+    return setting;
+  }
 
-    @ResponseBody
-    @PostMapping(path = "/addSettingByUser")
-    public String addSettingByUser(@RequestBody Setting setting){
+  @ResponseBody
+  @PostMapping(path = "/addSettingByUser")
+  public String addSettingByUser(@RequestBody Setting setting) {
 
-        try{
+    settingService.addSettingByUser(setting);
 
-            settingService.addSettingByUser(setting);
+    System.out.println("addSettingByUser--------------");
+//    int i = 10 / 0; // 模拟异常
 
-            System.out.println("addSettingByUser=========================");
-
-            int i=10/0;
-        }catch (Exception e){
-            throw new RuntimeException("addSetting------------");
-        }
-
-
-        return "success";
-    }
-
-
-
-
-
-
+    return "success";
+  }
 }

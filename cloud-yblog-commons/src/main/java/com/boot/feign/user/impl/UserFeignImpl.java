@@ -23,8 +23,8 @@ public class UserFeignImpl implements UserFeign {
     public String register(String username,
                            String password,
                            String email) {
-        throw new RuntimeException("UserFeignImpl---register--fallback");
-//        return "registerFail";
+//        throw new RuntimeException("UserFeignImpl---register--fallback");
+        return "registerFail";
     }
 
 

@@ -9,6 +9,7 @@
     </option>
     <option name="ignoredFiles">
       <set>
+        <option value="$PROJECT_DIR$/cloud-alibaba-seata-art3311/pom.xml" />
         <option value="$PROJECT_DIR$/cloud-yblog-admin91/pom.xml" />
         <option value="$PROJECT_DIR$/cloud-yblog-async/cloud-yblog-async1561/pom.xml" />
         <option value="$PROJECT_DIR$/cloud-yblog-email/pom.xml" />

@@ -17,26 +17,6 @@ spring:
     username: root
     password: 18420163207
     driver-class-name: com.mysql.jdbc.Driver
-    type: com.alibaba.druid.pool.DruidDataSource
-    filters: stat,wall
-    # 通过connectProperties属性来打开mergeSql功能；慢SQL记录  慢查询：增删改查
-    druid:
-      connection-properties:
-        druid:
-          stat:
-            mergeSql: true
-      filter:
-        stat:
-          slow-sql-millis: 10
-      test-on-borrow: false
-      # 最长等待时间ms
-      max-wait: 60000
-      # 最小连接池数量
-      min-idle: 5
-      # 最大连接池数量
-      max-active: 30
-      # 初始化时建立物理连接的个数
-      initial-size: 5
   #  rabbitmq
   rabbitmq:
     username: guest
@@ -52,6 +32,10 @@ spring:
       transport:
         port: 8720
         dashboard: localhost:8080
+    #配置seata
+    alibaba:
+      seata:
+        tx-service-group: my_test_tx_group
   security:
     user:
       name: root
@@ -86,3 +70,8 @@ scan:
 logging:
   level:
     com.boot.controller.SearchController: debug
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

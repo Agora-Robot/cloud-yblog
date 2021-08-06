@@ -20,53 +20,47 @@ import java.sql.Date;
 @Service
 public class RegisterServiceImpl implements RegisterService {
 
-    @Autowired
-    private UserService userService;
+  @Autowired private UserService userService;
 
-    @Autowired
-    private SettingFeign settingFeign;
+  @Autowired private SettingFeign settingFeign;
 
-    @Autowired
-    private UserDetailService userDetailService;
+  @Autowired private UserDetailService userDetailService;
 
+  // 分布式事务
+  @GlobalTransactional(name = "seata_register", rollbackFor = Exception.class)
+  @Override
+  public void register(User user) {
 
-    //分布式事务
-    @GlobalTransactional(name = "seata_register",rollbackFor = Exception.class)
-    @Override
-    public void register(User user) {
+    // 注册代码
+    Date date = new Date(new java.util.Date().getTime());
+    BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+    // 进行BCryptPasswordEncoder加密
+    String encode_password = bCryptPasswordEncoder.encode(user.getPassword());
+    user.setPassword(encode_password);
+    user.setDate(date);
+    user.setValid(1);
 
-            //注册代码
-            Date date = new Date(new java.util.Date().getTime());
-            BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
-            //进行BCryptPasswordEncoder加密
-            String encode_password = bCryptPasswordEncoder.encode(user.getPassword());
-            user.setPassword(encode_password);
-            user.setDate(date);
-            user.setValid(1);
+    userService.addUser(user);
 
-
-            userService.addUser(user);
-
-            UserAuthority userAuthority = new UserAuthority();
-            userAuthority.setUser_id(user.getId());
-            userAuthority.setAuthority_id(2);
-            userService.addUserAuthority(userAuthority);
-
-            //设置userDetail
-            UserDetail userDetail = new UserDetail();
-            userDetail.setName(user.getUsername());
-            userDetailService.addUserDetail(userDetail);
-
-//            int i=10/0;  //模拟异常
-
-            //添加用户默认设置
-            Setting setting = new Setting();
-            setting.setName(user.getUsername());
-            setting.setTheme(ThemeConstant.CALM_THEME);
-            setting.setFoot("----2021----");
-            setting.setLogo("/user/img/bloglogo.jpg");
-            settingFeign.addSettingByUser(setting);
+    UserAuthority userAuthority = new UserAuthority();
+    userAuthority.setUser_id(user.getId());
+    userAuthority.setAuthority_id(2);
+    userService.addUserAuthority(userAuthority);
 
 
-    }
+//    int i=10/0;
+
+    // 设置userDetail
+    UserDetail userDetail = new UserDetail();
+    userDetail.setName(user.getUsername());
+    userDetailService.addUserDetail(userDetail);
+
+    // 添加用户默认设置
+    Setting setting = new Setting();
+    setting.setName(user.getUsername());
+    setting.setTheme(ThemeConstant.CALM_THEME);
+    setting.setFoot("----2021----");
+    setting.setLogo("/user/img/bloglogo.jpg");
+    settingFeign.addSettingByUser(setting);
+  }
 }

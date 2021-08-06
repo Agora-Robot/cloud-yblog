@@ -5,4 +5,8 @@ spring:
     host: localhost
     database: 12     #使用db12
 
+#自定义扫描包
+scan:
+  packageName: com.boot.controller
+
 

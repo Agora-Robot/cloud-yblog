@@ -33,6 +33,7 @@ feign:
   sentinel:
     enabled: true
 
+
 #设置ribbon的超时时间
 ribbon:
   ReadTimeout: 3000
@@ -51,3 +52,4 @@ management:
 #自定义扫描包
 scan:
   packageName: com.boot.controller
+

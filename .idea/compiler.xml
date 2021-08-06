@@ -18,12 +18,14 @@
         <module name="cloud-yblog-user1901" />
         <module name="cloud-yblog-monitor8901" />
         <module name="cloud-yblog-search5566" />
+        <module name="cloud-alibaba-seata-art3311" />
         <module name="cloud-yblog-commons" />
         <module name="cloud-yblog-system5301" />
         <module name="cloud-yblog-email" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="cloud-alibaba-seata-art3311" target="10" />
       <module name="cloud-yblog-async1561" target="10" />
       <module name="cloud-yblog-email" target="10" />
     </bytecodeTargetLevel>

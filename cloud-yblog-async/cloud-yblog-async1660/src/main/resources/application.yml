@@ -19,6 +19,10 @@ spring:
       transport:
         port: 8720
         dashboard: localhost:8080
+    #配置seata
+    alibaba:
+      seata:
+        tx-service-group: my_test_tx_group
   main:
     allow-bean-definition-overriding: true    #不然多个feign接口连接相同的微服务则会报错
 

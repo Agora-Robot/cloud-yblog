@@ -10,6 +10,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>cloud-yblog-async1660</artifactId>
+    <dependencies>
+
+    </dependencies>
 
 
 </project>
