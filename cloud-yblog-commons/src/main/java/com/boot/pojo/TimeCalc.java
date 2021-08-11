@@ -8,13 +8,17 @@ import io.swagger.annotations.ApiModel;
 @ApiModel("封装接口耗时")
 public class TimeCalc {
 
-    private int id;
+    private long id;
     private String uri; //接口uri
     private String calc; //访问接口耗时
     private String time; //访问接口的时间
 
-    public int getId() {
+    public long getId() {
         return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getUri() {

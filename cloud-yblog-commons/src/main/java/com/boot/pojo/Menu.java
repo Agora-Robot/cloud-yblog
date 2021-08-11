@@ -10,7 +10,7 @@ import java.util.Arrays;
 @ApiModel("后台系统的主菜单")
 public class Menu {
 
-    private int id;
+    private long id;
     private String title;
     private int type;
     private String icon;
@@ -18,11 +18,11 @@ public class Menu {
     private ChildrenMenu[] children; //子菜单
 
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

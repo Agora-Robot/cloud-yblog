@@ -6,7 +6,7 @@ import io.swagger.annotations.ApiModel;
 @ApiModel("草稿箱实体类")
 public class Draft {
 
-  private int id;
+  private long id;
   private String username;
   private String title;
   private String content;
@@ -14,11 +14,11 @@ public class Draft {
   private String modified;
   private String tags;
 
-  public int getId() {
+  public long getId() {
     return id;
   }
 
-  public void setId(int id) {
+  public void setId(long id) {
     this.id = id;
   }
 

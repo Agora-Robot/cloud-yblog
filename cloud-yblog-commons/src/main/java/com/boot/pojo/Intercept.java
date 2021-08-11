@@ -7,7 +7,7 @@ import java.io.Serializable;
 @ApiModel("封装拦截记录类")
 public class Intercept implements Serializable {
 
-    private int id;
+    private long id;
     private String intercept_ip; //拦截ip
     private String intercept_address; //拦截ip所在地址
     private String intercept_browser; //拦截ip的人使用的浏览器
@@ -15,10 +15,13 @@ public class Intercept implements Serializable {
     private String intercept_time; //拦截时间
     private String desc; //描述
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public String getIntercept_ip() {
         return intercept_ip;

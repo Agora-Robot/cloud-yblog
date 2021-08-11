@@ -21,7 +21,6 @@
         <module>cloud-yblog-monitor</module>
         <module>cloud-yblog-article</module>
         <module>cloud-yblog-async</module>
-        <module>cloud-alibaba-seata-art3311</module>
     </modules>
 
     <properties>
@@ -87,19 +86,17 @@
                 <version>${mybatis.spring.boot-version}</version>
             </dependency>
 
-<!--            lombok-->
+
+            <!--            lombok-->
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>1.18.12</version>
             </dependency>
 
+
         </dependencies>
 
 
     </dependencyManagement>
-
-
-
-
 </project>

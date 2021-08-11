@@ -7,7 +7,7 @@ import java.io.Serializable;
 @ApiModel(value = "用户详情实体类", description = "封装了用户详情")
 public class UserDetail implements Serializable {
 
-    private int id; //id
+    private long id; //id
     private String name; //用户名
     private String blogName;//博客名称
     private String job; //工作
@@ -16,35 +16,11 @@ public class UserDetail implements Serializable {
     private String weibo; //微博地址
     private String icon; //用户头像地址
 
-    public UserDetail() {
-    }
-
-    public UserDetail(int id, String name, String blogName,
-                      String job, String detail, String github,
-                      String weibo, String icon) {
-        this.id = id;
-        this.name = name;
-        this.blogName = blogName;
-        this.job = job;
-        this.detail = detail;
-        this.github = github;
-        this.weibo = weibo;
-        this.icon = icon;
-    }
-
-    public String getIcon() {
-        return icon;
-    }
-
-    public void setIcon(String icon) {
-        this.icon = icon;
-    }
-
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -96,9 +72,17 @@ public class UserDetail implements Serializable {
         this.weibo = weibo;
     }
 
+    public String getIcon() {
+        return icon;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = icon;
+    }
+
     @Override
     public String toString() {
-        return "userDetail{" +
+        return "UserDetail{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", blogName='" + blogName + '\'' +

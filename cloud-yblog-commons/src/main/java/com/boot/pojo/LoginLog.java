@@ -7,7 +7,7 @@ import java.io.Serializable;
 @ApiModel("登录日志")
 public class LoginLog implements Serializable {
 
-    private int id;
+    private long id;
     private String username; //登录的用户名
     private String ip; //登录的ip
     private String address; //ip对应的地址
@@ -16,10 +16,13 @@ public class LoginLog implements Serializable {
     private String time; //登录时间
     private int type; //登录类型： 1是正常登录  2是记住我自动登录
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public String getUsername() {
         return username;

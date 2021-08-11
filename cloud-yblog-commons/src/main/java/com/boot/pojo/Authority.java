@@ -7,22 +7,14 @@ import java.io.Serializable;
 @ApiModel(value = "权限实体类",description = "封装权限")
 public class Authority implements Serializable {
 
-    private int id;
+    private long id;
     private String authority;
 
-    public Authority() {
-    }
-
-    public Authority(int id, String authority) {
-        this.id = id;
-        this.authority = authority;
-    }
-
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -36,7 +28,7 @@ public class Authority implements Serializable {
 
     @Override
     public String toString() {
-        return "authority{" +
+        return "Authority{" +
                 "id=" + id +
                 ", authority='" + authority + '\'' +
                 '}';

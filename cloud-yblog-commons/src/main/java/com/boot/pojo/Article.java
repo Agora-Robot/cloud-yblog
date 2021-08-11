@@ -12,7 +12,7 @@ import java.util.List;
  */
 @ApiModel(value = "文章实体类", description = "封装文章内容")
 public class Article implements Serializable {
-    private Integer id;          // 文章id
+    private long id;          // 文章id
     private String title;       // 文章标题
     private String content;     // 文章内容
     private Date created;       // 文章创建时间
@@ -33,7 +33,7 @@ public class Article implements Serializable {
     public Article() {
     }
 
-    public Article(Integer id, String title, String content, Date created, Date modified, String categories, String tags, Boolean allowComment, int recommend, String thumbnail, int likes, Statistic statistic) {
+    public Article(long id, String title, String content, Date created, Date modified, String categories, String tags, Boolean allowComment, int recommend, String thumbnail, int likes, Statistic statistic) {
         this.id = id;
         this.title = title;
         this.content = content;
@@ -57,11 +57,11 @@ public class Article implements Serializable {
         this.recommend = recommend;
     }
 
-    public Integer getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(long id) {
         this.id = id;
     }
 

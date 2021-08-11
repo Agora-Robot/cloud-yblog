@@ -160,7 +160,12 @@
         </dependency>
 
 
-
+        <!--        雪花漂移算法(雪花算法增强版)-->
+        <dependency>
+            <groupId>com.github.yitter</groupId>
+            <artifactId>yitter-idgenerator</artifactId>
+            <version>1.0.6</version>
+        </dependency>
 
         <!--            lombok-->
         <dependency>

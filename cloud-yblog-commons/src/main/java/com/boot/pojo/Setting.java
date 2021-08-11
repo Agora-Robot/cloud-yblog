@@ -5,17 +5,17 @@ import io.swagger.annotations.ApiModel;
 @ApiModel("系统设置")
 public class Setting {
 
-    private int id;
+    private long id;
     private String name; //用户名
     private String logo; //博客logo
     private String foot; //页尾内容
     private String theme; //主题
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

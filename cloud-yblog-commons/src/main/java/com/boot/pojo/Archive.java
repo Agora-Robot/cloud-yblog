@@ -9,7 +9,6 @@ public class Archive implements Serializable {
     /**
      * 不建立对应的数据库，因为这个归档每次都是从t_article表中查询
      */
-
     private String months; //归档年-月
     private String count; //对应归档年-月匹配的文章数量
 

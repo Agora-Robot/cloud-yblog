@@ -2,23 +2,23 @@ package com.boot.pojo;
 
 public class MenuData {
 
-    private int id;
-    private int authority; //权限id
+    private long id;
+    private long authority; //权限id
     private String menu; //menu的JSON
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public int getAuthority() {
+    public long getAuthority() {
         return authority;
     }
 
-    public void setAuthority(int authority) {
+    public void setAuthority(long authority) {
         this.authority = authority;
     }
 

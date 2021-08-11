@@ -8,7 +8,7 @@ import java.sql.Date;
 @ApiModel(value = "用户实体类", description = "封装用户信息")
 public class User implements Serializable {
 
-    private int id;
+    private long id;
     private String username; //用户名
     private String password; //密码
     private String email; //邮箱
@@ -18,48 +18,16 @@ public class User implements Serializable {
 
     private UserDetail userDetail;
 
-    public User() {
-    }
-
-    public User(int id, String username, String password,
-                String email, Date date, int valid,
-                UserAuthority UserAuthority, UserDetail userDetail) {
-        this.id = id;
-        this.username = username;
-        this.password = password;
-        this.email = email;
-        this.date = date;
-        this.valid = valid;
-        this.UserAuthority = UserAuthority;
-        this.userDetail = userDetail;
-    }
-
-    public UserAuthority getUserAuthority() {
-        return UserAuthority;
-    }
-
-//    新增加的get方法
-    public int getAuthority_id() {
+    //    新增加的get方法
+    public long getAuthority_id() {
         return UserAuthority.getAuthority_id();
     }
 
-    public void setUserAuthority(UserAuthority userAuthority) {
-        this.UserAuthority = userAuthority;
-    }
-
-    public UserDetail getUserDetail() {
-        return userDetail;
-    }
-
-    public void setUserDetail(UserDetail userDetail) {
-        this.userDetail = userDetail;
-    }
-
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -101,6 +69,22 @@ public class User implements Serializable {
 
     public void setValid(int valid) {
         this.valid = valid;
+    }
+
+    public com.boot.pojo.UserAuthority getUserAuthority() {
+        return UserAuthority;
+    }
+
+    public void setUserAuthority(com.boot.pojo.UserAuthority userAuthority) {
+        UserAuthority = userAuthority;
+    }
+
+    public UserDetail getUserDetail() {
+        return userDetail;
+    }
+
+    public void setUserDetail(UserDetail userDetail) {
+        this.userDetail = userDetail;
     }
 
     @Override

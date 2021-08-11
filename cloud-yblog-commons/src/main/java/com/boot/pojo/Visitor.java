@@ -7,7 +7,7 @@ import java.io.Serializable;
 @ApiModel(value = "访问者信息",description = "获取访问者的所有信息")
 public class Visitor implements Serializable {
 
-    private int id;
+    private long id;
     private String visit_ip; //访问者ip
     private String visit_address; //访问者ip所在地址
     private String browser; //访问者使用的浏览器
@@ -16,25 +16,11 @@ public class Visitor implements Serializable {
     private String visit_describe; //访问描述
 
 
-    public Visitor() {
-    }
-
-
-    public Visitor(int id, String visit_ip, String visit_address, String browser, String os, String visit_time, String visit_describe) {
-        this.id = id;
-        this.visit_ip = visit_ip;
-        this.visit_address = visit_address;
-        this.browser = browser;
-        this.os = os;
-        this.visit_time = visit_time;
-        this.visit_describe = visit_describe;
-    }
-
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

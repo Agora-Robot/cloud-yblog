@@ -10,24 +10,15 @@ public class Img implements Serializable {
     /**
      * 附件管理类
      */
-    private int id;
+    private long id;
     private String big_img; //大图
     private String small_img; //缩略图
 
-    public Img() {
-    }
-
-    public Img(int id, String big_img, String small_img) {
-        this.id = id;
-        this.big_img = big_img;
-        this.small_img = small_img;
-    }
-
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

@@ -8,7 +8,7 @@ import java.io.Serializable;
 @ApiModel("封装操作日志")
 public class OperationLog implements Serializable {
 
-    private int id;
+    private long id;
     private String username; //操作的用户名
     private String ip; //操作的ip
     private String uri; //访问的uri
@@ -18,10 +18,13 @@ public class OperationLog implements Serializable {
     private String time; //操作时间
     private String type; //操作了什么
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public String getUsername() {
         return username;

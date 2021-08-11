@@ -7,23 +7,15 @@ import java.io.Serializable;
 @ApiModel(value = "分类实体类",description = "封装分类信息")
 public class Category implements Serializable {
 
-    private int id;
+    private long id;
     private String categoryName;
     private int categoryCount;
 
-    public Category() {
-    }
-
-    public Category(String categoryName, int categoryCount) {
-        this.categoryName = categoryName;
-        this.categoryCount = categoryCount;
-    }
-
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

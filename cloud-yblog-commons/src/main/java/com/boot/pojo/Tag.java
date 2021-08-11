@@ -5,18 +5,15 @@ import io.swagger.annotations.ApiModel;
 @ApiModel(value = "标签实体类",description = "封装标签名称和使用的数量")
 public class Tag {
 
-    private int id;
+    private long id;
     private String tagName;
     private int tagCount;
 
-    public Tag() {
-    }
-
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

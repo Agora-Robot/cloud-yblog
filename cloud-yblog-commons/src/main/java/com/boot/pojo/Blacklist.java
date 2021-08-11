@@ -7,25 +7,19 @@ import java.io.Serializable;
 @ApiModel(value = "黑名单")
 public class Blacklist implements Serializable {
 
-    private int id;
+    private long id;
     //黑名单Ip
     private String black_ip;
     //黑名单Ip对应的地址
     private String black_address;
 
-    public Blacklist() {
-    }
-
-    public Blacklist(int id, String black_ip, String black_address) {
-        this.id = id;
-        this.black_ip = black_ip;
-        this.black_address = black_address;
-    }
-
-    public int getId() {
+    public long getId() {
         return id;
     }
 
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public String getBlack_ip() {
         return black_ip;
@@ -45,7 +39,7 @@ public class Blacklist implements Serializable {
 
     @Override
     public String toString() {
-        return "blacklist{" +
+        return "Blacklist{" +
                 "id=" + id +
                 ", black_ip='" + black_ip + '\'' +
                 ", black_address='" + black_address + '\'' +

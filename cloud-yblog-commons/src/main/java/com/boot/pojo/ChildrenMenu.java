@@ -8,7 +8,7 @@ import java.util.Arrays;
 @ApiModel("后台系统子菜单")
 public class ChildrenMenu {
 
-    private int id;
+    private long id;
     private String title;
     private String icon;
     private int type;
@@ -17,11 +17,11 @@ public class ChildrenMenu {
     //注意：子菜单可能还会有子菜单，也就是多级菜单
     private ChildrenMenu[] children;
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

@@ -5,16 +5,16 @@ import io.swagger.annotations.ApiModel;
 @ApiModel("文章点赞")
 public class Like {
 
-    private int id;
+    private long id;
     private String username; //点赞的用户名
-    private int article_id; //点赞的文章id
+    private long article_id; //点赞的文章id
 
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -26,11 +26,11 @@ public class Like {
         this.username = username;
     }
 
-    public int getArticle_id() {
+    public long getArticle_id() {
         return article_id;
     }
 
-    public void setArticle_id(int article_id) {
+    public void setArticle_id(long article_id) {
         this.article_id = article_id;
     }
 

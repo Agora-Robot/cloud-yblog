@@ -9,33 +9,33 @@ import java.io.Serializable;
  * */
 @ApiModel(value = "文章数据统计实体类",description = "封装每个文章的点击量和评论量")
 public class Statistic implements Serializable {
-    private Integer id;
-    private Integer articleId;   // 评论的文章id
+    private long id;
+    private long articleId;   // 评论的文章id
     private Integer hits;        // 点击量
     private Integer commentsNum;// 评论总量
 
     public Statistic() {
     }
 
-    public Statistic(Integer articleId, Integer hits, Integer commentsNum) {
+    public Statistic(long articleId, Integer hits, Integer commentsNum) {
         this.articleId = articleId;
         this.hits = hits;
         this.commentsNum = commentsNum;
     }
 
-    public Integer getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public Integer getArticleId() {
+    public long getArticleId() {
         return articleId;
     }
 
-    public void setArticleId(Integer articleId) {
+    public void setArticleId(long articleId) {
         this.articleId = articleId;
     }
 
