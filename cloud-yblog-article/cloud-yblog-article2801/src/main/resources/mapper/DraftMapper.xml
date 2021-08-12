@@ -37,8 +37,8 @@
     </update>
     
     <insert id="addDraft" parameterType="com.boot.pojo.Draft">
-        insert into t_draft (username,title,content,created,tags)
-        values (#{username},#{title},#{content},#{created},#{tags})
+        insert into t_draft (id,username,title,content,created,tags)
+        values (#{id},#{username},#{title},#{content},#{created},#{tags})
     </insert>
 
 

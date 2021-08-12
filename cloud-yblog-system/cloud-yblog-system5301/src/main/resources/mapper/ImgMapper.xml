@@ -6,7 +6,7 @@
 <mapper namespace="com.boot.dao.ImgMapper">
     
     <insert id="addImgPath">
-        insert into t_img(big_img,small_img) values(#{big},#{small})
+        insert into t_img(id,big_img,small_img) values(#{id},#{big},#{small})
     </insert>
 
     <select id="selectAllImg" resultType="com.boot.pojo.Img">

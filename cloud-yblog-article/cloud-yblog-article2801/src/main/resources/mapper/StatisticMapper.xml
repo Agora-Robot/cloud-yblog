@@ -6,7 +6,7 @@
 
 
    <insert id="addStatistic" parameterType="com.boot.pojo.Statistic">
-       insert into t_statistic (article_id,hits,comments_num) values (#{articleId},#{hits},#{commentsNum})
+       insert into t_statistic (id,article_id,hits,comments_num) values (#{id},#{articleId},#{hits},#{commentsNum})
    </insert>
 
 

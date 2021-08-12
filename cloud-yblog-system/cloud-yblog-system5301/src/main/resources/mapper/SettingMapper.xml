@@ -9,8 +9,9 @@
     </select>
 
     <insert id="addSettingByUser" parameterType="com.boot.pojo.Setting">
-        insert into t_setting (name,logo,foot,theme) values
-        (#{name},#{logo}
+        insert into t_setting (id,name,logo,foot,theme) values
+        (#{id},
+        #{name},#{logo}
         <if test="foot == null">
             ,''
         </if>

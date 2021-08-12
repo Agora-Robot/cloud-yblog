@@ -15,7 +15,7 @@
 
 
     <insert id="addBlackList" parameterType="com.boot.pojo.Blacklist">
-        insert into t_blacklist(black_ip,black_address) values(#{black_ip},#{black_address})
+        insert into t_blacklist(id,black_ip,black_address) values(#{id},#{black_ip},#{black_address})
     </insert>
 
     <select id="selectBlackListByIp" resultType="java.lang.String">

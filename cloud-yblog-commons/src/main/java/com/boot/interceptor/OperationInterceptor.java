@@ -1,15 +1,12 @@
 package com.boot.interceptor;
 
 import com.boot.annotation.Operation;
+import com.boot.feign.log.OperationLogFeign;
 import com.boot.pojo.OperationLog;
-import com.boot.pojo.operationLog;
-import com.boot.service.OperationService;
 import com.boot.utils.BrowserOS;
 import com.boot.utils.IpToAddressUtil;
 import com.boot.utils.IpUtils;
 import com.boot.utils.SpringSecurityUtil;
-import com.boot.utils.browserOS;
-import com.boot.utils.ipUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.MethodParameter;
 import org.springframework.stereotype.Component;
@@ -31,7 +28,7 @@ import java.text.SimpleDateFormat;
 public class OperationInterceptor implements HandlerInterceptor {
 
     @Autowired
-    private OperationService operationService;
+    private OperationLogFeign operationLogFeign;
 
     @Autowired
     private SpringSecurityUtil springSecurityUtil;
@@ -73,7 +70,7 @@ public class OperationInterceptor implements HandlerInterceptor {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             String dateTime = simpleDateFormat.format(date);
             operationLog.setTime(dateTime);
-            operationService.insertOperationLog(operationLog);
+            operationLogFeign.insertOperationLog(operationLog);
         }
 
         return true;

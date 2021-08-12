@@ -230,8 +230,8 @@
     </update>
 
 
-    <insert id="addArticle" parameterType="com.boot.pojo.Article" keyProperty="id" useGeneratedKeys="true">
-        insert into t_article (title,content,created,categories,tags,allow_comment) values (#{title},#{content},#{created},#{categories},#{tags},#{allowComment})
+    <insert id="addArticle" parameterType="com.boot.pojo.Article">
+        insert into t_article (id,title,content,created,categories,tags,allow_comment) values (#{id},#{title},#{content},#{created},#{categories},#{tags},#{allowComment})
     </insert>
 
     <delete id="deleteArticleByArticleId">

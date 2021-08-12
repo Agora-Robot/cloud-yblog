@@ -6,12 +6,14 @@
 
     <insert id="insertIntercept" parameterType="com.boot.pojo.Intercept">
         INSERT INTO t_intercept (
+        id,
         intercept_ip,
         intercept_address,
         intercept_browser,
         intercept_os,
         intercept_time,`desc`)
         values (
+        #{id},
         #{intercept_ip},
         <if test="intercept_address == null">
             '',

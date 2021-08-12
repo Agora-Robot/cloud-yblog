@@ -6,8 +6,8 @@
 <mapper namespace="com.boot.dao.TimeCalcMapper">
 
     <insert id="insertTimeCalc" parameterType="com.boot.pojo.TimeCalc">
-        insert into t_timecalc(uri,calc,`time`)
-        values (#{uri},#{calc},#{time})
+        insert into t_timecalc(id,uri,calc,`time`)
+        values (#{id},#{uri},#{calc},#{time})
     </insert>
 
 

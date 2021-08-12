@@ -13,7 +13,7 @@
     </update>
 
     <insert id="insertLink" parameterType="com.boot.pojo.Link">
-        insert into t_link(title,link) values(#{title},#{link})
+        insert into t_link(id,title,link) values(#{id},#{title},#{link})
     </insert>
 
     <delete id="deleteLink">

@@ -7,8 +7,9 @@
 
 
     <insert id="insertOperationLog" parameterType="com.boot.pojo.OperationLog">
-        insert into t_operationlog(op_username,op_ip,op_uri,op_address,op_browser,op_os,op_time,op_type)
+        insert into t_operationlog(id,op_username,op_ip,op_uri,op_address,op_browser,op_os,op_time,op_type)
         values(
+        #{id},
             #{username},#{ip},#{uri},
         <if test="address == null">
             '暂未检测到地址',

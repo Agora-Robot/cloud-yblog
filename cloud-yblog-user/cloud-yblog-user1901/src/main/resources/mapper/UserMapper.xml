@@ -4,13 +4,13 @@
 
 <mapper namespace="com.boot.dao.UserMapper">
 
-    <insert id="addUser" useGeneratedKeys="true" keyProperty="id" parameterType="com.boot.pojo.User">
-        insert into t_user(username,password,email,created,valid)
-        values(#{username},#{password},#{email},#{date},#{valid})
+    <insert id="addUser" parameterType="com.boot.pojo.User">
+        insert into t_user(id,username,password,email,created,valid)
+        values(#{id},#{username},#{password},#{email},#{date},#{valid})
     </insert>
 
     <insert id="addUserAuthority" parameterType="com.boot.pojo.UserAuthority">
-        insert into t_user_authority (user_id,authority_id) values (#{user_id},#{authority_id});
+        insert into t_user_authority (id,user_id,authority_id) values (#{id},#{user_id},#{authority_id});
     </insert>
 
     <resultMap id="res1" type="com.boot.pojo.User">

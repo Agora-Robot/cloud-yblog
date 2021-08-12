@@ -6,7 +6,7 @@
 <mapper namespace="com.boot.dao.TagMapper">
 
     <insert id="addTag" parameterType="com.boot.pojo.Tag">
-        insert into t_tag (tagName,tagCount) values (#{tagName},#{tagCount})
+        insert into t_tag (id,tagName,tagCount) values (#{id},#{tagName},#{tagCount})
     </insert>
 
     <update id="changeTagByTagNameDecr">
@@ -18,7 +18,7 @@
     </update>
 
     <insert id="insertTag">
-        insert into t_tag (tagName,tagCount) values (#{tagName},1)
+        insert into t_tag (id,tagName,tagCount) values (#{id},#{tagName},1)
     </insert>
 
     <select id="selectAllTag" resultType="com.boot.pojo.Tag">

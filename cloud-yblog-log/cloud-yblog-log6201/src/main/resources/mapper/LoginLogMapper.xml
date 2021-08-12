@@ -4,8 +4,9 @@
 <mapper namespace="com.boot.dao.LoginLogMapper">
 
     <insert id="insertLoginLog" parameterType="com.boot.pojo.LoginLog">
-        insert into t_loginlog (lg_username,lg_ip,lg_address,lg_browser,lg_os,lg_time,lg_type)
+        insert into t_loginlog (id,lg_username,lg_ip,lg_address,lg_browser,lg_os,lg_time,lg_type)
         values (
+        #{id},
         #{username},#{ip},
         <if test="address == null">
             '暂未检测到地址',

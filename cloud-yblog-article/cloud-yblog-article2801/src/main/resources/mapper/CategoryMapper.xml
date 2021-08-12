@@ -36,7 +36,7 @@
     </update>
 
     <insert id="addCategory" parameterType="com.boot.pojo.Category">
-        insert into t_categories (categoryName,categoryCount) values (#{categoryName},0)
+        insert into t_categories (id,categoryName,categoryCount) values (#{id},#{categoryName},0)
     </insert>
 
     <select id="selectCategories_echarts" resultType="com.boot.pojo.Category">
