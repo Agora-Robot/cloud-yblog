@@ -170,14 +170,14 @@
                         </div>
                         <!--                        点赞-->
                         <!--                        说明没有点赞，或者没登入帐号-->
-                        <span th:if="${likeFeign.selectLikeExsit(user,article.id)} eq null" class="like"><a
+                        <span th:if="${articleFallbackFeign.selectLikeExsit(user,article.id)} eq null" class="like"><a
                                 th:id="'alike'+${article.id}" + href="#" class="iconfont icon-dianzan"
                                 th:onclick="lk([[${article.id}]])"></a>&nbsp;<span
                                 th:id="'likecount'+${article.id}"
                                 th:text="${articleFeign.selectLikeCount(article.id)}"></span></span>
 
                         <!--                        说明已经点赞，把点赞图标变红-->
-                        <span th:if="${likeFeign.selectLikeExsit(user,article.id)} ne null" class="like"><a
+                        <span th:if="${articleFallbackFeign.selectLikeExsit(user,article.id)} ne null" class="like"><a
                                 th:id="'alike'+${article.id}" + href="#" style="color: red"
                                 class="iconfont icon-dianzan"
                                 th:onclick="lk([[${article.id}]])"></a>&nbsp;<span

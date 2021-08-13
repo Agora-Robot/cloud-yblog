@@ -63,7 +63,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void updateUserForEmail(int id, String email) {
+    public void updateUserForEmail(long id, String email) {
      userMapper.updateUserForEmail(id, email);
     }
 

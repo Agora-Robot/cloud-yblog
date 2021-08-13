@@ -19,7 +19,7 @@ public class StatisticServiceImpl implements StatisticService {
     }
 
     @Override
-    public int deleteStatisticByArticleId(Integer id) {
+    public int deleteStatisticByArticleId(long id) {
         return statisticMapper.deleteStatisticByArticleId(id);
     }
 }

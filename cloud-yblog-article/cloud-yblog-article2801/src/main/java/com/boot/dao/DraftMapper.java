@@ -22,10 +22,10 @@ public interface DraftMapper {
     int selectDraftCount(@Param("username") String username);
 
 
-    Draft selectDraftByID(@Param("id") int id);
+    Draft selectDraftByID(@Param("id") long id);
 
 
-    void deleteDraftByID(@Param("id") int id);
+    void deleteDraftByID(@Param("id") long id);
 
 
     void modifyDraft(Draft draft);

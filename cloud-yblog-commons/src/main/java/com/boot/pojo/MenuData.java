@@ -3,7 +3,7 @@ package com.boot.pojo;
 public class MenuData {
 
     private long id;
-    private long authority; //权限id
+    private int authority; //权限id
     private String menu; //menu的JSON
 
     public long getId() {
@@ -14,11 +14,11 @@ public class MenuData {
         this.id = id;
     }
 
-    public long getAuthority() {
+    public int getAuthority() {
         return authority;
     }
 
-    public void setAuthority(long authority) {
+    public void setAuthority(int authority) {
         this.authority = authority;
     }
 

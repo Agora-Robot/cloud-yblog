@@ -35,7 +35,7 @@ public class LikeController {
     @ResponseBody
     @GetMapping(path = "/selectLikeExsit")
     public String selectLikeExsit(@RequestParam("username") String username,
-                               @RequestParam("articleid") int articleid){
+                               @RequestParam("articleid") long articleid){
 
     return likeService.selectLikeExsit(username, articleid);
     }

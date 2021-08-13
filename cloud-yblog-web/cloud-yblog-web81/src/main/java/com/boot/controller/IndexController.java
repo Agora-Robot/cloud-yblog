@@ -11,6 +11,7 @@ import com.boot.feign.article.LikeFeign;
 import com.boot.feign.article.LinkFeign;
 import com.boot.feign.article.TagFeign;
 
+import com.boot.feign.article.fallback.ArticleFallbackFeign;
 import com.boot.feign.system.SettingFeign;
 import com.boot.feign.user.UserDetailFeign;
 import com.boot.pojo.*;
@@ -56,6 +57,9 @@ public class IndexController {
   @Autowired private RedisTemplate redisTemplate;
 
   @Autowired private SpringSecurityUtil securityUtil;
+
+  @Autowired
+  private ArticleFallbackFeign articleFallbackFeign;
 
 
   private void setting(HttpSession session, ModelAndView modelAndView) {
@@ -109,7 +113,7 @@ public class IndexController {
     this.setting(session, modelAndView);
 
     modelAndView.addObject("articleFeign", articleFeign);
-    modelAndView.addObject("likeFeign", likeFeign);
+    modelAndView.addObject("articleFallbackFeign", articleFallbackFeign);
     SecurityContextImpl securityContext =
         (SecurityContextImpl) session.getAttribute("SPRING_SECURITY_CONTEXT");
     if (securityContext != null) {
@@ -182,7 +186,7 @@ public class IndexController {
     this.setting(session,modelAndView);
 
     modelAndView.addObject("articleFeign",articleFeign);
-    modelAndView.addObject("likeFeign",likeFeign);
+    modelAndView.addObject("articleFallbackFeign",articleFallbackFeign);
     SecurityContextImpl securityContext = (SecurityContextImpl) session.getAttribute("SPRING_SECURITY_CONTEXT");
     if (securityContext != null) {
       String name = securityUtil.currentUser(session);

@@ -7,4 +7,9 @@ import org.springframework.stereotype.Component;
 @Component
 @Slf4j
 public class UserFallbackFeignImpl implements UserFallbackFeign {
+    @Override
+    public String register(String username, String password, String email) {
+        log.error("UserFallbackFeignImpl---register---fallback");
+        return "register error";
+    }
 }

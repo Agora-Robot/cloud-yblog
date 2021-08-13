@@ -19,7 +19,7 @@ public interface LinkMapper {
 
     void insertLink(Link link); //添加友链
 
-    void deleteLink(@Param("id") int id); //删除友链
+    void deleteLink(@Param("id") long id); //删除友链
 
     @Select("select count(*) from t_link")
     int linkCount();

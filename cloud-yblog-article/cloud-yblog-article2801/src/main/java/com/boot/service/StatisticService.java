@@ -10,7 +10,7 @@ public interface StatisticService {
     public int addStatistic(Statistic statistic);
 
 
-    public int deleteStatisticByArticleId(Integer id);
+    public int deleteStatisticByArticleId(long id);
 
 
 

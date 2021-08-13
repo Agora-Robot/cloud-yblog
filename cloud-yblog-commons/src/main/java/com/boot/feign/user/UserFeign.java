@@ -21,11 +21,11 @@ public interface UserFeign {
     @ResponseBody
     public String selectPasswordByuserName(@RequestParam("name") String name);
 
-    @ResponseBody
-    @PostMapping(path = "/feign/user/register")
-    public String register(@RequestParam("username") String username,
-                           @RequestParam("password") String password,
-                           @RequestParam("email") String email);
+//    @ResponseBody
+//    @PostMapping(path = "/feign/user/register")
+//    public String register(@RequestParam("username") String username,
+//                           @RequestParam("password") String password,
+//                           @RequestParam("email") String email);
 
     @ResponseBody
     @GetMapping(path = "/feign/user/selectUseridByUserName")

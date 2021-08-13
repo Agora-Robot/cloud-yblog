@@ -30,7 +30,7 @@ public class LinkServiceImpl implements LinkService {
     }
 
     @Override
-    public void deleteLink(int id) {
+    public void deleteLink(long id) {
         linkMapper.deleteLink(id);
     }
 

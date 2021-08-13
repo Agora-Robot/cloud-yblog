@@ -5,6 +5,7 @@ import com.boot.pojo.Article;
 import com.boot.pojo.Draft;
 import com.boot.pojo.Statistic;
 import com.boot.service.*;
+import com.boot.utils.SnowId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
@@ -44,20 +45,22 @@ public class DraftServiceImpl implements DraftService {
     }
 
     @Override
-    public Draft selectDraftByID(int id) {
+    public Draft selectDraftByID(long id) {
         return draftMapper.selectDraftByID(id);
     }
 
     @Override
-    public void deleteDraftByID(int id) {
+    public void deleteDraftByID(long id) {
         draftMapper.deleteDraftByID(id);
     }
 
     @Override
-    public void publishDraft(Article article, int draftid) {
+    public void publishDraft(Article article, long draftid) {
 
         //发布操作代码
         try {
+            long articleid = SnowId.nextId();
+            article.setId(articleid);
             article.setCategories("默认分类");
             categoryService.updateCategoryCount(article.getCategories());
             article.setAllowComment(true);
@@ -65,7 +68,7 @@ public class DraftServiceImpl implements DraftService {
             Date date = new Date(date1.getTime());
             article.setCreated(date);
             articleService.addArticle(article); //开启了 keyProperty="id" useGeneratedKeys="true"，自动生成的主键id会保存在article.getId()里。
-            statisticService.addStatistic(new Statistic(article.getId(), 0, 0));
+            statisticService.addStatistic(new Statistic(articleid, 0, 0));
 
             //发布完就删除草稿
             draftMapper.deleteDraftByID(draftid);

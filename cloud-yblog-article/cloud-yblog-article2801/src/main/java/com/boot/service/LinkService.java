@@ -12,7 +12,7 @@ public interface LinkService {
 
     void insertLink(Link link); //添加友链
 
-    void deleteLink(int id); //删除友链
+    void deleteLink(long id); //删除友链
 
     int linkCount();
 

@@ -59,7 +59,7 @@ public class ArticleController {
 
     @ResponseBody
     @GetMapping(path = "/selectLikeCount")
-    public int selectLikeCount(@RequestParam("id") int id){
+    public int selectLikeCount(@RequestParam("id") long id){
 
         int count = articleService.selectLikeCount(id);
 
@@ -90,7 +90,7 @@ public class ArticleController {
 
     @ResponseBody
     @GetMapping(path = "/updateHits")
-    public String updateHits(@RequestParam("id") int id){
+    public String updateHits(@RequestParam("id") long id){
 
         articleService.updateHits(id);
         return "";
@@ -99,20 +99,16 @@ public class ArticleController {
 
     @ResponseBody
     @GetMapping(path = "/selectArticleByArticleIdNoComment")
-    public Article selectArticleByArticleIdNoComment(@RequestParam("id") int id){
+    public Article selectArticleByArticleIdNoComment(@RequestParam("id") long id){
 
         Article article = articleService.selectArticleByArticleIdNoComment(id);
         return article;
     }
 
-
-
-
-
     @GetMapping(path = "/updateAllowComment")
     @ResponseBody
     @ApiOperation(value = "修改是否可以评论", notes = "修改文章是否可以评论")
-    public String updateAllowComment(int id, String allow) {
+    public String updateAllowComment(long id, String allow) {
         if (allow.equals("false")) {
             articleService.updateAllowCommentTo_1(id);
         } else if (allow.equals("true")) {
@@ -125,7 +121,7 @@ public class ArticleController {
     @GetMapping(path = "/updateRecommend")
     @ResponseBody
     @ApiOperation(value = "修改文章是否被推荐")
-    public String updateRecommend(int id, int recommend) {
+    public String updateRecommend(long id, int recommend) {
         if (recommend == 0) {
             articleService.updateRecommendTo_1(id);
         } else {

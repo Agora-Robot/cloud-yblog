@@ -29,7 +29,7 @@ public interface ArticleFeign {
 
     @ResponseBody
     @GetMapping(path = "/feign/article/selectLikeCount")
-    public int selectLikeCount(@RequestParam("id") int id);
+    public int selectLikeCount(@RequestParam("id") long id);
 
     @ResponseBody
     @GetMapping(path = "/feign/article/selectAllArticleOrderByDesc")
@@ -43,12 +43,12 @@ public interface ArticleFeign {
 
     @ResponseBody
     @GetMapping(path = "/feign/article/updateHits")
-    public String updateHits(@RequestParam("id") int id);
+    public String updateHits(@RequestParam("id") long id);
 
 
     @ResponseBody
     @GetMapping(path = "/feign/article/selectArticleByArticleIdNoComment")
-    public Article selectArticleByArticleIdNoComment(@RequestParam("id") int id);
+    public Article selectArticleByArticleIdNoComment(@RequestParam("id") long id);
 
 
 

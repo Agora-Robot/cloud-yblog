@@ -9,5 +9,5 @@ public interface LikeService {
     boolean likeArticle(Like like);
 
 
-    String selectLikeExsit(String username, int articleid);
+    String selectLikeExsit(String username, long articleid);
 }

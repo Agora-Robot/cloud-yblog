@@ -28,7 +28,7 @@ public interface UserService {
     //生效==valid变成1
     void updateValidTo_1(String username);
 
-    void updateUserForEmail(int id,
+    void updateUserForEmail(long id,
                             String email);
 
     int selectUseridByUserName(String username);

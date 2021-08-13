@@ -54,7 +54,7 @@ public class LikeServiceImpl implements LikeService {
     }
 
     @Override
-    public String selectLikeExsit(String username,int articleid) {
+    public String selectLikeExsit(String username,long articleid) {
         Like like = new Like();
         like.setUsername(username);
         like.setArticle_id(articleid);

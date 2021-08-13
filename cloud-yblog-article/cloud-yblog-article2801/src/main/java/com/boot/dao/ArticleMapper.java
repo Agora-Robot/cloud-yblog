@@ -15,7 +15,7 @@ public interface ArticleMapper {
     public List<Article> selectAllArticle();
 
     //只查询article，不查询Comment
-    public Article selectArticleByArticleIdNoComment(@Param("id") Integer id);
+    public Article selectArticleByArticleIdNoComment(@Param("id") long id);
 
     //排行榜
     public List<Article> selectAllArticleOrderByDesc();
@@ -28,10 +28,10 @@ public interface ArticleMapper {
 
     public int addArticle(Article article);
 
-    public int deleteArticleByArticleId(@Param("id") Integer id);
+    public int deleteArticleByArticleId(@Param("id") long id);
 
     //当用户点击文章时，文章点击数加1
-    public void updateHits(@Param("article_id") Integer article_id);
+    public void updateHits(@Param("article_id") long article_id);
 
     public List<Article> selectCategoriesAndTags();
 
@@ -39,25 +39,25 @@ public interface ArticleMapper {
 
     public String selectTagsByArticleId(@Param("id") long id);
 
-    public void updateTagsByArticleId(@Param("tags") String tags, @Param("id") int id);
+    public void updateTagsByArticleId(@Param("tags") String tags, @Param("id") long id);
 
     public void updateCategory(@Param("oldName") String oldName, @Param("newName") String newName);
 
     //是否可以评论功能
     //变成0
-    void updateAllowCommentTo_0(@Param("id") int id);
+    void updateAllowCommentTo_0(@Param("id") long id);
 
     //变成1
-    void updateAllowCommentTo_1(@Param("id") int id);
+    void updateAllowCommentTo_1(@Param("id") long id);
 
     //echarts
     List<Article> selectArticleStatistic();
 
 
     //修改是否推荐
-    void updateRecommendTo_0(@Param("id") int id);
+    void updateRecommendTo_0(@Param("id") long id);
 
-    void updateRecommendTo_1(@Param("id") int id);
+    void updateRecommendTo_1(@Param("id") long id);
 
     //查询推荐的文章
     List<Article> selectArticleByRecommend();

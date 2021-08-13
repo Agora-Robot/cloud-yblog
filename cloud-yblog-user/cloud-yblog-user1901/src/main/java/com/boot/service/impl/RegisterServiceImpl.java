@@ -35,9 +35,6 @@ public class RegisterServiceImpl implements RegisterService {
   @Override
   public void register(User user) {
 
-
-    try{
-
       // 注册代码
       Date date = new Date(new java.util.Date().getTime());
       BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
@@ -74,9 +71,7 @@ public class RegisterServiceImpl implements RegisterService {
       setting.setFoot("----2021----");
       setting.setLogo("/user/img/bloglogo.jpg");
       settingFeign.addSettingByUser(setting);
-    }catch (Exception e){
-      throw new RuntimeException("---register error");
-    }
+
 
   }
 }

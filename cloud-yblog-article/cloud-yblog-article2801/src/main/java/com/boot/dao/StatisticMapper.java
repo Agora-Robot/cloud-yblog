@@ -12,5 +12,5 @@ public interface StatisticMapper {
 
     public int addStatistic(Statistic statistic);
 
-    public int deleteStatisticByArticleId(@Param("id") Integer id);
+    public int deleteStatisticByArticleId(@Param("id") long id);
 }

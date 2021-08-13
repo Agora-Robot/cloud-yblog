@@ -35,7 +35,7 @@ public interface UserMapper {
     //生效==valid变成1
     void updateValidTo_1(@Param("username") String username);
 
-    void updateUserForEmail(@Param("id") int id,
+    void updateUserForEmail(@Param("id") long id,
                             @Param("email") String email);
 
     int selectUseridByUserName(@Param("username") String username);

@@ -146,7 +146,7 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public void deleteArticle_service(Integer id) {
+    public void deleteArticle_service(long id) {
         try {
 
             Article article = articleService.selectArticleByArticleIdNoComment(id);
@@ -182,12 +182,12 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public void updateRecommendTo_0(int id) {
+    public void updateRecommendTo_0(long id) {
         articleMapper.updateRecommendTo_0(id);
     }
 
     @Override
-    public void updateRecommendTo_1(int id) {
+    public void updateRecommendTo_1(long id) {
         articleMapper.updateRecommendTo_1(id);
 
     }
@@ -229,7 +229,7 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public Article selectArticleByArticleIdNoComment(Integer id) {
+    public Article selectArticleByArticleIdNoComment(long id) {
         return articleMapper.selectArticleByArticleIdNoComment(id);
     }
 
@@ -259,12 +259,12 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public int deleteArticleByArticleId(Integer id) {
+    public int deleteArticleByArticleId(long id) {
         return articleMapper.deleteArticleByArticleId(id);
     }
 
     @Override
-    public void updateHits(Integer article_id) {
+    public void updateHits(long article_id) {
         articleMapper.updateHits(article_id);
     }
 
@@ -284,7 +284,7 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public void updateTagsByArticleId(String tags, int id) {
+    public void updateTagsByArticleId(String tags, long id) {
         articleMapper.updateTagsByArticleId(tags, id);
     }
 
@@ -294,12 +294,12 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public void updateAllowCommentTo_0(int id) {
+    public void updateAllowCommentTo_0(long id) {
         articleMapper.updateAllowCommentTo_0(id);
     }
 
     @Override
-    public void updateAllowCommentTo_1(int id) {
+    public void updateAllowCommentTo_1(long id) {
         articleMapper.updateAllowCommentTo_1(id);
     }
 

@@ -9,10 +9,9 @@ import org.springframework.stereotype.Component;
 public class ArticleFallbackFeignImpl implements ArticleFallbackFeign {
 
 
-
-
-
-
-
-
+    @Override
+    public String selectLikeExsit(String username, long articleid) {
+        
+        return null;
+    }
 }

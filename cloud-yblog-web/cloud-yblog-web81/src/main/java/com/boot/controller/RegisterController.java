@@ -3,6 +3,7 @@ package com.boot.controller;
 import com.alibaba.fastjson.JSON;
 import com.boot.data.ResponseData.layuiJSON;
 import com.boot.feign.user.UserFeign;
+import com.boot.feign.user.fallback.UserFallbackFeign;
 import com.boot.pojo.User;
 import com.boot.utils.IpUtils;
 import io.swagger.annotations.Api;
@@ -36,6 +37,9 @@ public class RegisterController {
     @Autowired
     private UserFeign userFeign;
 
+    @Autowired
+    private UserFallbackFeign userFallbackFeign;
+
 
     @RequestMapping(path = "/toregister")
     public String toRegister(HttpServletRequest request, Model model) {
@@ -65,7 +69,7 @@ public class RegisterController {
             //可以注册,但是用户名相同会注册失败
             try {
                 // 注册代码
-                String register = userFeign.register(user.getUsername(), user.getPassword(), user.getEmail());
+                String register = userFallbackFeign.register(user.getUsername(), user.getPassword(), user.getEmail());
                 if(register.equals("success")){
                     json.setMsg("注册成功");
                     json.setSuccess(true);

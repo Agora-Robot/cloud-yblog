@@ -12,11 +12,11 @@ public interface DraftService {
 
     int selectDraftCount(String username);
 
-    Draft selectDraftByID(int id);
+    Draft selectDraftByID(long id);
 
-    void deleteDraftByID(int id);
+    void deleteDraftByID(long id);
 
-    void publishDraft(Article article, int draftid);
+    void publishDraft(Article article, long draftid);
 
     void modifyDraft(Draft draft);
 

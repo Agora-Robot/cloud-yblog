@@ -20,7 +20,7 @@ public interface UserAuthorityFeign {
 
     @ResponseBody
     @GetMapping(path = "/feign/userauthority/selectAuthorityID")
-    public int selectAuthorityID(@RequestParam("userid") int userid);
+    public int selectAuthorityID(@RequestParam("userid") long userid);
 
 
 
