@@ -30,6 +30,7 @@ public final class visitorUtil {
         String osName = getOsName(request); //获取访问者操作系统
 
         Visitor visitor = new Visitor();
+        visitor.setId(SnowId.nextId());
         visitor.setVisit_ip(ipAddr);
         /**
          * 本地访问（也就是没有部署到外网）的情况下，会检测不到所在地址，这时候给它一个默认值

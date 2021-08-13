@@ -1,6 +1,5 @@
 package com.boot.feign.article;
 
-import com.boot.feign.article.impl.SearchFeignImpl;
 import com.boot.pojo.Article;
 import org.elasticsearch.search.SearchHit;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -14,7 +13,8 @@ import java.io.IOException;
 import java.util.List;
 
 @Component
-@FeignClient(value = "cloud-yblog-search",fallback = SearchFeignImpl.class)
+//@FeignClient(value = "cloud-yblog-search",fallback = SearchFeignImpl.class)
+@FeignClient(value = "cloud-yblog-search")
 public interface SearchFeign {
 
 

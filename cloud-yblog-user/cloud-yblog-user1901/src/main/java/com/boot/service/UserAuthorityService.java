@@ -6,5 +6,5 @@ public interface UserAuthorityService {
 
     void changeUserAuthority(UserAuthority UserAuthority);
 
-    int selectAuthorityID(int userid);
+    int selectAuthorityID(long userid);
 }

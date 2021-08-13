@@ -50,8 +50,8 @@ feign:
 
 #设置ribbon的超时时间
 ribbon:
-  ReadTimeout: 3000
-  ConnectTimeout: 3000
+  ReadTimeout: 8000
+  ConnectTimeout: 8000
 
 mybatis:
   mapperLocations: classpath:mapper/*.xml

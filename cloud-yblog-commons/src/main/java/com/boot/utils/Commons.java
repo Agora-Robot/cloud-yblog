@@ -149,8 +149,8 @@ public class Commons {
         if (StringUtils.isNotBlank(article.getThumbnail())){
             return article.getThumbnail();
         }
-        int cid = article.getId();
-        int size = cid % 24;
+        long cid = article.getId();
+        long size = cid % 24;
         size = size == 0 ? 1 : size;
         return "/user/img/rand/" + size + ".png";
     }

@@ -42,4 +42,17 @@ public class UserController {
 
     return "success";
   }
+
+
+  @ResponseBody
+  @GetMapping(path = "/selectUseridByUserName")
+  public int selectUseridByUserName(@RequestParam("username") String username){
+
+
+    return userService.selectUseridByUserName(username);
+  }
+
+
+
+
 }

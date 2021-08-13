@@ -12,9 +12,9 @@ public interface ImgService {
     //从数据库查找所有图片地址
     List<Img> selectAllImg();
 
-    Img selectImgByid(int id);
+    Img selectImgByid(long id);
 
     int selectImgCount();
 
-    void deleteImgByid(int id);
+    void deleteImgByid(long id);
 }

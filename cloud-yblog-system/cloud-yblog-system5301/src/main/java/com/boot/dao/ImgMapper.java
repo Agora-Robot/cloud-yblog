@@ -16,9 +16,9 @@ public interface ImgMapper {
 
     List<Img> selectAllImg();
 
-    Img selectImgByid(@Param("id") int id);
+    Img selectImgByid(@Param("id") long id);
 
     int selectImgCount();
 
-    void deleteImgByid(@Param("id") int id);
+    void deleteImgByid(@Param("id") long id);
 }

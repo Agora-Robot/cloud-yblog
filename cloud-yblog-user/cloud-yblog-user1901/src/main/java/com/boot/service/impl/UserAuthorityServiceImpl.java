@@ -17,7 +17,7 @@ public class UserAuthorityServiceImpl implements UserAuthorityService {
     }
 
     @Override
-    public int selectAuthorityID(int userid) {
+    public int selectAuthorityID(long userid) {
         return userAuthorityMapper.selectAuthorityID(userid);
     }
 }

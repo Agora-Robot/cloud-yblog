@@ -37,7 +37,7 @@ public interface ArticleMapper {
 
     public List<Article> selectTagsByArticle();
 
-    public String selectTagsByArticleId(@Param("id") int id);
+    public String selectTagsByArticleId(@Param("id") long id);
 
     public void updateTagsByArticleId(@Param("tags") String tags, @Param("id") int id);
 
@@ -63,10 +63,10 @@ public interface ArticleMapper {
     List<Article> selectArticleByRecommend();
 
     //查询文章点赞数
-    int selectLikeCount(@Param("articleid") int articleid);
+    int selectLikeCount(@Param("articleid") long articleid);
 
     //点赞总数加1
-    void likeCountAddOne(@Param("articleid") int articleid);
+    void likeCountAddOne(@Param("articleid") long articleid);
 
 
     //按title查询文章

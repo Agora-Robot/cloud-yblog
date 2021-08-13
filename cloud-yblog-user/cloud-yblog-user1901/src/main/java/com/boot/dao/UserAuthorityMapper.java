@@ -11,6 +11,6 @@ public interface UserAuthorityMapper {
 
     void changeUserAuthority(UserAuthority UserAuthority);
 
-    int selectAuthorityID(@Param("userid") int userid);
+    int selectAuthorityID(@Param("userid") long userid);
 
 }

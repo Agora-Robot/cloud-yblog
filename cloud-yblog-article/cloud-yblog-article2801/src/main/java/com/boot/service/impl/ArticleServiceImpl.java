@@ -198,12 +198,12 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public int selectLikeCount(int articleid) {
+    public int selectLikeCount(long articleid) {
         return articleMapper.selectLikeCount(articleid);
     }
 
     @Override
-    public void likeCountAddOne(int articleid) {
+    public void likeCountAddOne(long articleid) {
         articleMapper.likeCountAddOne(articleid);
     }
 
@@ -279,7 +279,7 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public String selectTagsByArticleId(int id) {
+    public String selectTagsByArticleId(long id) {
         return articleMapper.selectTagsByArticleId(id);
     }
 

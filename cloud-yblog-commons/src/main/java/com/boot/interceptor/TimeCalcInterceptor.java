@@ -1,7 +1,8 @@
 package com.boot.interceptor;
 
+import com.boot.feign.log.TimeCalcFeign;
 import com.boot.pojo.TimeCalc;
-import com.boot.service.TimeCalcService;
+import com.boot.utils.SnowId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
@@ -20,7 +21,7 @@ public class TimeCalcInterceptor implements HandlerInterceptor {
 
 
     @Autowired
-    private TimeCalcService timeCalcService;
+    private TimeCalcFeign timeCalcFeign;
 
     /**
      * 监控每个接口的耗时
@@ -48,6 +49,7 @@ public class TimeCalcInterceptor implements HandlerInterceptor {
 //        System.out.println("uri:"+requestURI+"===>接口耗时："+res+"ms");
 
         TimeCalc timeCalc = new TimeCalc();
+        timeCalc.setId(SnowId.nextId());
         timeCalc.setUri(requestURI);
         timeCalc.setCalc(res+"ms");
 
@@ -55,6 +57,6 @@ public class TimeCalcInterceptor implements HandlerInterceptor {
         java.sql.Date date1=new java.sql.Date(date.getTime());
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         timeCalc.setTime(simpleDateFormat.format(date1));
-        timeCalcService.insertTimeCalc(timeCalc);
+        timeCalcFeign.insertTimeCalc(timeCalc);
     }
 }

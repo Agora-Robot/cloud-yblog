@@ -27,7 +27,7 @@ public class ImgServiceImpl implements ImgService {
     }
 
     @Override
-    public Img selectImgByid(int id) {
+    public Img selectImgByid(long id) {
         return imgMapper.selectImgByid(id);
     }
 
@@ -37,7 +37,7 @@ public class ImgServiceImpl implements ImgService {
     }
 
     @Override
-    public void deleteImgByid(int id) {
+    public void deleteImgByid(long id) {
         imgMapper.deleteImgByid(id);
     }
 }

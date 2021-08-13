@@ -30,8 +30,9 @@ public class SettingController {
 
     settingService.addSettingByUser(setting);
 
-    System.out.println("addSettingByUser--------------");
-//    int i = 10 / 0; // 模拟异常
+
+    int i=10/0; //模拟异常，测试分布式事务
+
 
     return "success";
   }

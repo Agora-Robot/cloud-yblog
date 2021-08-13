@@ -1,15 +1,13 @@
 package com.boot.interceptor;
 
 import com.alibaba.fastjson.JSONObject;
-import com.boot.constant.loginType;
-import com.boot.pojo.loginLog;
-import com.boot.service.LoginLogService;
-import com.boot.service.authorityService;
-import com.boot.service.userAuthorityService;
-import com.boot.service.userService;
-import com.boot.utils.AesUtil;
-import com.boot.utils.IpToAddressUtil;
-import com.boot.utils.SpringSecurityUtil;
+import com.boot.constant.LoginType;
+import com.boot.feign.log.LoginLogFeign;
+import com.boot.feign.user.AuthorityFeign;
+import com.boot.feign.user.UserAuthorityFeign;
+import com.boot.feign.user.UserFeign;
+import com.boot.pojo.LoginLog;
+import com.boot.utils.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -42,16 +40,16 @@ public class RememberInterceptor implements HandlerInterceptor {
     private final String REMEMBER_KEY = "REMEMBER_"; //记住我的Redis key前缀
 
     @Autowired
-    private com.boot.service.userService userService;
+    private UserFeign userFeign;
 
     @Autowired
-    private com.boot.service.userAuthorityService userAuthorityService;
+    private UserAuthorityFeign userAuthorityFeign;
 
     @Autowired
-    private com.boot.service.authorityService authorityService;
+    private AuthorityFeign authorityFeign;
 
     @Autowired
-    private LoginLogService loginLogService;
+    private LoginLogFeign loginLogFeign;
 
     /**
      * 记住我拦截器类
@@ -59,7 +57,6 @@ public class RememberInterceptor implements HandlerInterceptor {
      * @param session
      * @param request
      */
-
     private void autoLoginByRemember(HttpSession session, HttpServletRequest request) {
 
         try { //判断当前ip的用户是否登录
@@ -69,7 +66,7 @@ public class RememberInterceptor implements HandlerInterceptor {
             //异常了就是没有登录，没有登录就要检查redis中有没有该ip的记住我记录
 //            System.out.println("没有登录");
 
-            Object token = (String) redisTemplate.opsForValue().get(REMEMBER_KEY + ipUtils.getIpAddr(request));
+            Object token = (String) redisTemplate.opsForValue().get(REMEMBER_KEY + IpUtils.getIpAddr(request));
 
             //解析token
             if (token == null || token.equals("")) {//被删除了或者过期了
@@ -81,14 +78,14 @@ public class RememberInterceptor implements HandlerInterceptor {
                     String username = (String) jsonObject.get("username");
                     String password = (String) jsonObject.get("password");
 
-                    if (userService.selectPasswordByuserName(username).equals(password)) { //验证成功
+                    if (userFeign.selectPasswordByuserName(username).equals(password)) { //验证成功
 
                         /**
                          * 逆向破解SpringSecurity验证,进行直接放行，绕过springSecurity验证
                          */
-                        int userid = userService.selectUseridByUserName(username);
-                        int authorityid = userAuthorityService.selectAuthorityID(userid);
-                        String authority = authorityService.selectAuthorityByid(authorityid); //查询出来权限
+                        int userid = userFeign.selectUseridByUserName(username);
+                        int authorityid = userAuthorityFeign.selectAuthorityID(userid);
+                        String authority = authorityFeign.selectAuthorityByid(authorityid); //查询出来权限
 
                         SecurityContextImpl securityContext = new SecurityContextImpl();
                         User user = new User(username, password, AuthorityUtils.createAuthorityList(authority));
@@ -100,20 +97,21 @@ public class RememberInterceptor implements HandlerInterceptor {
                         session.setAttribute("SPRING_SECURITY_CONTEXT", securityContext);
 
                         //登录日志，走拦截器的登录类型都是记住我类型
-                        String ipAddr = ipUtils.getIpAddr(request);
-                        loginLog loginLog = new loginLog();
+                        String ipAddr = IpUtils.getIpAddr(request);
+                        LoginLog loginLog = new LoginLog();
+                        loginLog.setId(SnowId.nextId());
                         loginLog.setIp(ipAddr);
                         loginLog.setAddress(IpToAddressUtil.getCityInfo(ipAddr));
-                        loginLog.setBrowser(browserOS.getBrowserName(request));
-                        loginLog.setOs(browserOS.getOsName(request));
+                        loginLog.setBrowser(BrowserOS.getBrowserName(request));
+                        loginLog.setOs(BrowserOS.getOsName(request));
                         loginLog.setUsername(username);
                         Date d = new Date();
                         java.sql.Date date=new java.sql.Date(d.getTime());
                         SimpleDateFormat fm = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                         String t = fm.format(date);
                         loginLog.setTime(t);
-                        loginLog.setType(loginType.REMEMBER_LOGIN); //登录类型为2
-                        loginLogService.insertLoginLog(loginLog);
+                        loginLog.setType(LoginType.REMEMBER_LOGIN); //登录类型为2
+                        loginLogFeign.insertLoginLog(loginLog);
 
                     } else {
                         System.out.println("请重新认证");

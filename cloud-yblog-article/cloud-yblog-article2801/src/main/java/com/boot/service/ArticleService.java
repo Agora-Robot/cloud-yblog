@@ -35,7 +35,7 @@ public interface ArticleService {
 
     public List<Article> selectTagsByArticle();
 
-    public String selectTagsByArticleId(int id);
+    public String selectTagsByArticleId(long id);
 
     public void updateTagsByArticleId(String tags, int id);
 
@@ -70,10 +70,10 @@ public interface ArticleService {
     List<Article> selectArticleByRecommend();
 
     //查询文章点赞数
-    int selectLikeCount(int articleid);
+    int selectLikeCount(long articleid);
 
     //点赞总数加1
-    void likeCountAddOne(int articleid);
+    void likeCountAddOne(long articleid);
 
     //按title查询文章
     List<Article> queryArticleByTitle(String title);

@@ -39,7 +39,7 @@ public class LikeServiceImpl implements LikeService {
             synchronized (lock){
 
                 try {
-                    int article_id = like.getArticle_id();
+                    long article_id = like.getArticle_id();
                     articleService.likeCountAddOne(article_id); //文章总点赞数+1
                     likeMapper.addLike(like);
                     return true;
