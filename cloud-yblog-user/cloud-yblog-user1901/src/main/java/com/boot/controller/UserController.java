@@ -20,6 +20,7 @@ public class UserController {
   @Autowired private RegisterService registerService;
 
   @GetMapping(path = "/selectPasswordByuserName")
+  @ResponseBody
   public String selectPasswordByuserName(@RequestParam("name") String name) {
 
     String psd = userService.selectPasswordByuserName(name);

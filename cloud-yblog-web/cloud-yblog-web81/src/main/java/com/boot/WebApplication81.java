@@ -2,6 +2,7 @@ package com.boot;
 
 import com.boot.config.ScanClassProperties;
 import com.boot.config.SwaggerConfig;
+import com.boot.config.WebConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
