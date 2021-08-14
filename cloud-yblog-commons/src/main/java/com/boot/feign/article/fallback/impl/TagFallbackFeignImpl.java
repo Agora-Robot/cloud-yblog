@@ -1,6 +1,17 @@
 package com.boot.feign.article.fallback.impl;
 
 import com.boot.feign.article.fallback.TagFallbackFeign;
+import com.boot.pojo.Tag;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
+import java.util.List;
+
+@Component
+@Slf4j
 public class TagFallbackFeignImpl implements TagFallbackFeign {
+    @Override
+    public List<Tag> selectTagsByLimit8() {
+        return null;
+    }
 }

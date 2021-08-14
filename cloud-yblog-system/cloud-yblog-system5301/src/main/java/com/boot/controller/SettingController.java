@@ -31,7 +31,7 @@ public class SettingController {
     settingService.addSettingByUser(setting);
 
 
-    int i=10/0; //模拟异常，测试分布式事务
+//    int i=10/0; //模拟异常，测试分布式事务
 
 
     return "success";

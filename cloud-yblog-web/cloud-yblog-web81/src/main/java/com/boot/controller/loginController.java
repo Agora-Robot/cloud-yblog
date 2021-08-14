@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.boot.constant.Constant;
 import com.boot.data.ResponseData.ResponseJSON;
 import com.boot.feign.user.UserDetailFeign;
+import com.boot.feign.user.fallback.UserDetailFallbackFeign;
 import com.boot.pojo.UserDetail;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +30,7 @@ import java.io.IOException;
 public class loginController {
 
     @Autowired
-    private UserDetailFeign userDetailFeign;
+    private UserDetailFallbackFeign userDetailFallbackFeign;
     @Autowired
     private RedisTemplate redisTemplate;
 
@@ -56,7 +57,7 @@ public class loginController {
     @RequestMapping(path = "/check")
     @ResponseBody
     public String checkUsername(String username) {
-        UserDetail userDetail = userDetailFeign.selectUserDetailByUserName(username);
+        UserDetail userDetail = userDetailFallbackFeign.selectUserDetailByUserName(username);
         if (userDetail != null) { //成功
             ResponseJSON responseJSON = new ResponseJSON();
             responseJSON.setData(userDetail.getIcon()); //这个数据我传的是头像

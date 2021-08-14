@@ -101,7 +101,7 @@ public class Commons {
      * @param aid
      * @return
      */
-    public static String permalink(Integer aid) {
+    public static String permalink(Long aid) {
         return site_url("/article/" + aid.toString());
     }
 

@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.boot.constant.ThemeConstant;
 import com.boot.feign.article.*;
+import com.boot.feign.article.fallback.*;
 import com.boot.pojo.Article;
 import com.boot.pojo.Link;
 import com.boot.pojo.Tag;
@@ -32,19 +33,19 @@ import java.util.concurrent.TimeUnit;
 @Api("搜索 web api")
 public class SearchController {
 
-  @Autowired private ArticleFeign articleFeign;
+  @Autowired private ArticleFallbackFeign articleFallbackFeign;
 
   @Autowired private RedisTemplate redisTemplate;
 
-  @Autowired private LinkFeign linkFeign;
+  @Autowired private LinkFallbackFeign linkFallbackFeign;
 
-  @Autowired private SearchFeign searchFeign;
+  @Autowired private SearchFallbackFeign searchFallbackFeign;
 
   @Autowired private ElasticSearchService elasticSearchService; // 暂时把搜索业务放在web模块，待问题解决后在分离出来
 
-  @Autowired private LikeFeign likeFeign;
+  @Autowired private LikeFallbackFeign likeFallbackFeign;
 
-  @Autowired private TagFeign tagFeign;
+  @Autowired private TagFallbackFeign tagFallbackFeign;
 
   // 前10排行
   private static final List<Article> ArticleOrder_10(List<Article> articleList) {
@@ -80,13 +81,13 @@ public class SearchController {
       throws IOException {
 
     ModelAndView modelAndView = new ModelAndView();
-    modelAndView.addObject("articleFeign", articleFeign);
-    modelAndView.addObject("likeFeign", likeFeign);
+    modelAndView.addObject("articleFallbackFeign", articleFallbackFeign);
+    modelAndView.addObject("likeFallbackFeign", likeFallbackFeign);
     // 跳转不同页面主题判断
     if (ThemeConstant.curTheme.equals(ThemeConstant.CALM_THEME)) { // calm主题
       modelAndView.setViewName("client/index2"); // 跳转页面
       modelAndView.addObject("indexAc", "active");
-      List<Tag> tags = tagFeign.selectTagsByLimit8();
+      List<Tag> tags = tagFallbackFeign.selectTagsByLimit8();
       modelAndView.addObject("tags", tags);
 
     } else if (ThemeConstant.curTheme.equals(ThemeConstant.DEFAULT_THEME)) { // 默认主题
@@ -95,7 +96,7 @@ public class SearchController {
 
     // 搜索内容为空代表搜素全部
     if (searchText == null || searchText.equals("")) {
-      Map<String, Object> map = articleFeign.selectAllArticleByPage(1, 5);
+      Map<String, Object> map = articleFallbackFeign.selectAllArticleByPage(1, 5);
       String s2 = (String) map.get("pageInfo");
 
       // ******这里有坑，一定要用这种方式才可以转换集合，不然会出现类型转换异常，不能用JSONObject去转换
@@ -119,7 +120,7 @@ public class SearchController {
 
     List<Article> as = (List<Article>) redisTemplate.opsForValue().get("articleOrders10");
     if (as == null) {
-      List<Article> articleOrders = ArticleOrder_10(articleFeign.selectAllArticleOrderByDesc());
+      List<Article> articleOrders = ArticleOrder_10(articleFallbackFeign.selectAllArticleOrderByDesc());
       redisTemplate.opsForValue().set("articleOrders10", articleOrders, 60 * 1, TimeUnit.SECONDS);
       modelAndView.addObject("articleOrders", articleOrders);
     } else {
@@ -128,7 +129,7 @@ public class SearchController {
     modelAndView.addObject("commons", Commons.getInstance());
 
     // 友链
-    List<Link> links = linkFeign.selectAllLink();
+    List<Link> links = linkFallbackFeign.selectAllLink();
     modelAndView.addObject("links", links);
     return modelAndView;
   }

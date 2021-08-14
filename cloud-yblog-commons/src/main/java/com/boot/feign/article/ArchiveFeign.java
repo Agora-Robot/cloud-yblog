@@ -20,12 +20,6 @@ import java.util.List;
 @FeignClient(value = "cloud-yblog-article")
 public interface ArchiveFeign {
 
-    @ResponseBody
-    @GetMapping(path = "/feign/archive/selectAllArchiveGroup")
-    public List<Archive> selectAllArchiveGroup();
-
-    @ResponseBody
-    @GetMapping(path = "/feign/archive/selectArticleByarchiveTime")
-    public List<Article> selectArticleByarchiveTime(@RequestParam("date") String date);
+    
 
 }

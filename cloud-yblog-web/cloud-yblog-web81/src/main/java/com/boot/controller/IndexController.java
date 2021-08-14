@@ -11,9 +11,11 @@ import com.boot.feign.article.LikeFeign;
 import com.boot.feign.article.LinkFeign;
 import com.boot.feign.article.TagFeign;
 
-import com.boot.feign.article.fallback.ArticleFallbackFeign;
+import com.boot.feign.article.fallback.*;
 import com.boot.feign.system.SettingFeign;
+import com.boot.feign.system.fallback.SettingFallbackFeign;
 import com.boot.feign.user.UserDetailFeign;
+import com.boot.feign.user.fallback.UserDetailFallbackFeign;
 import com.boot.pojo.*;
 import com.boot.utils.Commons;
 import com.boot.utils.IpUtils;
@@ -36,38 +38,39 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
-/** @author 游政杰 2021/8/3 12:05*/
+/** @author 游政杰 2021/8/3 12:05 */
 @Controller
 @Api("客户端首页 web api")
 @Slf4j
 public class IndexController {
 
-  @Autowired private ArticleFeign articleFeign;
+  @Autowired private ArticleFallbackFeign articleFallbackFeign;
 
-  @Autowired private SettingFeign settingFeign;
+  @Autowired private LikeFallbackFeign likeFallbackFeign;
 
-  @Autowired private LikeFeign likeFeign;
+  @Autowired private SettingFallbackFeign settingFallbackFeign;
 
-  @Autowired private TagFeign tagFeign;
+  @Autowired private LinkFallbackFeign linkFallbackFeign;
 
-  @Autowired private UserDetailFeign userDetailFeign;
+  @Autowired private TagFallbackFeign tagFallbackFeign;
 
-  @Autowired private LinkFeign linkFeign;
+  @Autowired private UserDetailFallbackFeign userDetailFallbackFeign;
 
   @Autowired private RedisTemplate redisTemplate;
 
   @Autowired private SpringSecurityUtil securityUtil;
 
-  @Autowired
-  private ArticleFallbackFeign articleFallbackFeign;
+  @Autowired private ArchiveFallbackFeign archiveFallbackFeign;
 
+  @Autowired
+  private ArticleFeign articleFeign;
 
   private void setting(HttpSession session, ModelAndView modelAndView) {
     SecurityContextImpl securityContext =
         (SecurityContextImpl) session.getAttribute("SPRING_SECURITY_CONTEXT");
     if (securityContext != null) {
       String name = securityUtil.currentUser(session);
-      Setting setting = settingFeign.selectUserSetting(name);
+      Setting setting = settingFallbackFeign.selectUserSetting(name);
       modelAndView.addObject("setting", setting);
     } else {
       modelAndView.addObject("setting", null);
@@ -90,7 +93,8 @@ public class IndexController {
       String name = securityUtil.currentUser(session);
       if (name != null && !name.equals("")) {
 
-        UserDetail userDetailCommonResult = userDetailFeign.selectUserDetailByUserName(name);
+        UserDetail userDetailCommonResult =
+            userDetailFallbackFeign.selectUserDetailByUserName(name);
 
         modelAndView.addObject("userDetail", userDetailCommonResult);
       }
@@ -112,7 +116,7 @@ public class IndexController {
     // 传setting给前端
     this.setting(session, modelAndView);
 
-    modelAndView.addObject("articleFeign", articleFeign);
+    modelAndView.addObject("likeFallbackFeign",likeFallbackFeign);
     modelAndView.addObject("articleFallbackFeign", articleFallbackFeign);
     SecurityContextImpl securityContext =
         (SecurityContextImpl) session.getAttribute("SPRING_SECURITY_CONTEXT");
@@ -128,7 +132,7 @@ public class IndexController {
     // 跳转不同页面主题判断
     if (ThemeConstant.curTheme.equals(ThemeConstant.CALM_THEME)) { // calm主题
       modelAndView.setViewName("client/index2"); // 跳转页面
-      List<Tag> listCommonResult = tagFeign.selectTagsByLimit8();
+      List<Tag> listCommonResult = tagFallbackFeign.selectTagsByLimit8();
       modelAndView.addObject("indexAc", "active");
       modelAndView.addObject("tags", listCommonResult);
 
@@ -136,11 +140,11 @@ public class IndexController {
       modelAndView.setViewName("client/index"); // 跳转页面
     }
 
-    Map<String,Object> map = articleFeign.selectAllArticleByPage(1, 8);
+    Map<String, Object> map = articleFallbackFeign.selectAllArticleByPage(1, 8);
 
     List<Article> as = (List<Article>) redisTemplate.opsForValue().get("articleOrders10");
     if (as == null) {
-      List<Article> listCommonResult = articleFeign.selectAllArticleOrderByDesc();
+      List<Article> listCommonResult = articleFallbackFeign.selectAllArticleOrderByDesc();
       List<Article> articleOrders = ArticleOrder_10(listCommonResult);
       redisTemplate.opsForValue().set("articleOrders10", articleOrders, 60 * 1, TimeUnit.SECONDS);
       modelAndView.addObject("articleOrders", articleOrders);
@@ -152,22 +156,20 @@ public class IndexController {
     this.queryUserDeail(session, modelAndView);
 
     // 友链
-    List<Link> linkResult = linkFeign.selectAllLink();
+    List<Link> linkResult = linkFallbackFeign.selectAllLink();
     modelAndView.addObject("links", linkResult);
 
     // 推荐文章
-    List<Article> recommendResult = articleFeign.selectArticleByRecommendPage(1, 5);
+    List<Article> recommendResult = articleFallbackFeign.selectArticleByRecommendPage(1, 5);
 
     modelAndView.addObject("recommends", recommendResult);
 
     String s2 = (String) map.get("pageInfo");
 
-    //******这里有坑，一定要用这种方式才可以转换集合，不然会出现类型转换异常，不能用JSONObject去转换
+    // ******这里有坑，一定要用这种方式才可以转换集合，不然会出现类型转换异常，不能用JSONObject去转换
     List<Article> articles = JSON.parseArray((String) map.get("articles"), Article.class);
 
     PageInfo pageInfo = JSONObject.parseObject(s2, PageInfo.class);
-
-
 
     modelAndView.addObject("articles", articles);
     modelAndView.addObject("commons", Commons.getInstance());
@@ -176,71 +178,66 @@ public class IndexController {
     return modelAndView;
   }
 
-
   @Visitor(desc = "访问首页")
   @RequestMapping(path = {"/page/{pageNum}"})
-  public ModelAndView toIndex2(@PathVariable("pageNum") int pageNum, HttpSession session, HttpServletRequest request) {
+  public ModelAndView toIndex2(
+      @PathVariable("pageNum") int pageNum, HttpSession session, HttpServletRequest request) {
     ModelAndView modelAndView = new ModelAndView();
 
-    //传setting给前端
-    this.setting(session,modelAndView);
+    // 传setting给前端
+    this.setting(session, modelAndView);
 
-    modelAndView.addObject("articleFeign",articleFeign);
-    modelAndView.addObject("articleFallbackFeign",articleFallbackFeign);
-    SecurityContextImpl securityContext = (SecurityContextImpl) session.getAttribute("SPRING_SECURITY_CONTEXT");
+    modelAndView.addObject("articleFallbackFeign", articleFallbackFeign);
+    SecurityContextImpl securityContext =
+        (SecurityContextImpl) session.getAttribute("SPRING_SECURITY_CONTEXT");
     if (securityContext != null) {
       String name = securityUtil.currentUser(session);
       if (name != null && !name.equals("")) {
-        modelAndView.addObject("user",name);
+        modelAndView.addObject("user", name);
       }
     } else {
-      modelAndView.addObject("user",null);
+      modelAndView.addObject("user", null);
     }
 
-    //跳转不同页面主题判断
-    if (ThemeConstant.curTheme.equals(ThemeConstant.CALM_THEME)) { //calm主题
-      modelAndView.setViewName("client/index2"); //跳转页面
+    // 跳转不同页面主题判断
+    if (ThemeConstant.curTheme.equals(ThemeConstant.CALM_THEME)) { // calm主题
+      modelAndView.setViewName("client/index2"); // 跳转页面
       modelAndView.addObject("indexAc", "active");
-      List<Tag> tags = tagFeign.selectTagsByLimit8();
+      List<Tag> tags = tagFallbackFeign.selectTagsByLimit8();
       modelAndView.addObject("tags", tags);
 
-    } else if (ThemeConstant.curTheme.equals(ThemeConstant.DEFAULT_THEME)) { //默认主题
-      modelAndView.setViewName("client/index"); //跳转页面
-
+    } else if (ThemeConstant.curTheme.equals(ThemeConstant.DEFAULT_THEME)) { // 默认主题
+      modelAndView.setViewName("client/index"); // 跳转页面
     }
 
-    Map<String,Object> map = articleFeign.selectAllArticleByPage(pageNum,8);
+    Map<String, Object> map = articleFallbackFeign.selectAllArticleByPage(pageNum, 8);
 
     String s2 = (String) map.get("pageInfo");
 
-    //******这里有坑，一定要用这种方式才可以转换集合，不然会出现类型转换异常，不能用JSONObject去转换
+    // ******这里有坑，一定要用这种方式才可以转换集合，不然会出现类型转换异常，不能用JSONObject去转换
     List<Article> articles = JSON.parseArray((String) map.get("articles"), Article.class);
 
     PageInfo pageInfo = JSONObject.parseObject(s2, PageInfo.class);
 
-
     List<Article> as = (List<Article>) redisTemplate.opsForValue().get("articleOrders10");
     if (as == null) {
-      List<Article> articleOrders = ArticleOrder_10(articleFeign.selectAllArticleOrderByDesc());
+      List<Article> articleOrders = ArticleOrder_10(articleFallbackFeign.selectAllArticleOrderByDesc());
       redisTemplate.opsForValue().set("articleOrders10", articleOrders, 60 * 1, TimeUnit.SECONDS);
       modelAndView.addObject("articleOrders", articleOrders);
     } else {
       modelAndView.addObject("articleOrders", as);
     }
 
-    /**
-     * xxx个人博客标题
-     */
+    /** xxx个人博客标题 */
     this.queryUserDeail(session, modelAndView);
 
-
-    //友链
-    List<Link> links = linkFeign.selectAllLink();
+    // 友链
+    List<Link> links = linkFallbackFeign.selectAllLink();
     modelAndView.addObject("links", links);
 
-    //推荐文章
-    List<Article> recommends = articleFeign.selectArticleByRecommendPage(1,5);
-    modelAndView.addObject("recommends",recommends);
+    // 推荐文章
+    List<Article> recommends = articleFallbackFeign.selectArticleByRecommendPage(1, 5);
+    modelAndView.addObject("recommends", recommends);
 
     modelAndView.addObject("articles", articles);
     modelAndView.addObject("commons", Commons.getInstance());
@@ -283,7 +280,7 @@ public class IndexController {
     if (securityContext != null) {
       String name = securityUtil.currentUser(session);
       if (name != null && !name.equals("")) {
-        UserDetail userDetailCommonResult = userDetailFeign.selectUserDetailByUserName(name);
+        UserDetail userDetailCommonResult = userDetailFallbackFeign.selectUserDetailByUserName(name);
         modelAndView.addObject("name", name);
         modelAndView.addObject("userDetail", userDetailCommonResult);
       }
@@ -295,7 +292,7 @@ public class IndexController {
     // 从Redis数据库中获取指定文章id的数据，如果没有就从数据库查询，然后在放入redis中
     article = (Article) redisTemplate.opsForValue().get("articleId_" + articleId);
     if (article == null) {
-      article = articleFeign.selectArticleByArticleIdNoComment(articleId); // 查文章内容（没有评论）
+      article = articleFallbackFeign.selectArticleByArticleIdNoComment(articleId); // 查文章内容（没有评论）
       redisTemplate.opsForValue().set("articleId_" + articleId, article);
     }
     String c = request.getParameter("c");
@@ -325,11 +322,11 @@ public class IndexController {
 
     } else {
       // 友链
-      List<Link> links = linkFeign.selectAllLink();
+      List<Link> links = linkFallbackFeign.selectAllLink();
       modelAndView.addObject("links", links);
 
       // 推荐文章
-      List<Article> recommends = articleFeign.selectArticleByRecommendPage(1, 5);
+      List<Article> recommends = articleFallbackFeign.selectArticleByRecommendPage(1, 5);
       modelAndView.addObject("recommends", recommends);
 
       modelAndView.addObject("article", article);
@@ -339,12 +336,14 @@ public class IndexController {
       // 跳转不同页面主题判断
       if (ThemeConstant.curTheme.equals(ThemeConstant.CALM_THEME)) { // calm主题
         modelAndView.setViewName("client/articleDetails2"); // 跳转页面
-        List<Tag> tags = tagFeign.selectTagsByLimit8();
+        List<Tag> tags = tagFallbackFeign.selectTagsByLimit8();
         modelAndView.addObject("tags", tags);
         List<Article> as = (List<Article>) redisTemplate.opsForValue().get("articleOrders10");
         if (as == null) {
-          List<Article> articleOrders = ArticleOrder_10(articleFeign.selectAllArticleOrderByDesc());
-          redisTemplate.opsForValue().set("articleOrders10", articleOrders, 60 * 1, TimeUnit.SECONDS);
+          List<Article> articleOrders = ArticleOrder_10(articleFallbackFeign.selectAllArticleOrderByDesc());
+          redisTemplate
+              .opsForValue()
+              .set("articleOrders10", articleOrders, 60 * 1, TimeUnit.SECONDS);
           modelAndView.addObject("articleOrders", articleOrders);
         } else {
           modelAndView.addObject("articleOrders", as);

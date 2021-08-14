@@ -12,4 +12,14 @@ public class UserFallbackFeignImpl implements UserFallbackFeign {
         log.error("UserFallbackFeignImpl---register---fallback");
         return "register error";
     }
+
+    @Override
+    public String selectPasswordByuserName(String name) {
+        return null;
+    }
+
+    @Override
+    public int selectUseridByUserName(String username) {
+        return 0;
+    }
 }

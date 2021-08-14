@@ -20,13 +20,5 @@ import java.util.List;
 @FeignClient(value = "cloud-yblog-article")
 public interface CategoryFeign {
 
-    @ResponseBody
-    @GetMapping(path = "/feign/category/selectCategoryName")
-    public List<String> selectCategoryName();
-
-
-    @ResponseBody
-    @RequestMapping(path = "/feign/category/queryArticleByCategoryName")
-    public List<Article> queryArticleByCategoryName(@RequestParam("categoryName")String categoryName);
 
 }

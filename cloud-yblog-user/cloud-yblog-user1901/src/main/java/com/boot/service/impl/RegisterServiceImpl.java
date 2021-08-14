@@ -55,7 +55,7 @@ public class RegisterServiceImpl implements RegisterService {
       userService.addUserAuthority(userAuthority);
 
 
-//    int i=10/0; //模拟异常，测试分布式事务
+//      int i=10/0; //模拟异常，测试分布式事务
 
       // 设置userDetail
       UserDetail userDetail = new UserDetail();

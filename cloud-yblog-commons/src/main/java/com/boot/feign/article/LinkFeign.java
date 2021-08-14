@@ -19,8 +19,5 @@ import java.util.List;
 @FeignClient(value = "cloud-yblog-article")
 public interface LinkFeign {
 
-    @ResponseBody
-    @GetMapping(path = "/feign/link/selectAllLink")
-    public List<Link> selectAllLink();
 
 }

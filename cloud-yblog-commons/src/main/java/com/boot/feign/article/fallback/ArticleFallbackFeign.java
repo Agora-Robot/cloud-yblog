@@ -1,11 +1,15 @@
 package com.boot.feign.article.fallback;
 
 import com.boot.feign.article.fallback.impl.ArticleFallbackFeignImpl;
+import com.boot.pojo.Article;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -18,10 +22,25 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @FeignClient(value = "cloud-yblog-article",fallback = ArticleFallbackFeignImpl.class)
 public interface ArticleFallbackFeign {
 
-    @ResponseBody
-    @GetMapping(path = "/feign/like/selectLikeExsit")
-    public String selectLikeExsit(@RequestParam("username") String username,
-                                  @RequestParam("articleid") long articleid);
 
+    @ResponseBody
+    @GetMapping(path = "/feign/article/selectAllArticle")
+    public Map<String,Object> selectAllArticleByPage(@RequestParam("pageNum") int pageNum,
+                                                     @RequestParam("pageSize") int pageSize);
+
+    @ResponseBody
+    @GetMapping(path = "/feign/article/selectAllArticleOrderByDesc")
+    public List<Article> selectAllArticleOrderByDesc();
+
+
+    @ResponseBody
+    @GetMapping(path = "/feign/article/selectArticleByRecommendPage")
+    public List<Article> selectArticleByRecommendPage(@RequestParam("pageNum") int pageNum,
+                                                      @RequestParam("pageSize") int pageSize);
+
+
+    @ResponseBody
+    @GetMapping(path = "/feign/article/selectArticleByArticleIdNoComment")
+    public Article selectArticleByArticleIdNoComment(@RequestParam("id") long id);
 
 }

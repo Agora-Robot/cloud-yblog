@@ -6,6 +6,9 @@ import com.boot.feign.log.LoginLogFeign;
 import com.boot.feign.user.AuthorityFeign;
 import com.boot.feign.user.UserAuthorityFeign;
 import com.boot.feign.user.UserFeign;
+import com.boot.feign.user.fallback.AuthorityFallbackFeign;
+import com.boot.feign.user.fallback.UserAuthorityFallbackFeign;
+import com.boot.feign.user.fallback.UserFallbackFeign;
 import com.boot.pojo.LoginLog;
 import com.boot.utils.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,13 +43,13 @@ public class RememberInterceptor implements HandlerInterceptor {
     private final String REMEMBER_KEY = "REMEMBER_"; //记住我的Redis key前缀
 
     @Autowired
-    private UserFeign userFeign;
+    private UserFallbackFeign userFallbackFeign;
 
     @Autowired
-    private UserAuthorityFeign userAuthorityFeign;
+    private UserAuthorityFallbackFeign userAuthorityFallbackFeign;
 
     @Autowired
-    private AuthorityFeign authorityFeign;
+    private AuthorityFallbackFeign authorityFallbackFeign;
 
     @Autowired
     private LoginLogFeign loginLogFeign;
@@ -78,14 +81,14 @@ public class RememberInterceptor implements HandlerInterceptor {
                     String username = (String) jsonObject.get("username");
                     String password = (String) jsonObject.get("password");
 
-                    if (userFeign.selectPasswordByuserName(username).equals(password)) { //验证成功
+                    if (userFallbackFeign.selectPasswordByuserName(username).equals(password)) { //验证成功
 
                         /**
                          * 逆向破解SpringSecurity验证,进行直接放行，绕过springSecurity验证
                          */
-                        int userid = userFeign.selectUseridByUserName(username);
-                        int authorityid = userAuthorityFeign.selectAuthorityID(userid);
-                        String authority = authorityFeign.selectAuthorityByid(authorityid); //查询出来权限
+                        int userid = userFallbackFeign.selectUseridByUserName(username);
+                        int authorityid = userAuthorityFallbackFeign.selectAuthorityID(userid);
+                        String authority = authorityFallbackFeign.selectAuthorityByid(authorityid); //查询出来权限
 
                         SecurityContextImpl securityContext = new SecurityContextImpl();
                         User user = new User(username, password, AuthorityUtils.createAuthorityList(authority));

@@ -18,11 +18,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public interface UserAuthorityFeign {
 
 
-    @ResponseBody
-    @GetMapping(path = "/feign/userauthority/selectAuthorityID")
-    public int selectAuthorityID(@RequestParam("userid") long userid);
-
-
 
 
 }

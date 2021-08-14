@@ -18,13 +18,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @FeignClient(value = "cloud-yblog-user")
 public interface UserDetailFeign {
 
-    @ResponseBody
-    @GetMapping(path = "/feign/userdetail/selectUserDetailByUserName")
-    public UserDetail selectUserDetailByUserName(@RequestParam("name") String name);
-
-
-
-
 
 
 

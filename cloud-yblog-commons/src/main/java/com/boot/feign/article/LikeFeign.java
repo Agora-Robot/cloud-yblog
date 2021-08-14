@@ -16,10 +16,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @FeignClient(value = "cloud-yblog-article")
 public interface LikeFeign {
 
-//    @ResponseBody
-//    @GetMapping(path = "/feign/like/selectLikeExsit")
-//    public String selectLikeExsit(@RequestParam("username") String username,
-//                                  @RequestParam("articleid") long articleid);
 
 
 }

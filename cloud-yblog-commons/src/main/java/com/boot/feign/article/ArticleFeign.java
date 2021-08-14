@@ -23,32 +23,10 @@ public interface ArticleFeign {
 
 
     @ResponseBody
-    @GetMapping(path = "/feign/article/selectAllArticle")
-    public Map<String,Object> selectAllArticleByPage(@RequestParam("pageNum") int pageNum,
-                                                     @RequestParam("pageSize") int pageSize);
-
-    @ResponseBody
-    @GetMapping(path = "/feign/article/selectLikeCount")
-    public int selectLikeCount(@RequestParam("id") long id);
-
-    @ResponseBody
-    @GetMapping(path = "/feign/article/selectAllArticleOrderByDesc")
-    public List<Article> selectAllArticleOrderByDesc();
-
-
-    @ResponseBody
-    @GetMapping(path = "/feign/article/selectArticleByRecommendPage")
-    public List<Article> selectArticleByRecommendPage(@RequestParam("pageNum") int pageNum,
-                                                      @RequestParam("pageSize") int pageSize);
-
-    @ResponseBody
     @GetMapping(path = "/feign/article/updateHits")
     public String updateHits(@RequestParam("id") long id);
 
 
-    @ResponseBody
-    @GetMapping(path = "/feign/article/selectArticleByArticleIdNoComment")
-    public Article selectArticleByArticleIdNoComment(@RequestParam("id") long id);
 
 
 

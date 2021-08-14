@@ -8,8 +8,14 @@ import com.boot.feign.article.ArticleFeign;
 import com.boot.feign.article.CategoryFeign;
 import com.boot.feign.article.LinkFeign;
 import com.boot.feign.article.TagFeign;
+import com.boot.feign.article.fallback.ArticleFallbackFeign;
+import com.boot.feign.article.fallback.CategoryFallbackFeign;
+import com.boot.feign.article.fallback.LinkFallbackFeign;
+import com.boot.feign.article.fallback.TagFallbackFeign;
 import com.boot.feign.system.SettingFeign;
+import com.boot.feign.system.fallback.SettingFallbackFeign;
 import com.boot.feign.user.UserDetailFeign;
+import com.boot.feign.user.fallback.UserDetailFallbackFeign;
 import com.boot.pojo.*;
 import com.boot.utils.Commons;
 import com.boot.utils.CssUtil;
@@ -41,16 +47,16 @@ public class CategoryController {
     private SpringSecurityUtil securityUtil;
 
     @Autowired
-    private UserDetailFeign userDetailFeign;
+    private UserDetailFallbackFeign userDetailFallbackFeign;
 
     @Autowired
-    private LinkFeign linkFeign;
+    private LinkFallbackFeign linkFallbackFeign;
 
     @Autowired
     private RedisTemplate redisTemplate;
 
     @Autowired
-    private ArticleFeign articleFeign;
+    private ArticleFallbackFeign articleFallbackFeign;
 
     @Autowired
     private CssUtil cssUtil;
@@ -58,13 +64,13 @@ public class CategoryController {
     private final int type = 1;
 
     @Autowired
-    private TagFeign tagFeign;
+    private TagFallbackFeign tagFallbackFeign;
 
     @Autowired
-    private SettingFeign settingFeign;
+    private SettingFallbackFeign settingFallbackFeign;
 
     @Autowired
-    private CategoryFeign categoryFeign;
+    private CategoryFallbackFeign categoryFallbackFeign;
 
 
     // 前10排行
@@ -81,7 +87,7 @@ public class CategoryController {
                 (SecurityContextImpl) session.getAttribute("SPRING_SECURITY_CONTEXT");
         if (securityContext != null) {
             String name = securityUtil.currentUser(session);
-            Setting setting = settingFeign.selectUserSetting(name);
+            Setting setting = settingFallbackFeign.selectUserSetting(name);
             modelAndView.addObject("setting", setting);
         } else {
             modelAndView.addObject("setting", null);
@@ -100,16 +106,16 @@ public class CategoryController {
         // 跳转不同页面主题判断
         if (ThemeConstant.curTheme.equals(ThemeConstant.CALM_THEME)) { // calm主题
             modelAndView.setViewName("client/category2"); // 跳转页面
-            List<Tag> tags = tagFeign.selectTagsByLimit8();
+            List<Tag> tags = tagFallbackFeign.selectTagsByLimit8();
             modelAndView.addObject("tags", tags);
         } else if (ThemeConstant.curTheme.equals(ThemeConstant.DEFAULT_THEME)) { // 默认主题
 //            modelAndView.setViewName("client/index"); // 跳转页面   *****  主题1 ，暂不实现
         }
 
-        List<String> categoryName = categoryFeign.selectCategoryName();
+        List<String> categoryName = categoryFallbackFeign.selectCategoryName();
         modelAndView.addObject("categoryName",categoryName);
 
-        List<Article> articles = categoryFeign.queryArticleByCategoryName(categoryName.get(0));
+        List<Article> articles = categoryFallbackFeign.queryArticleByCategoryName(categoryName.get(0));
         modelAndView.addObject("categoryArticles",articles); //查询第一个分类文章并传给前端展示
 
 
@@ -118,7 +124,7 @@ public class CategoryController {
 
         List<Article> as = (List<Article>) redisTemplate.opsForValue().get("articleOrders10");
         if (as == null) {
-            List<Article> articleOrders = ArticleOrder_10(articleFeign.selectAllArticleOrderByDesc());
+            List<Article> articleOrders = ArticleOrder_10(articleFallbackFeign.selectAllArticleOrderByDesc());
             redisTemplate.opsForValue().set("articleOrders10", articleOrders, 60 * 1, TimeUnit.SECONDS);
             modelAndView.addObject("articleOrders", articleOrders);
         } else {
@@ -131,7 +137,7 @@ public class CategoryController {
         if (securityContext != null) {
             String name = securityUtil.currentUser(session);
             if (name != null && !name.equals("")) {
-                UserDetail userDetail = userDetailFeign.selectUserDetailByUserName(name);
+                UserDetail userDetail = userDetailFallbackFeign.selectUserDetailByUserName(name);
                 modelAndView.addObject("userDetail", userDetail);
             }
         } else {
@@ -140,11 +146,11 @@ public class CategoryController {
         }
 
         // 推荐文章
-        List<Article> recommends = articleFeign.selectArticleByRecommendPage(1,5);
+        List<Article> recommends = articleFallbackFeign.selectArticleByRecommendPage(1,5);
         modelAndView.addObject("recommends", recommends);
 
         // 友链
-        List<Link> links = linkFeign.selectAllLink();
+        List<Link> links = linkFallbackFeign.selectAllLink();
         modelAndView.addObject("links", links);
         modelAndView.addObject("commons", Commons.getInstance());
 
@@ -156,7 +162,7 @@ public class CategoryController {
     @RequestMapping(path = "/data")
     public String CategoryData(String categoryName){
 
-        List<Article> articles = categoryFeign.queryArticleByCategoryName(categoryName);
+        List<Article> articles = categoryFallbackFeign.queryArticleByCategoryName(categoryName);
 
         String jsonString = JSON.toJSONString(articles);
 

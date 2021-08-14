@@ -1,17 +1,34 @@
 package com.boot.feign.article.fallback.impl;
 
 import com.boot.feign.article.fallback.ArticleFallbackFeign;
+import com.boot.pojo.Article;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
+import java.util.Map;
 
 @Component
 @Slf4j
 public class ArticleFallbackFeignImpl implements ArticleFallbackFeign {
 
+    @Override
+    public Map<String, Object> selectAllArticleByPage(int pageNum, int pageSize) {
+        return null;
+    }
 
     @Override
-    public String selectLikeExsit(String username, long articleid) {
-        
+    public List<Article> selectAllArticleOrderByDesc() {
+        return null;
+    }
+
+    @Override
+    public List<Article> selectArticleByRecommendPage(int pageNum, int pageSize) {
+        return null;
+    }
+
+    @Override
+    public Article selectArticleByArticleIdNoComment(long id) {
         return null;
     }
 }

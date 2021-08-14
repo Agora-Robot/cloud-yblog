@@ -17,10 +17,6 @@ import org.springframework.web.bind.annotation.*;
 @FeignClient(value = "cloud-yblog-system")
 public interface SettingFeign {
 
-    @ResponseBody
-    @GetMapping(path = "/feign/setting/selectUserSetting")
-    public Setting selectUserSetting(@RequestParam(value = "name", required = true) String name);
-
 
     @ResponseBody
     @PostMapping(path = "/feign/setting/addSettingByUser")

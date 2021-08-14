@@ -7,8 +7,11 @@ import com.boot.data.CommonResult;
 import com.boot.data.ResponseData.RememberJSON;
 import com.boot.feign.log.LoginLogFeign;
 import com.boot.feign.system.SettingFeign;
+import com.boot.feign.system.fallback.SettingFallbackFeign;
 import com.boot.feign.user.UserDetailFeign;
 import com.boot.feign.user.UserFeign;
+import com.boot.feign.user.fallback.UserDetailFallbackFeign;
+import com.boot.feign.user.fallback.UserFallbackFeign;
 import com.boot.filter.VerifyCodeFilter;
 import com.boot.pojo.LoginLog;
 import com.boot.utils.AesUtil;
@@ -58,10 +61,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private RedisTemplate redisTemplate;
 
     @Autowired
-    private SettingFeign settingFeign;
+    private SettingFallbackFeign settingFallbackFeign;
 
     @Autowired
-    private UserDetailFeign userDetailFeign;
+    private UserDetailFallbackFeign userDetailFallbackFeign;
 
     @Autowired
     private LoginLogFeign loginLogFeign;
@@ -74,7 +77,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private final String REMEMBER_KEY = "REMEMBER_"; //记住我的Redis key前缀
 
     @Autowired
-    private UserFeign userFeign;
+    private UserFallbackFeign userFallbackFeign;
 
 
     @Override
@@ -122,9 +125,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         String name = s.getName(); //获取登录用户名
 
                         //查询数据库密码
-                        String psd = userFeign.selectPasswordByuserName(name);
+                        String psd = userFallbackFeign.selectPasswordByuserName(name);
 
-                        ThemeConstant.curTheme = settingFeign.selectUserSetting(name).getTheme(); //查询用户主题
+                        ThemeConstant.curTheme = settingFallbackFeign.selectUserSetting(name).getTheme(); //查询用户主题
 
                         log.debug("ip地址：" + ipAddr + "登录成功");
 

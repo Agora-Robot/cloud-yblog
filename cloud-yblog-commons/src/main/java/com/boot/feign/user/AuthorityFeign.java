@@ -19,9 +19,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public interface AuthorityFeign {
 
 
-    @ResponseBody
-    @GetMapping(path = "/feign/authority/selectAuthorityByid")
-    public String selectAuthorityByid(@RequestParam("authorityid") int authorityid);
 
 
 }

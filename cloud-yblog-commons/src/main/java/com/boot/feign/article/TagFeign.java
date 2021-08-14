@@ -20,8 +20,6 @@ import java.util.List;
 public interface TagFeign {
 
 
-    @ResponseBody
-    @GetMapping(path = "/feign/tag/selectTagsByLimit8")
-    public List<Tag> selectTagsByLimit8();
+
 
 }

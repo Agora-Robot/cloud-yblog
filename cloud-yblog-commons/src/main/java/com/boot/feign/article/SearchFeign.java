@@ -18,13 +18,4 @@ import java.util.List;
 public interface SearchFeign {
 
 
-
-
-    @ResponseBody
-    @GetMapping(path = "/feign/search/searchArticleGetHits")
-    public SearchHit[] searchArticleGetHits(@RequestParam("searchText") String searchText) throws IOException;
-
-    @ResponseBody
-    @GetMapping(path = "/feign/search/getArticleListByHits")
-    public List<Article> getArticleListByHits(@RequestBody SearchHit[] searchHits);
 }
