@@ -29,5 +29,15 @@ public class TagController {
         return tags;
     }
 
+    @ResponseBody
+    @GetMapping(path = "/selectAllTag")
+    public List<Tag> selectAllTag(){
+
+        List<Tag> tags = tagService.selectAllTag();
+
+        return tags;
+    }
+
+
 
 }

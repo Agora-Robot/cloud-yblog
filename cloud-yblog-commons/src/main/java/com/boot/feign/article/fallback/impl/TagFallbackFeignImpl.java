@@ -14,4 +14,9 @@ public class TagFallbackFeignImpl implements TagFallbackFeign {
     public List<Tag> selectTagsByLimit8() {
         return null;
     }
+
+    @Override
+    public List<Tag> selectAllTag() {
+        return null;
+    }
 }

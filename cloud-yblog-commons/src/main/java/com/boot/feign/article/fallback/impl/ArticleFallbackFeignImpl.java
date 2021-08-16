@@ -31,4 +31,14 @@ public class ArticleFallbackFeignImpl implements ArticleFallbackFeign {
     public Article selectArticleByArticleIdNoComment(long id) {
         return null;
     }
+
+    @Override
+    public List<Article> selectArticleByRecommend() {
+        return null;
+    }
+
+    @Override
+    public int selectArticleCount() {
+        return 0;
+    }
 }

@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.boot.annotation.Visitor;
 import com.boot.constant.ThemeConstant;
 import com.boot.data.CommonResult;
+import com.boot.feign.admin.fallback.AdminFallbackFeign;
 import com.boot.feign.article.ArticleFeign;
 import com.boot.feign.article.LikeFeign;
 
@@ -42,6 +43,7 @@ import java.util.concurrent.TimeUnit;
 @Controller
 @Api("客户端首页 web api")
 @Slf4j
+@CrossOrigin
 public class IndexController {
 
   @Autowired private ArticleFallbackFeign articleFallbackFeign;
@@ -61,6 +63,9 @@ public class IndexController {
   @Autowired private SpringSecurityUtil securityUtil;
 
   @Autowired private ArchiveFallbackFeign archiveFallbackFeign;
+
+  @Autowired
+  private AdminFallbackFeign adminFallbackFeign;
 
   @Autowired
   private ArticleFeign articleFeign;
@@ -356,4 +361,6 @@ public class IndexController {
       return modelAndView;
     }
   }
+
+
 }

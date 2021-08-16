@@ -36,11 +36,6 @@ spring:
     alibaba:
       seata:
         tx-service-group: my_test_tx_group
-  security:
-    user:
-      name: root
-      password: 123456
-
 
   main:
     allow-bean-definition-overriding: true    #不然多个feign接口连接相同的微服务则会报错

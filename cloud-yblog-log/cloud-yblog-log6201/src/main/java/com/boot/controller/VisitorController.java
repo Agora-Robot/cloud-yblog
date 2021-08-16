@@ -56,5 +56,26 @@ public class VisitorController {
     }
 
 
+    @ResponseBody
+    @GetMapping(path = "/selectDaysBy7")
+    public List<String> selectDaysBy7(){
+
+        List<String> days = visitorService.selectDaysBy7();
+        return days;
+    }
+
+
+    @ResponseBody
+    @GetMapping(path = "/selectOneDayVisitor")
+    public int selectOneDayVisitor(@RequestParam("day") String day){
+
+        int count = visitorService.selectOneDayVisitor(day);
+
+        return count;
+    }
+
+
+
+
 
 }

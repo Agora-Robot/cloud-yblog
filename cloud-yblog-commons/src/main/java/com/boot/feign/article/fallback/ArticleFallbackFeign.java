@@ -43,4 +43,13 @@ public interface ArticleFallbackFeign {
     @GetMapping(path = "/feign/article/selectArticleByArticleIdNoComment")
     public Article selectArticleByArticleIdNoComment(@RequestParam("id") long id);
 
+
+    @ResponseBody
+    @GetMapping(path = "/feign/article/selectArticleByRecommend")
+    public List<Article> selectArticleByRecommend();
+
+    @ResponseBody
+    @GetMapping(path = "/feign/article/selectArticleCount")
+    public int selectArticleCount();
+
 }

@@ -26,6 +26,7 @@ import org.elasticsearch.search.SearchHits;
 import org.elasticsearch.search.builder.SearchSourceBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -46,6 +47,7 @@ public class SearchController {
   private RestHighLevelClient client;
 
   @Autowired
+  @Lazy
   private ArticleFeign articleFeign;
 
   private final String INDEX="blog_article"; //索引名字必须全部是小写

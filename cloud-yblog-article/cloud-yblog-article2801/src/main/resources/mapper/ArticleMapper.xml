@@ -17,7 +17,6 @@
         <association property="statistic" javaType="com.boot.pojo.Statistic">
             <result property="articleId" column="article_id"/>
             <result property="hits" column="hits"/>
-            <result property="commentsNum" column="comments_num"/>
         </association>
 
 
@@ -34,8 +33,7 @@
 	t_article.tags,
 	t_article.allow_comment,
 	t_article.thumbnail,
-	t_statistic.hits,
-	t_statistic.comments_num
+	t_statistic.hits
     FROM
     t_article,
 	t_statistic
@@ -118,7 +116,6 @@
         <association property="statistic" javaType="com.boot.pojo.Statistic">
             <result property="articleId" column="article_id"/>
             <result property="hits" column="hits"/>
-            <result property="commentsNum" column="comments_num"/>
         </association>
 
 
@@ -135,8 +132,7 @@
 	t_article.tags,
 	t_article.allow_comment,
 	t_article.thumbnail,
-	t_statistic.hits,
-	t_statistic.comments_num
+	t_statistic.hits
     FROM
 	t_article,
 	t_statistic
@@ -168,7 +164,6 @@
         <association property="statistic" javaType="com.boot.pojo.Statistic">
             <result property="articleId" column="article_id"/>
             <result property="hits" column="hits"/>
-            <result property="commentsNum" column="comments_num"/>
         </association>
 
 
@@ -187,8 +182,7 @@
 	t_article.recommend,
 	t_article.thumbnail,
 	t_article.likes,
-	t_statistic.hits,
-	t_statistic.comments_num
+	t_statistic.hits
     FROM
     t_article,
 	t_statistic
@@ -326,7 +320,6 @@
         <association property="statistic" javaType="com.boot.pojo.Statistic">
             <result property="articleId" column="article_id"/>
             <result property="hits" column="hits"/>
-            <result property="commentsNum" column="comments_num"/>
         </association>
 
 
@@ -345,8 +338,7 @@
 	t_article.recommend,
 	t_article.thumbnail,
 	t_article.likes,
-	t_statistic.hits,
-	t_statistic.comments_num
+	t_statistic.hits
     FROM
     t_article,
 	t_statistic
@@ -361,5 +353,6 @@
     <select id="queryArticleByTitleCount" resultType="int">
         SELECT COUNT(*) FROM t_article WHERE title=#{title}
     </select>
+
 
 </mapper>

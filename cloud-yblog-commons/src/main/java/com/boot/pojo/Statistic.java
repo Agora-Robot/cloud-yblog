@@ -12,15 +12,14 @@ public class Statistic implements Serializable {
     private long id;
     private long articleId;   // 评论的文章id
     private Integer hits;        // 点击量
-    private Integer commentsNum;// 评论总量
 
     public Statistic() {
     }
 
-    public Statistic(long articleId, Integer hits, Integer commentsNum) {
+    public Statistic(long id, long articleId, Integer hits) {
+        this.id = id;
         this.articleId = articleId;
         this.hits = hits;
-        this.commentsNum = commentsNum;
     }
 
     public long getId() {
@@ -47,21 +46,12 @@ public class Statistic implements Serializable {
         this.hits = hits;
     }
 
-    public Integer getCommentsNum() {
-        return commentsNum;
-    }
-
-    public void setCommentsNum(Integer commentsNum) {
-        this.commentsNum = commentsNum;
-    }
-
     @Override
     public String toString() {
         return "Statistic{" +
                 "id=" + id +
                 ", articleId=" + articleId +
                 ", hits=" + hits +
-                ", commentsNum=" + commentsNum +
                 '}';
     }
 }

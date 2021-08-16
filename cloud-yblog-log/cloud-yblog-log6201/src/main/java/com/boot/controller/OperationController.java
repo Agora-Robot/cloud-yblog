@@ -1,14 +1,16 @@
 package com.boot.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.boot.data.ResponseData.layuiData;
 import com.boot.pojo.OperationLog;
 import com.boot.service.OperationService;
+import com.github.pagehelper.PageHelper;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
 @RequestMapping(path = "/feign/operationlog")
@@ -28,8 +30,35 @@ public class OperationController {
     }
 
 
+    @ResponseBody
+    @GetMapping(path = "/selectOperationLogByLimit")
+    public List<OperationLog> selectOperationLogByLimit(@RequestParam("limit")int limit){
+
+        List<OperationLog> operationLogs = operationService.selectOperationLogByLimit(limit);
+
+        return operationLogs;
+    }
 
 
+    @ResponseBody
+    @RequestMapping(path = "/operationLogData")
+    public String operationLogData(@RequestParam(value = "page",defaultValue = "1") int page,
+                                   @RequestParam(value = "limit",defaultValue = "10") int limit){
+
+        layuiData<OperationLog> data = new layuiData<>();
+
+        PageHelper.startPage(page, limit);
+        List<OperationLog> OperationLogs = operationService.selectAllOperationLog();
+
+        int count = operationService.selectOperationCount();
+
+        data.setCode(0);
+        data.setMsg("");
+        data.setData(OperationLogs);
+        data.setCount(count);
+
+        return JSON.toJSONString(data);
+    }
 
 
 }

@@ -7,4 +7,8 @@ import org.springframework.stereotype.Component;
 @Component
 @Slf4j
 public class LoginLogFallbackFeignImpl implements LoginLogFallbackFeign {
+    @Override
+    public String loginLogData(int page, int limit) {
+        return null;
+    }
 }

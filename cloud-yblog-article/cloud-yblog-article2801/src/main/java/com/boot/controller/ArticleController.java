@@ -87,6 +87,13 @@ public class ArticleController {
         return articles;
 
     }
+    @ResponseBody
+    @GetMapping(path = "/selectArticleByRecommend")
+    public List<Article> selectArticleByRecommend(){
+        List<Article> articles = articleService.selectArticleByRecommend();
+        return articles;
+    }
+
 
     @ResponseBody
     @GetMapping(path = "/updateHits")
@@ -129,6 +136,14 @@ public class ArticleController {
         }
         String json = JSON.toJSONString("success");
         return json;
+    }
+
+    @ResponseBody
+    @GetMapping(path = "/selectArticleCount")
+    public int selectArticleCount(){
+
+        int count = articleService.selectArticleCount();
+        return count;
     }
 
 

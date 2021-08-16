@@ -19,4 +19,9 @@ public interface TagFallbackFeign {
     @GetMapping(path = "/feign/tag/selectTagsByLimit8")
     public List<Tag> selectTagsByLimit8();
 
+    @ResponseBody
+    @GetMapping(path = "/feign/tag/selectAllTag")
+    public List<Tag> selectAllTag();
+
+
 }

@@ -53,6 +53,28 @@ public class UserController {
     return userService.selectUseridByUserName(username);
   }
 
+  @ResponseBody
+  @GetMapping(path = "/selectUserInfoByuserName")
+  public User selectUserInfoByuserName(@RequestParam("username") String username){
+
+    User user = userService.selectUserInfoByuserName(username);
+
+    return user;
+  }
+
+
+  @ResponseBody
+  @GetMapping(path = "/userCount")
+  public int userCount(){
+
+    int count = userService.userCount();
+
+    return count;
+  }
+
+
+
+
 
 
 
