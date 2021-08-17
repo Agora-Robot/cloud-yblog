@@ -49,12 +49,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
   @Autowired private RedisTemplate redisTemplate;
 
-  @Autowired private SettingFallbackFeign settingFallbackFeign;
-
-  @Autowired private UserDetailFallbackFeign userDetailFallbackFeign;
-
-  @Autowired private LoginLogFeign loginLogFeign;
-
   @Autowired private VerifyCodeFilter verifyCodeFilter;
 
   private final String key = "@%&^=*remember-yblog=@#&%"; // 密钥，切勿泄露出去
@@ -83,103 +77,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
   @Override
   protected void configure(HttpSecurity http) throws Exception {
-    // 配置过滤器
-    http.addFilterBefore(verifyCodeFilter, UsernamePasswordAuthenticationFilter.class);
     http.formLogin()
-        .usernameParameter("username")
-        .passwordParameter("password")
-        //                .loginPage("/login")
-        .loginPage("/loginPage") // 登录页接口
-        .loginProcessingUrl("/login") // 登录过程接口（也就是登录表单提交的接口）
-        // 登录成功处理
-        .successHandler(
-            new AuthenticationSuccessHandler() {
-              @Override
-              public void onAuthenticationSuccess(
-                  HttpServletRequest request,
-                  HttpServletResponse httpServletResponse,
-                  Authentication authentication)
-                  throws IOException, ServletException {
-                String val = "";
-
-                String ipAddr = IpUtils.getIpAddr(request);
-                log.info("登录成功：访问者ip地址：" + ipAddr);
-
-                // 登入成功之后要把登入验证码的缓存标记给删除掉
-                redisTemplate.delete(ipAddr + "_lg");
-
-                UsernamePasswordAuthenticationToken s =
-                    (UsernamePasswordAuthenticationToken) authentication;
-
-                String name = s.getName(); // 获取登录用户名
-
-                // 查询数据库密码
-                String psd = userFallbackFeign.selectPasswordByuserName(name);
-
-                ThemeConstant.curTheme =
-                    settingFallbackFeign.selectUserSetting(name).getTheme(); // 查询用户主题
-
-                log.debug("ip地址：" + ipAddr + "登录成功");
-
-                // 封装登录日志信息放到数据库
-
-                LoginLog loginLog = new LoginLog();
-                loginLog.setId(SnowId.nextId());
-                loginLog.setIp(ipAddr);
-                loginLog.setAddress(IpToAddressUtil.getCityInfo(ipAddr));
-                loginLog.setBrowser(BrowserOS.getBrowserName(request));
-                loginLog.setOs(BrowserOS.getOsName(request));
-                loginLog.setUsername(name);
-                Date d = new Date();
-                java.sql.Date date = new java.sql.Date(d.getTime());
-                SimpleDateFormat fm = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                String t = fm.format(date);
-                loginLog.setTime(t);
-                loginLog.setType(LoginType.NORMAL_LOGIN); // 走SecurityConfig类的登录都是正常的登录
-                loginLogFeign.insertLoginLog(loginLog);
-
-                //                        //使用cookie+Redis实现记住我功能
-                String rememberme = request.getParameter("remember-me");
-                if (rememberme != null && rememberme.equals("on")) { // 此时激活记住我
-
-                  try {
-                      setRememberme(name, psd, request, httpServletResponse); // 记住我实现
-                  } catch (Exception e) {
-                    e.printStackTrace();
-                  }
-                }
-
-                // 这里不要用转发，不然会有一些bug
-                //
-                // request.getRequestDispatcher("/").forward(request,httpServletResponse);
-                httpServletResponse.sendRedirect("/");
-              }
-            })
-        .failureForwardUrl("/LoginfailPage")
+        .loginPage("/admin/nologin") // 登录页接口
         .and()
         // 不写这段代码，druid监控sql将失效（原因未明）
         .csrf()
         .ignoringAntMatchers("/druid/**")
-        .and()
-        .logout()
-        .logoutUrl("/logout")
-        .logoutSuccessUrl("/page/1")
-        .logoutSuccessHandler(
-            new LogoutSuccessHandler() {
-              @Override
-              public void onLogoutSuccess(
-                  HttpServletRequest httpServletRequest,
-                  HttpServletResponse httpServletResponse,
-                  Authentication authentication)
-                  throws IOException, ServletException {
-
-                log.info("退出成功");
-
-                // 退出从Redis删除记住我记录
-                redisTemplate.delete(REMEMBER_KEY + IpUtils.getIpAddr(httpServletRequest));
-                httpServletResponse.sendRedirect("/page/1");
-              }
-            })
         .and()
         .authorizeRequests()
         .antMatchers("/page/**")
@@ -233,21 +136,4 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         .disable();
   }
 
-  // 因为SpringSecurity记住我失效问题没有解决，暂且用手动实现记住我
-  private void setRememberme(
-      String name, String psd, HttpServletRequest request, HttpServletResponse response)
-      throws Exception {
-
-    RememberJSON rememberJSON = new RememberJSON();
-    rememberJSON.setUsername(name);
-    rememberJSON.setPassword(psd);
-    String jsonStr = JSON.toJSONString(rememberJSON);
-    String token = AesUtil.aesEncrypt(jsonStr, key); // 对字符串进行加密
-
-    String ipAddr = IpUtils.getIpAddr(request);
-
-    // 暂且用ip作为key
-    redisTemplate.opsForValue().set(REMEMBER_KEY + ipAddr, token, 60 * 60 * 3, TimeUnit.SECONDS);
-
-  }
 }

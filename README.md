@@ -93,6 +93,14 @@ Gitee: https://gitee.com/youzhengjie/springBootBlog
 | alertJs          |弹框插件          |  https://gitee.com/ydq/alertjs
 | layui           | 模块化前端UI框架        | https://www.layui.com/         |
 
+
+## 如何使用？
+
+* 第一次使用需要初始化cloud-yblog,只需要把cloud-yblog-search模块中的SearchController
+的loadArticleToElaticSearch方法的注释解除后运行一次即可，然后再注释回去。
+
+
+
 ### 图片演示
 前台界面👇
 ![01.png](https://gitee.com/youzhengjie/cloud-yblog/raw/master/cloud-yblog-doc/images/01.png)

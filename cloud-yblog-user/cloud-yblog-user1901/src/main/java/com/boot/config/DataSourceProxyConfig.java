@@ -14,6 +14,7 @@ import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
 import javax.sql.DataSource;
 
@@ -37,6 +38,13 @@ public class DataSourceProxyConfig {
     @Bean
     public DataSourceProxy dataSourceProxy(DataSource dataSource) {
         return new DataSourceProxy(dataSource);
+    }
+
+
+    //   解决seata导致本地事务@Transactional失效问题
+    @Bean("txManager")
+    public DataSourceTransactionManager txManager(DataSourceProxy dataSourceProxy) {
+        return new DataSourceTransactionManager(dataSourceProxy);
     }
 
     @Bean

@@ -35,8 +35,8 @@ public class TagServiceImpl implements TagService {
     }
 
     @Override
-    public void insertTag(String tagName) {
-        tagMapper.insertTag(tagName);
+    public void insertTag(long id,String tagName) {
+        tagMapper.insertTag(id,tagName);
     }
 
     @Override

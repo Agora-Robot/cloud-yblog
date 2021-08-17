@@ -4,9 +4,7 @@ import com.boot.feign.article.fallback.impl.ArticleFallbackFeignImpl;
 import com.boot.pojo.Article;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
@@ -51,5 +49,10 @@ public interface ArticleFallbackFeign {
     @ResponseBody
     @GetMapping(path = "/feign/article/selectArticleCount")
     public int selectArticleCount();
+
+
+    @ResponseBody
+    @PostMapping(path = "/feign/article/publishArticle")
+    public String publishArticle(@RequestBody Article article);
 
 }

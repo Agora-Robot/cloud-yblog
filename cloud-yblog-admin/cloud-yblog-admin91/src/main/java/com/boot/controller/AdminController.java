@@ -119,8 +119,11 @@ public class AdminController {
         return "back/newback/index";
     }
 
+    @GetMapping(path = "/nologin")
+    public String nologin(){
 
-
+        return "error/no_login";
+    }
 
 
 

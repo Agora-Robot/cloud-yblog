@@ -81,7 +81,7 @@ public class DraftServiceImpl implements DraftService {
                 Integer o = (Integer) redisTemplate.opsForValue().get("tag_" + s);
                 if (o == null) {
                     //如果缓存中没有这个标签就添加
-                    tagService.insertTag(s);
+                    tagService.insertTag(SnowId.nextId(),s);
                     //添加完数据库之后，我们还要把数据添加到redis缓存中
                     redisTemplate.opsForValue().set("tag_" + s, 1);
                 } else {

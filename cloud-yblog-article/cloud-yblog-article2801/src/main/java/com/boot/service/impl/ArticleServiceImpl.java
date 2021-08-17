@@ -7,6 +7,8 @@ import com.boot.service.ArticleService;
 import com.boot.service.CategoryService;
 import com.boot.service.StatisticService;
 import com.boot.service.TagService;
+import com.boot.utils.SnowId;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
@@ -20,6 +22,7 @@ import java.util.List;
  */
 @Service
 @Transactional //事务控制
+@Slf4j
 public class ArticleServiceImpl implements ArticleService {
 
     @Autowired
@@ -80,7 +83,7 @@ public class ArticleServiceImpl implements ArticleService {
                 System.out.println("o====>" + o);
                 if (o == null) {
                     //如果缓存中没有这个标签就添加
-                    tagService.insertTag(s);
+                    tagService.insertTag(SnowId.nextId(),s);
                     //添加完数据库之后，我们还要把数据添加到redis缓存中
                     redisTemplate.opsForValue().set("tag_" + s, 1);
                 } else {
@@ -106,13 +109,16 @@ public class ArticleServiceImpl implements ArticleService {
 
         //发布操作代码
         try {
+            long articleid = SnowId.nextId();
+            article.setId(articleid);
             article.setCategories("默认分类");
             categoryService.updateCategoryCount(article.getCategories());
             article.setAllowComment(true);
             java.util.Date date1 = new java.util.Date();
             Date date = new Date(date1.getTime());
             article.setCreated(date);
-            articleService.addArticle(article); //开启了 keyProperty="id" useGeneratedKeys="true"，自动生成的主键id会保存在article.getId()里。
+            articleService.addArticle(article);
+
             statisticService.addStatistic(new Statistic(article.getId(), 0, 0));
 
 
@@ -124,7 +130,7 @@ public class ArticleServiceImpl implements ArticleService {
                 Integer o = (Integer) redisTemplate.opsForValue().get("tag_" + s);
                 if (o == null) {
                     //如果缓存中没有这个标签就添加
-                    tagService.insertTag(s);
+                    tagService.insertTag(SnowId.nextId(),s);
                     //添加完数据库之后，我们还要把数据添加到redis缓存中
                     redisTemplate.opsForValue().set("tag_" + s, 1);
                 } else {

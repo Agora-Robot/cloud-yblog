@@ -237,6 +237,7 @@ public class PearController {
     @RequestMapping(path = "/toCategory")
     public String toCategory() {
 
+        log.info("进入分类管理界面");
 
         return "back/newback/article/categories";
     }
@@ -247,6 +248,7 @@ public class PearController {
     @RequestMapping(path = "/toTag")
     public String toTag() {
 
+        log.info("进入标签管理界面");
 
         return "back/newback/article/tag_list";
     }
@@ -258,6 +260,7 @@ public class PearController {
     @RequestMapping(path = "/toUserManager")
     public String toUserManager() {
 
+        log.info("进入用户管理界面");
 
         return "back/newback/article/userManager";
     }
@@ -269,6 +272,7 @@ public class PearController {
     @RequestMapping(path = "/toLink")
     public String toLink() {
 
+        log.info("进入友链管理界面");
 
         return "back/newback/article/link_list";
     }
@@ -292,6 +296,7 @@ public class PearController {
         UserDetail userDetail = userDetailFallbackFeign.selectUserDetailByUserName(name);
         model.addAttribute("userDetail",userDetail);
 
+        log.info("进入个人资料界面");
         return "back/newback/article/user_list";
     }
 
@@ -301,6 +306,7 @@ public class PearController {
     @RequestMapping(path = "/toVisitor")
     public String toVisitor() {
 
+        log.info("进入访客记录界面");
 
         return "back/newback/article/visitor_list";
     }
@@ -311,6 +317,7 @@ public class PearController {
     @RequestMapping(path = "/toBlack")
     public String toBlack() {
 
+        log.info("进入黑名单界面");
 
         return "back/newback/article/black_list";
     }
@@ -320,7 +327,7 @@ public class PearController {
     @RequestMapping(path = "/toInterceptorLog")
     public String toInterceptorLog() {
 
-
+        log.info("进入拦截记录界面");
         return "back/newback/article/interceptor_list";
     }
 
@@ -349,7 +356,7 @@ public class PearController {
     @RequestMapping(path = "/toLog")
     public String toLog() {
 
-
+        log.info("进入行为日志界面");
         return "back/newback/article/log_list";
     }
 
@@ -357,7 +364,7 @@ public class PearController {
     @Operation("进入数据监控界面")
     @RequestMapping(path = "/toMonitor")
     public String toMonitor() {
-
+        log.info("进入数据监控界面");
 
         return "back/newback/article/monitor";
     }
@@ -379,7 +386,7 @@ public class PearController {
         model.addAttribute("commons", Commons.getInstance());
         model.addAttribute("bootstrap", new Bootstrap());
         model.addAttribute("curName", username);
-
+        log.info("进入系统设置界面");
         return "back/newback/article/setting";
     }
 

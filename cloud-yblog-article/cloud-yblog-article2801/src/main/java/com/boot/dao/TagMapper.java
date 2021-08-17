@@ -21,7 +21,7 @@ public interface TagMapper {
     //把指定标签的数量+1
     public void changeTagByTagNameIncr(@Param("tagName") String tagName);
 
-    public void insertTag(@Param("tagName") String tagName);
+    public void insertTag(@Param("id") long id,@Param("tagName") String tagName);
 
     public List<Tag> selectAllTag();
 

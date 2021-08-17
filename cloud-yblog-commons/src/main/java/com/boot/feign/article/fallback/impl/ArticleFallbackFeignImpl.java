@@ -41,4 +41,9 @@ public class ArticleFallbackFeignImpl implements ArticleFallbackFeign {
     public int selectArticleCount() {
         return 0;
     }
+
+    @Override
+    public String publishArticle(Article article) {
+        return "发布失败！";
+    }
 }
