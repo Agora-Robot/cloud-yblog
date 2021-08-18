@@ -84,6 +84,25 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         .csrf()
         .ignoringAntMatchers("/druid/**")
         .and()
+        .logout()
+        .logoutUrl("/logout")
+        .logoutSuccessUrl("/admin/nologin")
+        .logoutSuccessHandler(new LogoutSuccessHandler() {
+          @Override
+          public void onLogoutSuccess(
+                  HttpServletRequest httpServletRequest,
+                  HttpServletResponse httpServletResponse,
+                  Authentication authentication)
+                  throws IOException, ServletException {
+
+            log.info("退出成功");
+
+            // 退出从Redis删除记住我记录
+            redisTemplate.delete(REMEMBER_KEY + IpUtils.getIpAddr(httpServletRequest));
+            httpServletResponse.sendRedirect("/admin/nologin");
+          }
+        })
+        .and()
         .authorizeRequests()
         .antMatchers("/page/**")
         .permitAll()
@@ -123,9 +142,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             "/chart/**",
             "/black/**")
         .hasRole("admin")
-        .antMatchers("/myuser/**", "/img/**", "/catchArticle/**", "/like/**", "/admin/", "/logout")
+        .antMatchers("/myuser/**", "/img/**", "/catchArticle/**", "/like/**", "/admin/")
         .hasAnyRole("admin", "common")
-        .antMatchers("/sliderCaptcha/**")
+        .antMatchers("/sliderCaptcha/**", "/logout")
         .permitAll()
         .anyRequest()
         .permitAll()

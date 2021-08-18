@@ -38,6 +38,14 @@ public class TagController {
         return tags;
     }
 
+    @ResponseBody
+    @GetMapping(path = "/selectTagCount")
+    public int selectTagCount(){
+
+        int count = tagService.selectTagCount();
+
+        return count;
+    }
 
 
 }

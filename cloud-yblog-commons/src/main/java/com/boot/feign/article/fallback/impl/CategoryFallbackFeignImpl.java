@@ -2,6 +2,7 @@ package com.boot.feign.article.fallback.impl;
 
 import com.boot.feign.article.fallback.CategoryFallbackFeign;
 import com.boot.pojo.Article;
+import com.boot.pojo.Category;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -16,7 +17,22 @@ public class CategoryFallbackFeignImpl implements CategoryFallbackFeign {
     }
 
     @Override
-    public List<Article> queryArticleByCategoryName(String categoryName) {
+    public Category selectCategoryByName(String categoryName) {
         return null;
+    }
+
+    @Override
+    public int selectCountByName(String categoryName) {
+        return 0;
+    }
+
+    @Override
+    public List<Category> selectCategories(int page, int limit) {
+        return null;
+    }
+
+    @Override
+    public int selectCategoryCount() {
+        return 0;
     }
 }

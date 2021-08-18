@@ -115,7 +115,7 @@ public class CategoryController {
         List<String> categoryName = categoryFallbackFeign.selectCategoryName();
         modelAndView.addObject("categoryName",categoryName);
 
-        List<Article> articles = categoryFallbackFeign.queryArticleByCategoryName(categoryName.get(0));
+        List<Article> articles = articleFallbackFeign.queryArticleByCategoryName(categoryName.get(0));
         modelAndView.addObject("categoryArticles",articles); //查询第一个分类文章并传给前端展示
 
 
@@ -162,7 +162,7 @@ public class CategoryController {
     @RequestMapping(path = "/data")
     public String CategoryData(String categoryName){
 
-        List<Article> articles = categoryFallbackFeign.queryArticleByCategoryName(categoryName);
+        List<Article> articles = articleFallbackFeign.queryArticleByCategoryName(categoryName);
 
         String jsonString = JSON.toJSONString(articles);
 

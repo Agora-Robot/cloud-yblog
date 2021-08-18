@@ -3,6 +3,7 @@ package com.boot.feign.article.fallback;
 
 import com.boot.feign.article.fallback.impl.CategoryFallbackFeignImpl;
 import com.boot.pojo.Article;
+import com.boot.pojo.Category;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,11 +21,20 @@ public interface CategoryFallbackFeign {
     @GetMapping(path = "/feign/category/selectCategoryName")
     public List<String> selectCategoryName();
 
+    @ResponseBody
+    @GetMapping(path = "/feign/category/selectCategoryByName")
+    public Category selectCategoryByName(@RequestParam("categoryName") String categoryName);
 
     @ResponseBody
-    @RequestMapping(path = "/feign/category/queryArticleByCategoryName")
-    public List<Article> queryArticleByCategoryName(@RequestParam("categoryName")String categoryName);
+    @GetMapping(path = "/feign/category/selectCountByName")
+    public int selectCountByName(@RequestParam("categoryName") String categoryName);
 
+    @ResponseBody
+    @GetMapping(path = "/feign/category/selectCategories")
+    public List<Category> selectCategories(@RequestParam("page") int page,
+                                           @RequestParam("limit") int limit);
 
-
+    @ResponseBody
+    @GetMapping(path = "/feign/category/selectCategoryCount")
+    public int selectCategoryCount();
 }

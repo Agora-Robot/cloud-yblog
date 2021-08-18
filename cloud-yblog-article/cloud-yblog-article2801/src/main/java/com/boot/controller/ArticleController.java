@@ -2,6 +2,7 @@ package com.boot.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.boot.constant.Constant;
 import com.boot.data.CommonResult;
 import com.boot.pojo.Article;
 import com.boot.service.ArticleService;
@@ -36,7 +37,7 @@ public class ArticleController {
     @ResponseBody
     @GetMapping(path = "/selectAllArticle")
     public Map<String,Object> selectAllArticleByPage(@RequestParam("pageNum") int pageNum,
-                                      @RequestParam("pageSize") int pageSize){
+                                                    @RequestParam("pageSize") int pageSize){
         PageHelper.startPage(pageNum, pageSize);
         List<Article> articles = articleService.selectAllArticle();
 
@@ -100,6 +101,15 @@ public class ArticleController {
         return "";
     }
 
+    @ResponseBody
+    @RequestMapping(path = "/queryArticleByCategoryName")
+    public List<Article> queryArticleByCategoryName(@RequestParam("categoryName") String categoryName) {
+
+        List<Article> articles = articleService.queryArticleByCategoryName(categoryName);
+
+        return articles;
+    }
+
 
     @ResponseBody
     @GetMapping(path = "/selectArticleByArticleIdNoComment")
@@ -150,8 +160,109 @@ public class ArticleController {
 
         articleService.publishArticle_service(article);
 
-        return "success";
+        return Constant.OK;
     }
+
+    @ResponseBody
+    @PostMapping(path = "/changeArticle")
+    public String changeArticle(@RequestBody Article article){
+
+        articleService.changeArticle_service(article);
+
+        return Constant.OK;
+    }
+
+    @ResponseBody
+    @GetMapping(path = "/selectAllArticleByCreated")
+    public Map<String,Object> selectAllArticleByCreated(@RequestParam("pageNum") int pageNum,
+                                                   @RequestParam("pageSize") int pageSize){
+
+        PageHelper.startPage(pageNum, pageSize);
+        List<Article> articles = articleService.selectAllArticleByCreated();
+
+        //这个pageInfo只能写在这个调用sql语句的service方法下面才有用
+        PageInfo pageInfo = new PageInfo(articles);
+
+        Map<String,Object> map = new HashMap<>();
+
+        String s1 = JSON.toJSONString(articles);
+        String s2 = JSON.toJSONString(pageInfo);
+
+        map.put("articles",s1);
+        map.put("pageInfo",s2);
+        return map;
+    }
+
+
+    @ResponseBody
+    @GetMapping(path = "/queryArticleByTitleCount")
+    public int queryArticleByTitleCount(@RequestParam("title") String title){
+
+        int total = articleService.queryArticleByTitleCount(title);
+
+        return total;
+    }
+
+    @ResponseBody
+    @GetMapping(path = "/queryArticleByTitle")
+    public List<Article> queryArticleByTitle(@RequestParam("pageNum") int pageNum,
+                                             @RequestParam("pageSize") int pageSize,
+                                             @RequestParam("title") String title){
+
+        PageHelper.startPage(pageNum, pageSize);
+        List<Article> articles = articleService.queryArticleByTitle(title);
+
+        return articles;
+    }
+
+
+    @ResponseBody
+    @GetMapping(path = "/deleteArticle")
+    public String deleteArticle(@RequestParam("articleid") long articleid){
+
+        articleService.deleteArticle_service(articleid);
+
+    return Constant.OK;
+    }
+
+
+
+    @ResponseBody
+    @GetMapping(path = "/updateAllowCommentTo1")
+    public String updateAllowCommentTo_1(@RequestParam("id") long id){
+
+        articleService.updateAllowCommentTo_1(id);
+
+        return Constant.OK;
+    }
+
+    @ResponseBody
+    @GetMapping(path = "/updateAllowCommentTo0")
+    public String updateAllowCommentTo_0(@RequestParam("id") long id){
+
+        articleService.updateAllowCommentTo_0(id);
+
+        return Constant.OK;
+    }
+
+    @ResponseBody
+    @GetMapping(path = "/updateRecommendTo1")
+    public String updateRecommendTo_1(@RequestParam("id") long id){
+
+        articleService.updateRecommendTo_1(id);
+
+        return Constant.OK;
+    }
+
+    @ResponseBody
+    @GetMapping(path = "/updateRecommendTo0")
+    public String updateRecommendTo_0(@RequestParam("id") long id){
+
+        articleService.updateRecommendTo_0(id);
+
+        return Constant.OK;
+    }
+
 
 
 

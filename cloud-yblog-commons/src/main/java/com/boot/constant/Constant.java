@@ -9,6 +9,6 @@ public final class Constant {
     //失败
     public static final int ERROR=404;
 
-
+    public static final String OK="success";
 
 }

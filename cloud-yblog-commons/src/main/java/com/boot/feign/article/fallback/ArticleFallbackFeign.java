@@ -52,7 +52,25 @@ public interface ArticleFallbackFeign {
 
 
     @ResponseBody
-    @PostMapping(path = "/feign/article/publishArticle")
-    public String publishArticle(@RequestBody Article article);
+    @RequestMapping(path = "/feign/article/queryArticleByCategoryName")
+    public List<Article> queryArticleByCategoryName(@RequestParam("categoryName")String categoryName);
+
+
+    @ResponseBody
+    @GetMapping(path = "/feign/article/selectAllArticleByCreated")
+    public Map<String,Object> selectAllArticleByCreated(@RequestParam("pageNum") int pageNum,
+                                                        @RequestParam("pageSize") int pageSize);
+
+    @ResponseBody
+    @GetMapping(path = "/feign/article/queryArticleByTitleCount")
+    public int queryArticleByTitleCount(@RequestParam("title") String title);
+
+
+    @ResponseBody
+    @GetMapping(path = "/feign/article/queryArticleByTitle")
+    public List<Article> queryArticleByTitle(@RequestParam("pageNum") int pageNum,
+                                             @RequestParam("pageSize") int pageSize,
+                                             @RequestParam("title") String title);
+
 
 }

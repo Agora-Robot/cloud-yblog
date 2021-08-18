@@ -43,7 +43,23 @@ public class ArticleFallbackFeignImpl implements ArticleFallbackFeign {
     }
 
     @Override
-    public String publishArticle(Article article) {
-        return "发布失败！";
+    public List<Article> queryArticleByCategoryName(String categoryName) {
+        return null;
+    }
+
+
+    @Override
+    public Map<String, Object> selectAllArticleByCreated(int pageNum, int pageSize) {
+        return null;
+    }
+
+    @Override
+    public int queryArticleByTitleCount(String title) {
+        return 0;
+    }
+
+    @Override
+    public List<Article> queryArticleByTitle(int pageNum, int pageSize, String title) {
+        return null;
     }
 }

@@ -21,11 +21,40 @@ public interface ArticleFeign {
 
 
     @ResponseBody
+    @PostMapping(path = "/feign/article/publishArticle")
+    public String publishArticle(@RequestBody Article article);
+
+    @ResponseBody
+    @PostMapping(path = "/feign/article/changeArticle")
+    public String changeArticle(@RequestBody Article article);
+
+
+    @ResponseBody
     @GetMapping(path = "/feign/article/updateHits")
     public String updateHits(@RequestParam("id") long id);
 
 
+    @ResponseBody
+    @GetMapping(path = "/feign/article/updateAllowCommentTo1")
+    public String updateAllowCommentTo_1(@RequestParam("id") long id);
+
+    @ResponseBody
+    @GetMapping(path = "/feign/article/updateAllowCommentTo0")
+    public String updateAllowCommentTo_0(@RequestParam("id") long id);
 
 
+    @ResponseBody
+    @GetMapping(path = "/feign/article/updateRecommendTo1")
+    public String updateRecommendTo_1(@RequestParam("id") long id);
 
-    }
+
+    @ResponseBody
+    @GetMapping(path = "/feign/article/updateRecommendTo0")
+    public String updateRecommendTo_0(@RequestParam("id") long id);
+
+    @ResponseBody
+    @GetMapping(path = "/feign/article/deleteArticle")
+    public String deleteArticle(@RequestParam("articleid") long articleid);
+
+
+}
