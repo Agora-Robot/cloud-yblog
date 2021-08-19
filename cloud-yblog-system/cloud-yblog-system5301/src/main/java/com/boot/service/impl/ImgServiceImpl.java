@@ -15,9 +15,9 @@ public class ImgServiceImpl implements ImgService {
 
 
     @Override
-    public void addImgPath(String big_img, String small_img) {
+    public void addImgPath(long id,String big_img, String small_img) {
 
-        imgMapper.addImgPath(big_img, small_img);
+        imgMapper.addImgPath(id,big_img, small_img);
 
     }
 

@@ -26,4 +26,8 @@ public interface TagFallbackFeign {
     @ResponseBody
     @GetMapping(path = "/feign/tag/selectTagCount")
     public int selectTagCount();
+
+    @ResponseBody
+    @GetMapping(path = "/feign/tag/selectTagsEcharts")
+    public List<Tag> selectTags_echarts();
 }

@@ -19,6 +19,7 @@ import com.boot.pojo.Category;
 import com.boot.pojo.Tag;
 import com.boot.utils.Commons;
 import com.boot.utils.IpUtils;
+import com.boot.utils.SnowId;
 import com.boot.utils.SpringSecurityUtil;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -489,7 +490,7 @@ public class ArticleController {
     @ApiOperation("添加分类")
     public String addCategory(Category category, HttpSession session, Model model) {
         layuiJSON json = new layuiJSON();
-
+        category.setId(SnowId.nextId());
         try {
             categoryFeign.addCategory(category);
             json.setSuccess(true);

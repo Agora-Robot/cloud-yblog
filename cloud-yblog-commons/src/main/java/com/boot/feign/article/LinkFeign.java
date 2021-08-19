@@ -4,8 +4,7 @@ import com.boot.data.CommonResult;
 import com.boot.pojo.Link;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 /**
@@ -19,5 +18,17 @@ import java.util.List;
 @FeignClient(value = "cloud-yblog-article")
 public interface LinkFeign {
 
+
+    @ResponseBody
+    @PostMapping(path = "/feign/link/insertLink")
+    public String insertLink(@RequestBody Link link);
+
+    @ResponseBody
+    @PostMapping(path = "/feign/link/updateLink")
+    public String updateLink(@RequestBody Link link);
+
+    @ResponseBody
+    @GetMapping(path = "/feign/link/deleteLink")
+    public String deleteLink(@RequestParam("id") long id);
 
 }

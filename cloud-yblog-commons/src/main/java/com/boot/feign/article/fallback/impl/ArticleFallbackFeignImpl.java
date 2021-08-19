@@ -62,4 +62,9 @@ public class ArticleFallbackFeignImpl implements ArticleFallbackFeign {
     public List<Article> queryArticleByTitle(int pageNum, int pageSize, String title) {
         return null;
     }
+
+    @Override
+    public List<Article> selectArticleStatistic() {
+        return null;
+    }
 }

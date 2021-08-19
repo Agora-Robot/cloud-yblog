@@ -1,6 +1,6 @@
 package com.boot.dao;
 
-import com.boot.pojo.Blacklist;
+import com.boot.pojo.BlackList;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -13,11 +13,11 @@ import java.util.List;
 @Repository
 public interface BlacklistMapper {
 
-    List<Blacklist> selectBlackList();
+    List<BlackList> selectBlackList();
 
     void deleteBlackListByIp(@Param("ip") String ip);
 
-    void addBlackList(Blacklist blacklist);
+    void addBlackList(BlackList blacklist);
 
     String selectBlackListByIp(@Param("ip") String ip);
 

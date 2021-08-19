@@ -264,6 +264,16 @@ public class ArticleController {
     }
 
 
+    @ResponseBody
+    @GetMapping(path = "/selectArticleStatistic")
+    public List<Article> selectArticleStatistic(){
+
+        List<Article> articles = articleService.selectArticleStatistic();
+
+        return articles;
+    }
+
+
 
 
 }

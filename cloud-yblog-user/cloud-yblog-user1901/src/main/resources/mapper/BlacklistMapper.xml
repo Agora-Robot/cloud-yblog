@@ -5,7 +5,7 @@
 
 <mapper namespace="com.boot.dao.BlacklistMapper">
 
-    <select id="selectBlackList" resultType="com.boot.pojo.Blacklist">
+    <select id="selectBlackList" resultType="com.boot.pojo.BlackList">
         select * from t_blacklist
     </select>
 
@@ -14,7 +14,7 @@
     </delete>
 
 
-    <insert id="addBlackList" parameterType="com.boot.pojo.Blacklist">
+    <insert id="addBlackList" parameterType="com.boot.pojo.BlackList">
         insert into t_blacklist(id,black_ip,black_address) values(#{id},#{black_ip},#{black_address})
     </insert>
 

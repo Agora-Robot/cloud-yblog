@@ -72,5 +72,7 @@ public interface ArticleFallbackFeign {
                                              @RequestParam("pageSize") int pageSize,
                                              @RequestParam("title") String title);
 
-
+    @ResponseBody
+    @GetMapping(path = "/feign/article/selectArticleStatistic")
+    public List<Article> selectArticleStatistic();
 }

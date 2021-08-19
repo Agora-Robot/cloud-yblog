@@ -37,4 +37,9 @@ public interface CategoryFallbackFeign {
     @ResponseBody
     @GetMapping(path = "/feign/category/selectCategoryCount")
     public int selectCategoryCount();
+
+    @ResponseBody
+    @GetMapping(path = "/feign/category/selectCategoriesEcharts")
+    public List<Category> selectCategories_echarts();
+
 }

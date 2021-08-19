@@ -100,6 +100,13 @@ public class CategoryController {
     return Constant.OK;
   }
 
+  @ResponseBody
+  @GetMapping(path = "/selectCategoriesEcharts")
+  public List<Category> selectCategories_echarts(){
 
+    List<Category> categories = categoryService.selectCategories_echarts();
+
+    return categories;
+  }
 
 }

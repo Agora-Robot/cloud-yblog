@@ -5,7 +5,7 @@ import io.swagger.annotations.ApiModel;
 import java.io.Serializable;
 
 @ApiModel(value = "黑名单")
-public class Blacklist implements Serializable {
+public class BlackList implements Serializable {
 
     private long id;
     //黑名单Ip
@@ -39,7 +39,7 @@ public class Blacklist implements Serializable {
 
     @Override
     public String toString() {
-        return "Blacklist{" +
+        return "BlackList{" +
                 "id=" + id +
                 ", black_ip='" + black_ip + '\'' +
                 ", black_address='" + black_address + '\'' +

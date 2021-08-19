@@ -35,4 +35,9 @@ public class CategoryFallbackFeignImpl implements CategoryFallbackFeign {
     public int selectCategoryCount() {
         return 0;
     }
+
+    @Override
+    public List<Category> selectCategories_echarts() {
+        return null;
+    }
 }

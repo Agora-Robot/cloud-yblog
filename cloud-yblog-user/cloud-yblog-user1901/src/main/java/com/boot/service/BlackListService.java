@@ -1,16 +1,16 @@
 package com.boot.service;
 
-import com.boot.pojo.Blacklist;
+import com.boot.pojo.BlackList;
 
 import java.util.List;
 
-public interface BlacklistService {
+public interface BlackListService {
 
-    List<Blacklist> selectBlackList();
+    List<BlackList> selectBlackList();
 
     void deleteBlackListByIp(String ip);
 
-    void addBlackList(Blacklist blacklist);
+    void addBlackList(BlackList blacklist);
 
     boolean checkIpHasBlack(String ip); //检查ip是否在黑名单
 

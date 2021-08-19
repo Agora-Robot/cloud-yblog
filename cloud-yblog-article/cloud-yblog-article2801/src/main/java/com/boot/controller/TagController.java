@@ -47,5 +47,15 @@ public class TagController {
         return count;
     }
 
+    @ResponseBody
+    @GetMapping(path = "/selectTagsEcharts")
+    public List<Tag> selectTags_echarts(){
+
+        List<Tag> tags = tagService.selectTags_echarts();
+
+        return tags;
+    }
+
+
 
 }

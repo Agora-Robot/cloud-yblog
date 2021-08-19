@@ -14,4 +14,19 @@ public class LinkFallbackFeignImpl implements LinkFallbackFeign {
     public List<Link> selectAllLink() {
         return null;
     }
+
+    @Override
+    public int linkCount() {
+        return 0;
+    }
+
+    @Override
+    public List<Link> selectLinkByTitle(String title) {
+        return null;
+    }
+
+    @Override
+    public int selectCountByTitle(String title) {
+        return 0;
+    }
 }

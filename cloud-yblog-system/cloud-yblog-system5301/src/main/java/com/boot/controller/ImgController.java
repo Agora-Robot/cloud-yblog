@@ -1,12 +1,14 @@
 package com.boot.controller;
 
+import com.boot.constant.Constant;
+import com.boot.pojo.Img;
 import com.boot.service.ImgService;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
 @RequestMapping(path = "/feign/img")
@@ -24,6 +26,39 @@ public class ImgController {
 
         return count;
     }
+
+    @ResponseBody
+    @GetMapping(path = "/selectAllImg")
+    public List<Img> selectAllImg(){
+        List<Img> imgs = imgService.selectAllImg();
+        return imgs;
+    }
+
+    @ResponseBody
+    @PostMapping(path = "/addImgPath")
+    public String addImgPath(@RequestParam("id") long id,
+                             @RequestParam("big") String big,
+                             @RequestParam("small") String small){
+
+        imgService.addImgPath(id, big, small);
+
+        return Constant.OK;
+    }
+
+    @ResponseBody
+    @GetMapping(path = "/selectImgByid")
+    public Img selectImgByid(@RequestParam("id") long id){
+        Img img = imgService.selectImgByid(id);
+        return img;
+    }
+
+    @ResponseBody
+    @GetMapping(path = "/deleteImgByid")
+    public String deleteImgByid(@RequestParam("id") long id){
+        imgService.deleteImgByid(id);
+        return Constant.OK;
+    }
+
 
 
 }

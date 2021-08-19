@@ -1,20 +1,21 @@
 package com.boot.service.impl;
 
-import com.boot.pojo.Blacklist;
-import com.boot.service.BlacklistService;
+import com.boot.pojo.BlackList;
+import com.boot.service.BlackListService;
+import com.boot.utils.SnowId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class BlacklistServiceImpl implements BlacklistService {
+public class BlackListServiceImpl implements BlackListService {
 
     @Autowired
     private com.boot.dao.BlacklistMapper blacklistMapper;
 
     @Override
-    public List<Blacklist> selectBlackList() {
+    public List<BlackList> selectBlackList() {
         return blacklistMapper.selectBlackList();
     }
 
@@ -24,7 +25,8 @@ public class BlacklistServiceImpl implements BlacklistService {
     }
 
     @Override
-    public void addBlackList(Blacklist blacklist) {
+    public void addBlackList(BlackList blacklist) {
+        blacklist.setId(SnowId.nextId());
         blacklistMapper.addBlackList(blacklist);
     }
 

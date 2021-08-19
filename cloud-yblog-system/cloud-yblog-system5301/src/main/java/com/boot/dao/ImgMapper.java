@@ -12,7 +12,7 @@ import java.util.List;
 public interface ImgMapper {
 
 
-    void addImgPath(@Param("big") String big_img, @Param("small") String small_img);
+    void addImgPath(@Param("id") long id,@Param("big") String big_img, @Param("small") String small_img);
 
     List<Img> selectAllImg();
 
