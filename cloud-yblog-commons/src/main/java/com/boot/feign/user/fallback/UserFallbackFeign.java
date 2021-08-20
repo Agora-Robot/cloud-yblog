@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.List;
+
 @Component
 @FeignClient(value = "cloud-yblog-user",fallback = UserFallbackFeignImpl.class)
 public interface UserFallbackFeign {
@@ -41,6 +43,20 @@ public interface UserFallbackFeign {
     @GetMapping(path = "/feign/user/userCount")
     public int userCount();
 
+    @ResponseBody
+    @GetMapping(path = "/feign/user/selectAllUser")
+    public List<User> selectAllUser(@RequestParam("page") int page,
+                                    @RequestParam("limit") int limit);
+
+    @ResponseBody
+    @GetMapping(path = "/feign/user/selectUserByUsernameAndEmail")
+    public List<User> selectUserByUsernameAndEmail(@RequestParam("username") String username,
+                                                   @RequestParam("email") String email);
+
+    @ResponseBody
+    @GetMapping(path = "/feign/user/selectUserCountByUsernameAndEmail")
+    public int selectUserCountByUsernameAndEmail(@RequestParam("username") String username,
+                                                 @RequestParam("email") String email);
 
 
 

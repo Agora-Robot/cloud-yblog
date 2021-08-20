@@ -19,4 +19,14 @@ public class OperationLogFallbackFeignImpl implements OperationLogFallbackFeign 
     public String operationLogData(int page, int limit) {
         return null;
     }
+
+    @Override
+    public List<OperationLog> selectAllOperationLog(int page, int limit) {
+        return null;
+    }
+
+    @Override
+    public int selectOperationCount() {
+        return 0;
+    }
 }

@@ -6,10 +6,6 @@ import com.boot.feign.log.fallback.LoginLogFallbackFeign;
 import com.boot.feign.log.fallback.OperationLogFallbackFeign;
 import com.boot.pojo.LoginLog;
 import com.boot.pojo.OperationLog;
-import com.boot.pojo.loginLog;
-import com.boot.pojo.operationLog;
-import com.boot.service.LoginLogService;
-import com.boot.service.OperationService;
 import com.github.pagehelper.PageHelper;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,8 +36,7 @@ public class LogController {
                                @RequestParam(value = "limit", defaultValue = "10") int limit){
         layuiData<LoginLog> data = new layuiData<>();
 
-        PageHelper.startPage(page,limit);
-        List<LoginLog> loginLogs = loginLogFallbackFeign.selectLoginLogAll();
+        List<LoginLog> loginLogs = loginLogFallbackFeign.selectLoginLogAll(page, limit);
 
         int count = loginLogFallbackFeign.loginLogCount();
 
@@ -59,8 +54,7 @@ public class LogController {
 
         layuiData<OperationLog> data = new layuiData<>();
 
-        PageHelper.startPage(page, limit);
-        List<OperationLog> operationLogs = operationLogFallbackFeign.selectAllOperationLog();
+        List<OperationLog> operationLogs = operationLogFallbackFeign.selectAllOperationLog(page, limit);
 
         int count = operationLogFallbackFeign.selectOperationCount();
 

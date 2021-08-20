@@ -36,4 +36,18 @@ public class SettingController {
 
     return "success";
   }
+
+  @ResponseBody
+  @PostMapping(path = "/changeSettingByUser")
+  public String changeSettingByUser(@RequestBody Setting setting) {
+
+    settingService.changeSettingByUser(setting);
+
+    return "success";
+  }
+
+
+
+
+
 }

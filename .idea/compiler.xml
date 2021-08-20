@@ -10,6 +10,7 @@
         <module name="cloud-yblog-log6201" />
         <module name="cloud-yblog-article2801" />
         <module name="cloud-yblog-gateway3201" />
+        <module name="cloud-yblog-email" />
         <module name="cloud-yblog-admin91" />
         <module name="cloud-yblog-doc" />
         <module name="cloud-yblog-web81" />
@@ -19,9 +20,8 @@
         <module name="cloud-yblog-monitor8901" />
         <module name="cloud-yblog-search5566" />
         <module name="cloud-alibaba-seata-art3311" />
-        <module name="cloud-yblog-commons" />
         <module name="cloud-yblog-system5301" />
-        <module name="cloud-yblog-email" />
+        <module name="cloud-yblog-commons" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

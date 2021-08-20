@@ -46,4 +46,28 @@ public class LoginLogController {
         return JSON.toJSONString(data);
     }
 
+
+    @ResponseBody
+    @GetMapping(path = "/selectLoginLogAll")
+    public List<LoginLog> selectLoginLogAll(@RequestParam("page") int page,
+                                            @RequestParam("limit") int limit){
+
+        PageHelper.startPage(page,limit);
+        List<LoginLog> loginLogs = loginLogService.selectLoginLogAll();
+
+        return loginLogs;
+    }
+    @ResponseBody
+    @GetMapping(path = "/loginLogCount")
+    public int loginLogCount(){
+
+        int count = loginLogService.loginLogCount();
+
+        return count;
+    }
+
+
+
+
+
 }

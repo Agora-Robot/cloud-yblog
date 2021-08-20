@@ -17,6 +17,22 @@ import org.springframework.web.bind.annotation.*;
 @FeignClient(value = "cloud-yblog-user")
 public interface UserFeign {
 
+    @ResponseBody
+    @PostMapping(path = "/feign/user/updateEmail")
+    public String updateEmail(@RequestParam("email") String email,
+                              @RequestParam("name") String name);
 
+    @ResponseBody
+    @PostMapping(path = "/feign/user/updatePassword")
+    public String updatePassword(@RequestParam("name") String name,
+                                 @RequestParam("password") String password);
+
+    @ResponseBody
+    @GetMapping(path = "/feign/user/updateValidTo1")
+    public String updateValidTo_1(@RequestParam("name") String name);
+
+    @ResponseBody
+    @GetMapping(path = "/feign/user/updateValidTo0")
+    public String updateValidTo_0(@RequestParam("name") String name);
 
 }

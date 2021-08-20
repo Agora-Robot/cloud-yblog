@@ -26,4 +26,15 @@ public interface OperationLogFallbackFeign {
     public String operationLogData(@RequestParam(value = "page",defaultValue = "1") int page,
                                    @RequestParam(value = "limit",defaultValue = "10") int limit);
 
+
+    @ResponseBody
+    @GetMapping(path = "/feign/operationlog/selectAllOperationLog")
+    public List<OperationLog> selectAllOperationLog(@RequestParam("page") int page,
+                                                    @RequestParam("limit") int limit);
+
+    @ResponseBody
+    @GetMapping(path = "/feign/operationlog/selectOperationCount")
+    public int selectOperationCount();
+
+
 }

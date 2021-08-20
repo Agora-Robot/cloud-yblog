@@ -5,6 +5,8 @@ import com.boot.pojo.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 @Slf4j
 public class UserFallbackFeignImpl implements UserFallbackFeign {
@@ -31,6 +33,21 @@ public class UserFallbackFeignImpl implements UserFallbackFeign {
 
     @Override
     public int userCount() {
+        return 0;
+    }
+
+    @Override
+    public List<User> selectAllUser(int page, int limit) {
+        return null;
+    }
+
+    @Override
+    public List<User> selectUserByUsernameAndEmail(String username, String email) {
+        return null;
+    }
+
+    @Override
+    public int selectUserCountByUsernameAndEmail(String username, String email) {
         return 0;
     }
 }

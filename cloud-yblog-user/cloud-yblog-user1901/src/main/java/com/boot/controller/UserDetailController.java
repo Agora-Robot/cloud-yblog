@@ -1,15 +1,13 @@
 package com.boot.controller;
 
+import com.boot.constant.Constant;
 import com.boot.data.CommonResult;
 import com.boot.pojo.UserDetail;
 import com.boot.service.UserDetailService;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping(path = "/feign/userdetail")
@@ -28,5 +26,13 @@ public class UserDetailController {
         return userDetail;
     }
 
+    @ResponseBody
+    @PostMapping(path = "/updateUserDetail")
+    public String updateUserDetail(@RequestBody UserDetail userDetail){
+
+        userDetailService.updateUserDetail(userDetail);
+
+        return Constant.OK;
+    }
 
 }

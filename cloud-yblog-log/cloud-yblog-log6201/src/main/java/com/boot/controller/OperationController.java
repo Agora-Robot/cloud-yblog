@@ -60,5 +60,24 @@ public class OperationController {
         return JSON.toJSONString(data);
     }
 
+    @ResponseBody
+    @GetMapping(path = "/selectAllOperationLog")
+    public List<OperationLog> selectAllOperationLog(@RequestParam("page") int page,
+                                                    @RequestParam("limit") int limit){
+
+        PageHelper.startPage(page, limit);
+        List<OperationLog> operationLogs = operationService.selectAllOperationLog();
+
+        return operationLogs;
+    }
+    @ResponseBody
+    @GetMapping(path = "/selectOperationCount")
+    public int selectOperationCount(){
+
+
+        int count = operationService.selectOperationCount();
+
+        return count;
+    }
 
 }

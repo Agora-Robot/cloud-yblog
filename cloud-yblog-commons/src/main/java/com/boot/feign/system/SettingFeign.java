@@ -22,4 +22,8 @@ public interface SettingFeign {
     @PostMapping(path = "/feign/setting/addSettingByUser")
     public String addSettingByUser(@RequestBody Setting setting);
 
+    @ResponseBody
+    @PostMapping(path = "/feign/setting/changeSettingByUser")
+    public String changeSettingByUser(@RequestBody Setting setting);
+
 }
