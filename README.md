@@ -103,6 +103,106 @@ Gitee: https://gitee.com/youzhengjie/springBootBlog
 
 ## 如何使用？
 
+> 需要有springCloud alibaba和springCloud+springBoot的基础（最起码要会安装软件！！！）
+
+* 启动Nginx服务器,Nginx.conf配置文件如下：
+```text
+worker_processes  2;
+worker_rlimit_nofile 10240;
+events {
+    worker_connections  10240;
+	
+}
+
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+    sendfile        on;
+	
+	server_tokens off;
+     client_max_body_size    100m;
+    #tcp_nopush     on;
+    #keepalive_timeout  0;
+     keepalive_timeout  65;
+	client_header_buffer_size 4k;
+	open_file_cache max=10240 inactive=20s;
+	open_file_cache_valid 30s;
+	open_file_cache_min_uses 1;
+    #gzip  on;
+     gzip  on; 
+     gzip_http_version 1.1; 
+     gzip_vary on; 
+     gzip_comp_level 6; 
+     gzip_proxied any; 
+     gzip_types text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript application/x-httpd-php image/jpeg image/gif image/png; 
+     gzip_buffers 16 8k; 
+     gzip_disable "MSIE [1-6]\.";
+	fastcgi_connect_timeout 300;
+	fastcgi_send_timeout 300;
+	fastcgi_read_timeout 300;
+	fastcgi_buffer_size 64k;
+	fastcgi_buffers 4 64k;
+	fastcgi_busy_buffers_size 128k;
+	fastcgi_temp_file_write_size 128k;
+	
+
+	upstream cloudYblog.index.cn{
+		server localhost:81 weight=1;
+	}
+	
+	
+	upstream cloudYblog.admin.cn{
+		server localhost:91 weight=1;
+	}
+	
+	
+	#cloud-yblog的web模块首页
+    server {
+        listen       80;
+        server_name  localhost;
+		
+
+        location / {
+            root   html;
+            index  index.html index.htm;
+			proxy_pass http://cloudYblog.index.cn;
+        }      
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   html;
+        }
+    
+    }
+	
+	
+	#cloud-yblog的admin模块后台
+	 server {
+        listen       90;
+        server_name  localhost;
+		
+
+        location / {
+            root   html;
+            index  index.html index.htm;
+			proxy_pass http://cloudYblog.admin.cn;
+        }      
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   html;
+        }
+    
+    }	 	
+}
+```
+
+* 把cloud-yblog-doc模块中的工具放到自己的电脑上安装。
+
+* 启动Nacos、seata、sentinel、zipkin、Nginx、Redis、ElasticSearch
+
+* 导入cloud-yblog-doc的sql文件到你们MySQL上
+
+* 如果是虚拟机部署或者docker部署的话，请检查是否有端口占用并打开本系统需要的端口。
+
 * 第一次使用需要初始化cloud-yblog,只需要把cloud-yblog-search模块中的SearchController
 的loadArticleToElaticSearch方法的注释解除后运行一次即可，然后再注释回去。
 
