@@ -75,7 +75,24 @@ public class VisitorController {
     }
 
 
+    @ResponseBody
+    @GetMapping(path = "/selectVisitor")
+    public List<Visitor> selectVisitor(@RequestParam("page") int page,
+                                @RequestParam("limit") int limit){
+
+        PageHelper.startPage(page,limit);
+        List<Visitor> visitors = visitorService.selectVisitor();
 
 
+        return visitors;
+    }
+    @ResponseBody
+    @GetMapping(path = "/selectVistorCount")
+    public int selectVistorCount(){
+
+        int count = visitorService.selectVistorCount();
+
+        return count;
+    }
 
 }

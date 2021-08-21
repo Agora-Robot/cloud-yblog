@@ -35,8 +35,7 @@ public class VisitorController {
 
         layuiData<Visitor> visitorlayuiData = new layuiData<>();
 
-        PageHelper.startPage(page,limit);
-        List<Visitor> visitors = visitorFallbackFeign.selectVisitor();
+        List<Visitor> visitors = visitorFallbackFeign.selectVisitor(page, limit);
 
         int count = visitorFallbackFeign.selectVistorCount();
         visitorlayuiData.setCode(0);

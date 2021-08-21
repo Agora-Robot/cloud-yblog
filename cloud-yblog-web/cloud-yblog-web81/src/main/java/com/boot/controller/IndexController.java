@@ -116,8 +116,6 @@ public class IndexController {
 
     ModelAndView modelAndView = new ModelAndView();
 
-    //        System.out.println("测试负载均衡==当前端口是："+port);
-
     // 传setting给前端
     this.setting(session, modelAndView);
 
@@ -192,7 +190,9 @@ public class IndexController {
     // 传setting给前端
     this.setting(session, modelAndView);
 
+    modelAndView.addObject("likeFallbackFeign",likeFallbackFeign);
     modelAndView.addObject("articleFallbackFeign", articleFallbackFeign);
+
     SecurityContextImpl securityContext =
         (SecurityContextImpl) session.getAttribute("SPRING_SECURITY_CONTEXT");
     if (securityContext != null) {

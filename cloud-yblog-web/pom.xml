@@ -16,6 +16,11 @@
     </modules>
 
     <dependencies>
+        <!--        引入springcloud sleuth+zipkin-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-zipkin</artifactId>
+        </dependency>
         <!--        引入seata依赖-->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>

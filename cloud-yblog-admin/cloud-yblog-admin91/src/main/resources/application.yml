@@ -3,6 +3,13 @@ server:
 spring:
   application:
     name: cloud-yblog-admin
+  #zipkin服务所在地址
+  zipkin:
+    base-url: http://localhost:9411/
+  #配置采样百分比,开发环境可以设置为1，表示全部，生产就用默认
+  sleuth:
+    sampler:
+      probability: 1
   thymeleaf:
     cache: false    #关闭thymeleaf的缓存
   redis:
