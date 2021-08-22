@@ -201,10 +201,46 @@ http {
 
 * 导入cloud-yblog-doc的sql文件到你们MySQL上
 
+* 注意：如需使用爬虫功能，则需要对mysql做出如下配置。
+* 1.修改mysql的配置文件mysql/bin/my.ini, 添加如下内容：
+```text
+[client]
+default-character-set=utf8mb4
+ 
+[mysql]
+default-character-set=utf8mb4
+ 
+[mysqld]
+character-set-client-handshake=FALSE
+character-set-server=utf8mb4
+collation-server=utf8mb4_unicode_ci
+init_connect='SET NAMES utf8mb4'
+```
+* 2.重启数据库服务。点击此电脑，右键打开管理，点击服务和应用程序、点击服务、找到MYSQL服务
+，右键重新启动即可
+* 3.进入mysql命令行，输入ALTER TABLE TABLE_NAME CONVERT TO CHARACTER SET utf8mb4;
+把mysql的utf8编码切换成utf8mb4，以支持爬取的emoji表情，不然遇到4字节的宽字符就会插入异常了。
+
 * 如果是虚拟机部署或者docker部署的话，请检查是否有端口占用并打开本系统需要的端口。
 
 * 第一次使用需要初始化cloud-yblog,只需要把cloud-yblog-search模块中的SearchController
 的loadArticleToElaticSearch方法的注释解除后运行一次即可，然后再注释回去。
+
+
+* 评论模块需要自己去https://www.leancloud.cn/ 注册，获取AppID、AppKey，并加入到下面对应的js
+```js
+new Valine({
+        el: '#vcomments',
+        appId: 'xxx',
+        appKey: 'yyy',
+        placeholder: '请输入内容',
+        pageSize: 3 ,
+        recordIP: true,
+        avatar:'',
+        requiredFields: ['nick']
+    });
+````
+
 
 
 
@@ -213,6 +249,7 @@ http {
 ![01.png](https://gitee.com/youzhengjie/cloud-yblog/raw/master/cloud-yblog-doc/images/01.png)
 ![02.png](https://gitee.com/youzhengjie/cloud-yblog/raw/master/cloud-yblog-doc/images/02.png)
 ![03.png](https://gitee.com/youzhengjie/cloud-yblog/raw/master/cloud-yblog-doc/images/03.png)
+后台界面👇
 ![04.png](https://gitee.com/youzhengjie/cloud-yblog/raw/master/cloud-yblog-doc/images/04.png)
 ![05.png](https://gitee.com/youzhengjie/cloud-yblog/raw/master/cloud-yblog-doc/images/05.png)
 ![06.png](https://gitee.com/youzhengjie/cloud-yblog/raw/master/cloud-yblog-doc/images/06.png)
@@ -229,5 +266,8 @@ http {
 ![17.png](https://gitee.com/youzhengjie/cloud-yblog/raw/master/cloud-yblog-doc/images/17.png)
 ![18.png](https://gitee.com/youzhengjie/cloud-yblog/raw/master/cloud-yblog-doc/images/18.png)
 ![19.png](https://gitee.com/youzhengjie/cloud-yblog/raw/master/cloud-yblog-doc/images/19.png)
+![22.png](https://gitee.com/youzhengjie/cloud-yblog/raw/master/cloud-yblog-doc/images/22.png)
+登录界面👇
 ![20.png](https://gitee.com/youzhengjie/cloud-yblog/raw/master/cloud-yblog-doc/images/20.png)
+注册界面👇
 ![21.png](https://gitee.com/youzhengjie/cloud-yblog/raw/master/cloud-yblog-doc/images/21.png)

@@ -117,7 +117,7 @@
                              th:each="img: ${imgs}">
                             <a target="_blank">
                                 <img class="img-thumbnail img-fluid img-responsive"
-                                     th:src="${img.getSmall_img()}">
+                                     th:src="'http://localhost:80'+${img.getSmall_img()}">
                             </a>
 
                             <div class="clearfix">
