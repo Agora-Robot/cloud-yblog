@@ -134,7 +134,8 @@
                 },
                 {
                     title: '拥有权限',
-                    field: 'authority_id',  //***注意这个字段是对象的对象的字段，必须在一级对象建立getAuthority_id方法获取这个字段
+
+                    templet: '<div>{{createFormat(d.userAuthority.authority_id)}}</div>',
                     align: 'center'
                 },
                 {
@@ -295,6 +296,17 @@
             table.reload('user-table');
         }
     })
+    
+    //解决layui的field获取属性中的类中的属性无法显示问题
+    //意思是：比如给你user对象，你要获取user对象中UserAuthority属性的authority_id值
+    // 单单用user.UserAuthority.authority_id是不行的，是获取不到的
+    function createFormat(obj) {
+
+        return obj;
+    }
+    
+    
+    
 </script>
 </body>
 </html>

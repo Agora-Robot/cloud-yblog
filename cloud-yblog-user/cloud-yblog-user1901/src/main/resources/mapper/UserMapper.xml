@@ -40,7 +40,7 @@
         t_user,
         t_user_detail
         WHERE
-        t_user.username = t_user_detail.NAME
+        t_user.username = t_user_detail.name
         AND t_user.username = #{username}
     </select>
 

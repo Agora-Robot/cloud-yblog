@@ -131,7 +131,7 @@ public class FileController {
     public ResponseEntity<byte[]> downloadFile(@RequestParam(value = "f") long f) throws IOException {
 
         Img img = imgFallbackFeign.selectImgByid(f);
-        String staticPath = FileUtil.getStaticPath();
+        String staticPath = FileUtil.getStaticPathByRedis();
         String big_img = img.getBig_img();
         staticPath += big_img;
         File file = new File(staticPath);
@@ -159,8 +159,7 @@ public class FileController {
             String big_img = img.getBig_img();
             String small_img = img.getSmall_img();
 
-            String p = ResourceUtils.getURL("classpath:static").getPath();
-            String path=p.substring(1,p.length());
+            String path=FileUtil.getStaticPathByRedis();
             String big=path+big_img;
             String small=path+small_img;
 

@@ -1,5 +1,7 @@
 package com.boot.utils;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ResourceUtils;
 
@@ -10,13 +12,18 @@ import java.util.UUID;
 public final class FileUtil {
 
 
+    private static RedisTemplate redisTemplate;
+
+    @Autowired
+    public  void setRedisTemplate(RedisTemplate redisTemplate) {
+        FileUtil.redisTemplate = redisTemplate;
+    }
+
     /**
      * 文件工具类
      *
      * @return
      */
-
-
 
     //获取文件后缀名（会转换成小写）
     public static final String getFileSuffix(String originalFilename){
@@ -57,16 +64,25 @@ public final class FileUtil {
         return substring;
     }
 
+    //因为图片是存储在web模块的target中，所以如果我们之前调用上面的方法获取路径是不行的，所以要从缓存获取
+    //web模块在启动时会把路径放到redis中
+    public static final String getStaticPathByRedis(){
+
+        String staticPath = (String) redisTemplate.opsForValue().get("staticPath");
+
+        return staticPath;
+    }
+
     //获取大图文件夹路径
     public static final String getBigImgPath() throws FileNotFoundException {
-        String staticPath = getStaticPath();
+        String staticPath = getStaticPathByRedis();
         staticPath+="/big_img/";
         return staticPath;
     }
 
     //获取缩略图文件夹路径
     public static final String getSmallImgPath() throws FileNotFoundException {
-        String staticPath = getStaticPath();
+        String staticPath = getStaticPathByRedis();
         staticPath+="/small_img/";
         return staticPath;
     }
@@ -88,7 +104,7 @@ public final class FileUtil {
     //获取用户头像所在地址
     public static final String writeImage(String originalFilename, byte[] fileByteArray) throws IOException {
 
-        String staticPath = FileUtil.getStaticPath();
+        String staticPath = FileUtil.getStaticPathByRedis();
 
         String usericonPath_datebase="/user_img/"; //存入数据库的地址
         String randomName = FileUtil.getRandomName();
@@ -109,7 +125,7 @@ public final class FileUtil {
     //获取logo所在地址
     public static final String writeImageLogo(String originalFilename, byte[] fileByteArray) throws IOException {
 
-        String staticPath = FileUtil.getStaticPath();
+        String staticPath = FileUtil.getStaticPathByRedis();
 
         String usericonPath_datebase="/user/img/"; //存入数据库的地址
         String randomName = FileUtil.getRandomName();

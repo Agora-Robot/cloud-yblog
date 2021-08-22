@@ -14,7 +14,7 @@ public interface UserService {
 
     void updateEmail(String email, String username);
 
-    User selectUserInfoByuserName(String username);
+    User selectUserInfoByuserName(String name);
 
     String selectPasswordByuserName(String username);
 

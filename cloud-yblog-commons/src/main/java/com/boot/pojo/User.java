@@ -18,10 +18,11 @@ public class User implements Serializable {
 
     private UserDetail userDetail;
 
-    //    新增加的get方法
-    public long getAuthority_id() {
-        return UserAuthority.getAuthority_id();
-    }
+    //    新增加的get方法-----加了这个远程feign调用就会报错》》》
+//    public int getAuthority_id() {
+//        return UserAuthority.getAuthority_id();
+//    }
+
 
     public long getId() {
         return id;
@@ -89,14 +90,14 @@ public class User implements Serializable {
 
     @Override
     public String toString() {
-        return "user{" +
+        return "User{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
                 ", date=" + date +
                 ", valid=" + valid +
-                ", user_authority=" + UserAuthority +
+                ", UserAuthority=" + UserAuthority +
                 ", userDetail=" + userDetail +
                 '}';
     }

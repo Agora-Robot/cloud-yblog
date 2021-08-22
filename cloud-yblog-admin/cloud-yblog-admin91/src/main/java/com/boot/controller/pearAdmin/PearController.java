@@ -1,6 +1,7 @@
 package com.boot.controller.pearAdmin;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.boot.annotation.Operation;
 import com.boot.annotation.Visitor;
 import com.boot.data.ResponseData.layuiData;
@@ -23,10 +24,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
@@ -35,6 +33,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -172,7 +171,10 @@ public class PearController {
         layuiJSON json=new layuiJSON();
         HashMap<String, String> hashMap = new HashMap<>();
         String username = springSecurityUtil.currentUser(session);
+
+
         User user = userFallbackFeign.selectUserInfoByuserName(username);
+
         String icon = user.getUserDetail().getIcon();
         if (StringUtils.isEmpty(icon)){
             hashMap.put("icon","/pear-admin/images/avatar.jpg");
@@ -280,7 +282,7 @@ public class PearController {
     //个人资料
     @Operation("进入个人资料界面")
     @Visitor(desc = "个人资料")
-    @RequestMapping(path = "/touser")
+    @GetMapping(path = "/touser")
     public String touser(HttpSession session, Model model) {
 
         String name = springSecurityUtil.currentUser(session);

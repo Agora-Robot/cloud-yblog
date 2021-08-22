@@ -3,14 +3,20 @@ package com.boot;
 import com.boot.config.ScanClassProperties;
 import com.boot.config.SwaggerConfig;
 import com.boot.config.WebConfig;
+import com.boot.utils.FileUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Import;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
+import javax.annotation.PostConstruct;
+import java.io.FileNotFoundException;
 
 /**
  * @author 游政杰
@@ -27,8 +33,19 @@ public class WebApplication81 {
 
   public static void main(String[] args) {
       SpringApplication.run(WebApplication81.class,args);
-
-
-
   }
+
+  @Autowired
+  private RedisTemplate redisTemplate;
+
+  @PostConstruct
+  public void initStaticPath() throws FileNotFoundException {
+
+      String staticPath = FileUtil.getStaticPath();
+
+      redisTemplate.opsForValue().set("staticPath",staticPath);
+      
+  }
+
+
 }

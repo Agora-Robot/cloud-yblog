@@ -33,8 +33,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User selectUserInfoByuserName(String username) {
-        return userMapper.selectUserInfoByuserName(username);
+    public User selectUserInfoByuserName(String name) {
+        return userMapper.selectUserInfoByuserName(name);
     }
 
     @Override

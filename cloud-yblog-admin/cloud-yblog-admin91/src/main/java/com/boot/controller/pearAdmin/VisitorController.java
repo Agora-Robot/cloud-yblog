@@ -1,9 +1,12 @@
 package com.boot.controller.pearAdmin;
 
 import com.alibaba.fastjson.JSON;
+import com.boot.constant.Constant;
+import com.boot.data.ResponseData.ResponseJSON;
 import com.boot.data.ResponseData.layuiData;
 import com.boot.feign.log.fallback.VisitorFallbackFeign;
 import com.boot.pojo.Visitor;
+import com.boot.utils.IpToAddressUtil;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -44,6 +47,23 @@ public class VisitorController {
         visitorlayuiData.setData(visitors);
 
         return JSON.toJSONString(visitorlayuiData);
+    }
+
+
+    @RequestMapping(path = "/searchIpaddress")
+    @ResponseBody
+    public String searchIpAddress(String ip1, String ip2, String ip3, String ip4) {
+        String ip = ip1 + "." + ip2 + "." + ip3 + "." + ip4; //真正的ip
+        System.out.println(ip);
+
+        String cityInfo = IpToAddressUtil.getCityInfo(ip);
+
+        ResponseJSON responseJSON = new ResponseJSON();
+
+        responseJSON.setData(cityInfo);
+
+        responseJSON.setResult(Constant.SUCCESS);
+        return JSON.toJSONString(responseJSON);
     }
 
 
