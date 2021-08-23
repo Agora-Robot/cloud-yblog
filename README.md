@@ -242,6 +242,86 @@ new Valine({
 ````
 
 
+##### Linux+Docker容器化部署
+* 前提：你的Linux系统必须要安装了Docker。（然后按顺序执行下面的命令）
+* 首先要启动docker,因为docker默认是关闭的，需要自己去开启
+* ```shell script
+  systemctl start docker    #启动docker容器
+  systemctl start firewalld  #打开防火墙
+  firewall-cmd --list-port   #查看防火墙已经打开的端口
+  ######重要：记得打开端口
+  firewall-cmd --zone=public --add-port=91/tcp --permanent  #打开91端口
+  firewall-cmd --zone=public --add-port=2801/tcp --permanent  #打开2801端口
+  firewall-cmd --zone=public --add-port=5672/tcp --permanent  #打开5672端口
+  firewall-cmd --zone=public --add-port=15672/tcp --permanent #打开15672端口
+  firewall-cmd --zone=public --add-port=3306/tcp --permanent
+  firewall-cmd --zone=public --add-port=6379/tcp --permanent
+  firewall-cmd --zone=public --add-port=5601/tcp --permanent
+  firewall-cmd --zone=public --add-port=9100/tcp --permanent
+  firewall-cmd --zone=public --add-port=9200/tcp --permanent
+  firewall-cmd --zone=public --add-port=1660/tcp --permanent
+  firewall-cmd --zone=public --add-port=3201/tcp --permanent
+  firewall-cmd --zone=public --add-port=6201/tcp --permanent
+  firewall-cmd --zone=public --add-port=8901/tcp --permanent
+  firewall-cmd --zone=public --add-port=5566/tcp --permanent
+  firewall-cmd --zone=public --add-port=5301/tcp --permanent
+  firewall-cmd --zone=public --add-port=1901/tcp --permanent
+  firewall-cmd --zone=public --add-port=80/tcp --permanent
+  firewall-cmd --zone=public --add-port=81/tcp --permanent
+  
+  ####因为使用到了springCloud alibaba组件，所以要额外打开一些端口
+  firewall-cmd --zone=public --add-port=8848/tcp --permanent  #nacos端口
+  firewall-cmd --zone=public --add-port=8720/tcp --permanent  #sentinel传输端口
+  firewall-cmd --zone=public --add-port=8080/tcp --permanent #sentinel dashboard
+  firewall-cmd --zone=public --add-port=8091/tcp --permanent #seata端口
+  firewall-cmd --zone=public --add-port=9411/tcp --permanent #zipkin端口
+  
+  ####重要：记得重新加载防火墙（不然上面的设置不会生效）
+  firewall-cmd --reload
+  
+  ```
+* =>  **1:Docker安装关系型数据库--MySQL 教程**  <=
+* ```shell script
+    docker pull mysql:5.7  #从从Docker仓库里面拉取mysql5.7
+    docker images          #查看从Docker镜像
+    docker run -itd --name yblog-mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=18420163207 mysql:5.7   #执行从Docker镜像，生成从Docker的mysql容器，返回mysql的实例
+    docker ps              #查看从Docker容器实例
+    docker exec -it yblog-mysql /bin/bash  #执行mysql容器实例
+    mysql -u root -p       #紧接着执行这句命令，然后就输入你的密码就行了
+  ```
+* =>  **2:Docker安装非关系型数据库--Redis 教程**  <=
+* ```shell script
+    docker pull redis:latest   #从Docker仓库拉取最新的Redis镜像
+    docker run -itd --name yblog-redis -p 6379:6379 redis  #运行redis镜像，生成对应容器实例
+    docker exec -it yblog-redis /bin/bash  
+    redis-cli    #输入就能进入redis客户端
+  ```
+
+* =>  **3:Docker安装消息队列--RabbitMQ 教程**  <=
+* ```shell script
+    docker pull rabbitmq    #从Docker仓库拉取最新的RabbitMQ镜像
+    docker run -d --hostname my-rabbit --name yblog-rabbit -p 15672:15672 -p 5672:5672 rabbitmq  #运行RabbitMQ镜像
+    docker exec -it yblog-rabbit /bin/bash   #进入RabbitMQ容器
+    rabbitmq-plugins enable rabbitmq_management   #安装RabbitMQ的插件
+  ```
+* **注意：要打开RabbitMQ的可视化界面，创建一个虚拟主机为：/ems**
+
+* **4:用Navicat把cloud-yblog-doc模块中的数据库全部导入到Docker的mysql中，即可！！！**
+
+* **5:修改配置文件的IP为你的Linux系统的IP然后打成jar包，并且把cloud-yblog各个微服务打出来的Jar包传入到Linux系统，然后通过java -jar jar包名  的命令启动即可**
+
+
+##### 第三方登录
+###### gitee
+* 接入gitee第三方授权配置,先在gitee的第三方应用上对网站进行授权，获得Client ID和Client Secret和回调地址,并放到cloud-yblog-web模块的application.yml中即可
+
+###### GitHub
+* GitHub第三方配置有点复杂，也弄了一两天，主要还是GitHub中国地区登录很慢
+* 我们只需要把cloud-yblog-commons模块中的com.boot.GitHubConstant的CLIENT_ID和CLIENT_SECRET换成自己的
+* 然后在login.html的GitHub第三方登录超链接中client_id=xxx换成自己的id，即可
+
+
+
 
 
 ### 图片演示
