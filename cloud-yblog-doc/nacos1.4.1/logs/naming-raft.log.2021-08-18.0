@@ -1,0 +1,76 @@
+2021-08-18 09:17:08,437 INFO raft peers changed: [Member{ip='192.168.3.16', port=8848, state=UP, extendInfo={raftPort=7848}}]
+
+2021-08-18 09:17:08,477 INFO initializing Raft sub-system
+
+2021-08-18 09:17:08,478 INFO finish loading all datums, size: 0 cost 1 ms.
+
+2021-08-18 09:17:08,485 INFO cache loaded, datum count: 0, current term: 0
+
+2021-08-18 09:17:08,485 INFO finish to load data from disk, cost: 8 ms.
+
+2021-08-18 09:17:08,489 INFO timer started: leader timeout ms: 15000, heart-beat timeout ms: 5000
+
+2021-08-18 09:17:09,354 INFO add listener: com.alibaba.nacos.naming.domains.meta.00-00---000-NACOS_SWITCH_DOMAIN-000---00-00
+
+2021-08-18 09:17:09,374 INFO add listener: com.alibaba.nacos.naming.domains.meta.
+
+2021-08-18 09:17:13,421 WARN start to close old raft protocol!!!
+
+2021-08-18 09:17:13,421 WARN stop old raft protocol task for notifier
+
+2021-08-18 09:17:13,421 WARN stop old raft protocol task for master task
+
+2021-08-18 09:17:13,421 WARN stop old raft protocol task for heartbeat task
+
+2021-08-18 09:17:13,421 WARN clean old cache datum for old raft
+
+2021-08-18 09:17:13,421 WARN start to close old raft protocol!!!
+
+2021-08-18 09:17:13,421 WARN stop old raft protocol task for notifier
+
+2021-08-18 09:17:13,421 WARN stop old raft protocol task for master task
+
+2021-08-18 09:17:13,421 WARN stop old raft protocol task for heartbeat task
+
+2021-08-18 09:17:13,421 WARN clean old cache datum for old raft
+
+2021-08-18 09:17:13,421 WARN start to move old raft protocol metadata
+
+2021-08-18 09:17:13,423 WARN start to move old raft protocol metadata
+
+2021-08-18 09:17:13,424 INFO raft peers changed: [Member{ip='192.168.3.16', port=8848, state=UP, extendInfo={lastRefreshTime=1629249433423, raftPort=7848, version=1.4.1}}]
+
+2021-08-18 09:17:36,628 INFO add listener: com.alibaba.nacos.naming.iplist.public##SEATA_GROUP@@seata-server
+
+2021-08-18 13:21:48,477 INFO add listener: com.alibaba.nacos.naming.iplist.public##DEFAULT_GROUP@@cloud-yblog-log
+
+2021-08-18 13:21:50,591 INFO add listener: com.alibaba.nacos.naming.iplist.public##DEFAULT_GROUP@@cloud-yblog-async
+
+2021-08-18 13:21:54,930 INFO add listener: com.alibaba.nacos.naming.iplist.public##DEFAULT_GROUP@@cloud-yblog-search
+
+2021-08-18 13:22:00,288 INFO add listener: com.alibaba.nacos.naming.iplist.public##DEFAULT_GROUP@@cloud-yblog-user
+
+2021-08-18 13:22:06,685 INFO add listener: com.alibaba.nacos.naming.iplist.public##DEFAULT_GROUP@@cloud-yblog-web
+
+2021-08-18 13:22:10,168 INFO add listener: com.alibaba.nacos.naming.iplist.public##DEFAULT_GROUP@@cloud-yblog-article
+
+2021-08-18 13:22:12,825 INFO add listener: com.alibaba.nacos.naming.iplist.public##DEFAULT_GROUP@@cloud-yblog-system
+
+2021-08-18 13:23:32,000 INFO add listener: com.alibaba.nacos.naming.iplist.public##DEFAULT_GROUP@@cloud-yblog-admin
+
+2021-08-18 16:57:58,198 INFO [RAFT-NOTIFIER] datum is deleted, key: com.alibaba.nacos.naming.domains.meta.public##DEFAULT_GROUP@@cloud-yblog-admin
+
+2021-08-18 16:57:58,201 INFO [RAFT-NOTIFIER] datum is deleted, key: com.alibaba.nacos.naming.domains.meta.public##DEFAULT_GROUP@@cloud-yblog-article
+
+2021-08-18 16:57:58,202 INFO [RAFT-NOTIFIER] datum is deleted, key: com.alibaba.nacos.naming.domains.meta.public##DEFAULT_GROUP@@cloud-yblog-async
+
+2021-08-18 16:57:58,202 INFO [RAFT-NOTIFIER] datum is deleted, key: com.alibaba.nacos.naming.domains.meta.public##DEFAULT_GROUP@@cloud-yblog-log
+
+2021-08-18 16:57:58,203 INFO [RAFT-NOTIFIER] datum is deleted, key: com.alibaba.nacos.naming.domains.meta.public##DEFAULT_GROUP@@cloud-yblog-search
+
+2021-08-18 16:57:58,203 INFO [RAFT-NOTIFIER] datum is deleted, key: com.alibaba.nacos.naming.domains.meta.public##DEFAULT_GROUP@@cloud-yblog-system
+
+2021-08-18 16:57:58,203 INFO [RAFT-NOTIFIER] datum is deleted, key: com.alibaba.nacos.naming.domains.meta.public##DEFAULT_GROUP@@cloud-yblog-user
+
+2021-08-18 16:57:58,205 INFO [RAFT-NOTIFIER] datum is deleted, key: com.alibaba.nacos.naming.domains.meta.public##DEFAULT_GROUP@@cloud-yblog-web
+

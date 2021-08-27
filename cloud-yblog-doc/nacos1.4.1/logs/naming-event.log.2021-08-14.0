@@ -1,0 +1,12 @@
+2021-08-14 00:58:43,727 INFO SEATA_GROUP@@seata-server {SYNC} {IP-NEW} cluster: default, new ips size: 1, content: [192.168.184.1:8091:unknown:default_1.0_true_false_default]
+
+2021-08-14 00:58:43,731 INFO [IP-UPDATED] namespace: public, service: SEATA_GROUP@@seata-server, ips: 192.168.184.1:8091_true,
+
+2021-08-14 12:14:21,484 INFO SEATA_GROUP@@seata-server {SYNC} {IP-NEW} cluster: default, new ips size: 1, content: [192.168.184.1:8091:unknown:default_1.0_true_false_default]
+
+2021-08-14 12:14:21,486 INFO [IP-UPDATED] namespace: public, service: SEATA_GROUP@@seata-server, ips: 192.168.184.1:8091_true,
+
+2021-08-14 23:10:25,447 INFO service: SEATA_GROUP@@seata-server {POS} {IP-ENABLED} valid: 192.168.184.1:8091@default, region: unknown, msg: client beat ok
+
+2021-08-14 23:10:25,447 INFO {POS} {IP-DISABLED} valid: 192.168.184.1:8091@default@SEATA_GROUP@@seata-server, region: unknown, msg: client timeout after 15000, last beat: 1628953825447
+

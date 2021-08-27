@@ -1,0 +1,124 @@
+2021-08-20 18:23:37,632 INFO SEATA_GROUP@@seata-server {SYNC} {IP-NEW} cluster: default, new ips size: 1, content: [192.168.184.1:8091:unknown:default_1.0_true_false_default]
+
+2021-08-20 18:23:37,635 INFO [IP-UPDATED] namespace: public, service: SEATA_GROUP@@seata-server, ips: 192.168.184.1:8091_true,
+
+2021-08-20 18:38:34,750 INFO DEFAULT_GROUP@@cloud-yblog-log {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.3.16:6201:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2021-08-20 18:38:34,751 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@cloud-yblog-log, ips: 192.168.3.16:6201_true,
+
+2021-08-20 18:38:38,960 INFO DEFAULT_GROUP@@cloud-yblog-user {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.3.16:1901:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2021-08-20 18:38:38,960 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@cloud-yblog-user, ips: 192.168.3.16:1901_true,
+
+2021-08-20 18:38:45,802 INFO DEFAULT_GROUP@@cloud-yblog-web {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.3.16:81:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2021-08-20 18:38:45,802 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@cloud-yblog-web, ips: 192.168.3.16:81_true,
+
+2021-08-20 18:38:48,334 INFO DEFAULT_GROUP@@cloud-yblog-article {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.3.16:2801:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2021-08-20 18:38:48,334 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@cloud-yblog-article, ips: 192.168.3.16:2801_true,
+
+2021-08-20 18:38:51,009 INFO DEFAULT_GROUP@@cloud-yblog-system {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.3.16:5301:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2021-08-20 18:38:51,009 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@cloud-yblog-system, ips: 192.168.3.16:5301_true,
+
+2021-08-20 18:38:53,073 INFO DEFAULT_GROUP@@cloud-yblog-async {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.3.16:1660:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2021-08-20 18:38:53,073 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@cloud-yblog-async, ips: 192.168.3.16:1660_true,
+
+2021-08-20 18:38:55,327 INFO DEFAULT_GROUP@@cloud-yblog-search {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.3.16:5566:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2021-08-20 18:38:55,327 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@cloud-yblog-search, ips: 192.168.3.16:5566_true,
+
+2021-08-20 18:39:31,094 INFO DEFAULT_GROUP@@cloud-yblog-admin {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.3.16:91:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2021-08-20 18:39:31,094 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@cloud-yblog-admin, ips: 192.168.3.16:91_true,
+
+2021-08-20 18:44:48,570 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@cloud-yblog-web, ips: 192.168.3.16:81_true,
+
+2021-08-20 22:58:05,960 INFO {POS} {IP-DISABLED} valid: 192.168.184.1:8091@default@SEATA_GROUP@@seata-server, region: unknown, msg: client timeout after 15000, last beat: 1629459320004
+
+2021-08-20 22:58:05,985 INFO {POS} {IP-DISABLED} valid: 192.168.3.16:1660@DEFAULT@DEFAULT_GROUP@@cloud-yblog-async, region: unknown, msg: client timeout after 15000, last beat: 1629459319746
+
+2021-08-20 22:58:05,985 INFO {POS} {IP-DISABLED} valid: 192.168.3.16:2801@DEFAULT@DEFAULT_GROUP@@cloud-yblog-article, region: unknown, msg: client timeout after 15000, last beat: 1629459320004
+
+2021-08-20 22:58:05,985 INFO {POS} {IP-DISABLED} valid: 192.168.3.16:1901@DEFAULT@DEFAULT_GROUP@@cloud-yblog-user, region: unknown, msg: client timeout after 15000, last beat: 1629459320534
+
+2021-08-20 22:58:06,488 INFO {POS} {IP-DISABLED} valid: 192.168.3.16:6201@DEFAULT@DEFAULT_GROUP@@cloud-yblog-log, region: unknown, msg: client timeout after 15000, last beat: 1629459321379
+
+2021-08-20 22:58:06,489 INFO {POS} {IP-DISABLED} valid: 192.168.3.16:5566@DEFAULT@DEFAULT_GROUP@@cloud-yblog-search, region: unknown, msg: client timeout after 15000, last beat: 1629459321852
+
+2021-08-20 22:58:06,490 INFO {POS} {IP-DISABLED} valid: 192.168.3.16:81@DEFAULT@DEFAULT_GROUP@@cloud-yblog-web, region: unknown, msg: client timeout after 15000, last beat: 1629459320004
+
+2021-08-20 22:58:06,490 INFO {POS} {IP-DISABLED} valid: 192.168.3.16:91@DEFAULT@DEFAULT_GROUP@@cloud-yblog-admin, region: unknown, msg: client timeout after 15000, last beat: 1629459317686
+
+2021-08-20 22:58:06,518 INFO service: DEFAULT_GROUP@@cloud-yblog-admin {POS} {IP-ENABLED} valid: 192.168.3.16:91@DEFAULT, region: unknown, msg: client beat ok
+
+2021-08-20 22:58:06,518 INFO service: DEFAULT_GROUP@@cloud-yblog-system {POS} {IP-ENABLED} valid: 192.168.3.16:5301@DEFAULT, region: unknown, msg: client beat ok
+
+2021-08-20 22:58:06,517 INFO {POS} {IP-DISABLED} valid: 192.168.3.16:5301@DEFAULT@DEFAULT_GROUP@@cloud-yblog-system, region: unknown, msg: client timeout after 15000, last beat: 1629459317687
+
+2021-08-20 22:58:06,556 INFO DEFAULT_GROUP@@cloud-yblog-user {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [192.168.3.16:1901:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2021-08-20 22:58:06,556 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@cloud-yblog-user, ips: 
+
+2021-08-20 22:58:06,568 INFO DEFAULT_GROUP@@cloud-yblog-async {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [192.168.3.16:1660:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2021-08-20 22:58:06,577 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@cloud-yblog-async, ips: 
+
+2021-08-20 22:58:06,578 INFO DEFAULT_GROUP@@cloud-yblog-web {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [192.168.3.16:81:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2021-08-20 22:58:06,578 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@cloud-yblog-web, ips: 
+
+2021-08-20 22:58:06,578 INFO DEFAULT_GROUP@@cloud-yblog-log {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [192.168.3.16:6201:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2021-08-20 22:58:06,578 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@cloud-yblog-log, ips: 
+
+2021-08-20 22:58:06,578 INFO SEATA_GROUP@@seata-server {SYNC} {IP-DEAD} cluster: default, dead ips size: 1, content: [192.168.184.1:8091:unknown:default_1.0_false_false_default]
+
+2021-08-20 22:58:06,579 INFO [IP-UPDATED] namespace: public, service: SEATA_GROUP@@seata-server, ips: 
+
+2021-08-20 22:58:06,579 INFO DEFAULT_GROUP@@cloud-yblog-admin {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [192.168.3.16:91:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2021-08-20 22:58:06,589 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@cloud-yblog-admin, ips: 
+
+2021-08-20 22:58:06,606 INFO DEFAULT_GROUP@@cloud-yblog-article {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [192.168.3.16:2801:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2021-08-20 22:58:06,606 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@cloud-yblog-article, ips: 
+
+2021-08-20 22:58:06,606 INFO DEFAULT_GROUP@@cloud-yblog-search {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [192.168.3.16:5566:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2021-08-20 22:58:06,606 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@cloud-yblog-search, ips: 
+
+2021-08-20 22:58:08,948 INFO DEFAULT_GROUP@@cloud-yblog-article {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.3.16:2801:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2021-08-20 22:58:08,949 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@cloud-yblog-article, ips: 192.168.3.16:2801_true,
+
+2021-08-20 22:58:08,949 INFO DEFAULT_GROUP@@cloud-yblog-async {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.3.16:1660:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2021-08-20 22:58:08,949 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@cloud-yblog-async, ips: 192.168.3.16:1660_true,
+
+2021-08-20 22:58:09,210 INFO DEFAULT_GROUP@@cloud-yblog-web {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.3.16:81:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2021-08-20 22:58:09,210 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@cloud-yblog-web, ips: 192.168.3.16:81_true,
+
+2021-08-20 22:58:09,924 INFO SEATA_GROUP@@seata-server {SYNC} {IP-NEW} cluster: default, new ips size: 1, content: [192.168.184.1:8091:unknown:default_1.0_true_false_default]
+
+2021-08-20 22:58:09,925 INFO [IP-UPDATED] namespace: public, service: SEATA_GROUP@@seata-server, ips: 192.168.184.1:8091_true,
+
+2021-08-20 22:58:10,080 INFO DEFAULT_GROUP@@cloud-yblog-log {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.3.16:6201:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2021-08-20 22:58:10,080 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@cloud-yblog-log, ips: 192.168.3.16:6201_true,
+
+2021-08-20 22:58:10,421 INFO DEFAULT_GROUP@@cloud-yblog-search {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.3.16:5566:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2021-08-20 22:58:10,421 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@cloud-yblog-search, ips: 192.168.3.16:5566_true,
+
+2021-08-20 22:58:11,251 INFO DEFAULT_GROUP@@cloud-yblog-admin {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.3.16:91:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2021-08-20 22:58:11,251 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@cloud-yblog-admin, ips: 192.168.3.16:91_true,
+
+2021-08-20 22:58:12,589 INFO DEFAULT_GROUP@@cloud-yblog-user {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.3.16:1901:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2021-08-20 22:58:12,589 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@cloud-yblog-user, ips: 192.168.3.16:1901_true,
+

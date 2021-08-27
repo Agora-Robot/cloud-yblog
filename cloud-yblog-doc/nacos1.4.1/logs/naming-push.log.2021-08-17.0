@@ -1,0 +1,945 @@
+2021-08-17 01:31:34,073 INFO DEFAULT_GROUP@@cloud-yblog-article is changed, add it to push queue.
+
+2021-08-17 01:31:35,791 INFO DEFAULT_GROUP@@cloud-yblog-log is changed, add it to push queue.
+
+2021-08-17 01:31:36,275 INFO DEFAULT_GROUP@@cloud-yblog-search is changed, add it to push queue.
+
+2021-08-17 01:31:39,075 INFO DEFAULT_GROUP@@cloud-yblog-system is changed, add it to push queue.
+
+2021-08-17 01:31:39,411 INFO DEFAULT_GROUP@@cloud-yblog-admin is changed, add it to push queue.
+
+2021-08-17 01:31:39,411 INFO DEFAULT_GROUP@@cloud-yblog-async is changed, add it to push queue.
+
+2021-08-17 01:31:39,411 INFO DEFAULT_GROUP@@cloud-yblog-web is changed, add it to push queue.
+
+2021-08-17 01:31:39,412 INFO DEFAULT_GROUP@@cloud-yblog-user is changed, add it to push queue.
+
+2021-08-17 01:31:49,082 INFO DEFAULT_GROUP@@cloud-yblog-article is changed, add it to push queue.
+
+2021-08-17 01:31:50,798 INFO DEFAULT_GROUP@@cloud-yblog-log is changed, add it to push queue.
+
+2021-08-17 01:31:51,276 INFO DEFAULT_GROUP@@cloud-yblog-search is changed, add it to push queue.
+
+2021-08-17 01:31:54,078 INFO DEFAULT_GROUP@@cloud-yblog-system is changed, add it to push queue.
+
+2021-08-17 01:31:54,413 INFO DEFAULT_GROUP@@cloud-yblog-async is changed, add it to push queue.
+
+2021-08-17 01:31:54,416 INFO DEFAULT_GROUP@@cloud-yblog-admin is changed, add it to push queue.
+
+2021-08-17 01:31:54,418 INFO DEFAULT_GROUP@@cloud-yblog-web is changed, add it to push queue.
+
+2021-08-17 01:31:54,418 INFO DEFAULT_GROUP@@cloud-yblog-user is changed, add it to push queue.
+
+2021-08-17 01:34:22,471 INFO DEFAULT_GROUP@@cloud-yblog-log is changed, add it to push queue.
+
+2021-08-17 01:34:22,476 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-log changed, schedule push for: 192.168.184.1:54160, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,54160,222016988101400
+
+2021-08-17 01:34:22,476 INFO send udp packet: 192.168.184.1,54160,222016988101400
+
+2021-08-17 01:34:22,480 INFO received ack: {"type": "push-ack", "lastRefTime":"222016988101400", "data":""} from: 192.168.184.1:54160, cost: 4 ms, unacked: 0, total push: 1
+
+2021-08-17 01:34:29,795 INFO DEFAULT_GROUP@@cloud-yblog-web is changed, add it to push queue.
+
+2021-08-17 01:34:29,796 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-web changed, schedule push for: 192.168.184.1:54161, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,54161,222024311218200
+
+2021-08-17 01:34:29,796 INFO send udp packet: 192.168.184.1,54161,222024311218200
+
+2021-08-17 01:34:29,799 INFO received ack: {"type": "push-ack", "lastRefTime":"222024311218200", "data":""} from: 192.168.184.1:54161, cost: 3 ms, unacked: 0, total push: 2
+
+2021-08-17 01:34:35,637 INFO DEFAULT_GROUP@@cloud-yblog-article is changed, add it to push queue.
+
+2021-08-17 01:34:35,637 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-article changed, schedule push for: 192.168.184.1:54162, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,54162,222030153050200
+
+2021-08-17 01:34:35,638 INFO send udp packet: 192.168.184.1,54162,222030153050200
+
+2021-08-17 01:34:35,643 INFO received ack: {"type": "push-ack", "lastRefTime":"222030153050200", "data":""} from: 192.168.184.1:54162, cost: 5 ms, unacked: 0, total push: 3
+
+2021-08-17 01:34:45,583 INFO DEFAULT_GROUP@@cloud-yblog-system is changed, add it to push queue.
+
+2021-08-17 01:34:45,584 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-system changed, schedule push for: 192.168.184.1:51092, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,51092,222040100032500
+
+2021-08-17 01:34:45,584 INFO send udp packet: 192.168.184.1,51092,222040100032500
+
+2021-08-17 01:34:45,587 INFO received ack: {"type": "push-ack", "lastRefTime":"222040100032500", "data":""} from: 192.168.184.1:51092, cost: 3 ms, unacked: 0, total push: 4
+
+2021-08-17 01:34:55,307 INFO DEFAULT_GROUP@@cloud-yblog-admin is changed, add it to push queue.
+
+2021-08-17 01:34:55,307 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-admin changed, schedule push for: 192.168.184.1:51095, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,51095,222049823560900
+
+2021-08-17 01:34:55,307 INFO send udp packet: 192.168.184.1,51095,222049823560900
+
+2021-08-17 01:34:55,311 INFO received ack: {"type": "push-ack", "lastRefTime":"222049823560900", "data":""} from: 192.168.184.1:51095, cost: 4 ms, unacked: 0, total push: 5
+
+2021-08-17 01:34:56,029 INFO DEFAULT_GROUP@@cloud-yblog-async is changed, add it to push queue.
+
+2021-08-17 01:34:56,029 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-async changed, schedule push for: 192.168.184.1:56349, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,56349,222050544541100
+
+2021-08-17 01:34:56,029 INFO send udp packet: 192.168.184.1,56349,222050544541100
+
+2021-08-17 01:34:56,032 INFO received ack: {"type": "push-ack", "lastRefTime":"222050544541100", "data":""} from: 192.168.184.1:56349, cost: 3 ms, unacked: 0, total push: 6
+
+2021-08-17 01:34:59,017 INFO DEFAULT_GROUP@@cloud-yblog-search is changed, add it to push queue.
+
+2021-08-17 01:34:59,017 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-search changed, schedule push for: 192.168.184.1:56352, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,56352,222053533221800
+
+2021-08-17 01:34:59,017 INFO send udp packet: 192.168.184.1,56352,222053533221800
+
+2021-08-17 01:34:59,022 INFO received ack: {"type": "push-ack", "lastRefTime":"222053533221800", "data":""} from: 192.168.184.1:56352, cost: 5 ms, unacked: 0, total push: 7
+
+2021-08-17 01:35:03,413 INFO DEFAULT_GROUP@@cloud-yblog-user is changed, add it to push queue.
+
+2021-08-17 01:35:03,413 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-user changed, schedule push for: 192.168.184.1:57709, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,57709,222057928826800
+
+2021-08-17 01:35:03,413 INFO send udp packet: 192.168.184.1,57709,222057928826800
+
+2021-08-17 01:35:03,416 INFO received ack: {"type": "push-ack", "lastRefTime":"222057928826800", "data":""} from: 192.168.184.1:57709, cost: 3 ms, unacked: 0, total push: 8
+
+2021-08-17 16:52:01,970 INFO SEATA_GROUP@@seata-server is changed, add it to push queue.
+
+2021-08-17 17:13:56,672 INFO DEFAULT_GROUP@@cloud-yblog-log is changed, add it to push queue.
+
+2021-08-17 17:13:56,698 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-log changed, schedule push for: 192.168.184.1:52845, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,52845,278396603216000
+
+2021-08-17 17:13:56,698 INFO send udp packet: 192.168.184.1,52845,278396603216000
+
+2021-08-17 17:13:56,706 INFO received ack: {"type": "push-ack", "lastRefTime":"278396603216000", "data":""} from: 192.168.184.1:52845, cost: 8 ms, unacked: 0, total push: 1
+
+2021-08-17 17:14:01,740 INFO DEFAULT_GROUP@@cloud-yblog-async is changed, add it to push queue.
+
+2021-08-17 17:14:01,741 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-async changed, schedule push for: 192.168.184.1:52846, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,52846,278401670871700
+
+2021-08-17 17:14:01,741 INFO send udp packet: 192.168.184.1,52846,278401670871700
+
+2021-08-17 17:14:01,746 INFO received ack: {"type": "push-ack", "lastRefTime":"278401670871700", "data":""} from: 192.168.184.1:52846, cost: 5 ms, unacked: 0, total push: 2
+
+2021-08-17 17:14:10,828 INFO DEFAULT_GROUP@@cloud-yblog-search is changed, add it to push queue.
+
+2021-08-17 17:14:10,829 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-search changed, schedule push for: 192.168.184.1:52847, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,52847,278410758978599
+
+2021-08-17 17:14:10,829 INFO send udp packet: 192.168.184.1,52847,278410758978599
+
+2021-08-17 17:14:10,835 INFO received ack: {"type": "push-ack", "lastRefTime":"278410758978599", "data":""} from: 192.168.184.1:52847, cost: 6 ms, unacked: 0, total push: 3
+
+2021-08-17 17:14:23,149 INFO DEFAULT_GROUP@@cloud-yblog-user is changed, add it to push queue.
+
+2021-08-17 17:14:23,157 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-user changed, schedule push for: 192.168.184.1:52478, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,52478,278423086978800
+
+2021-08-17 17:14:23,166 INFO send udp packet: 192.168.184.1,52478,278423086978800
+
+2021-08-17 17:14:23,178 INFO received ack: {"type": "push-ack", "lastRefTime":"278423086978800", "data":""} from: 192.168.184.1:52478, cost: 12 ms, unacked: 0, total push: 4
+
+2021-08-17 17:14:34,144 INFO DEFAULT_GROUP@@cloud-yblog-web is changed, add it to push queue.
+
+2021-08-17 17:14:34,145 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-web changed, schedule push for: 192.168.184.1:59464, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,59464,278434074777700
+
+2021-08-17 17:14:34,145 INFO send udp packet: 192.168.184.1,59464,278434074777700
+
+2021-08-17 17:14:34,150 INFO received ack: {"type": "push-ack", "lastRefTime":"278434074777700", "data":""} from: 192.168.184.1:59464, cost: 5 ms, unacked: 0, total push: 5
+
+2021-08-17 17:14:38,674 INFO DEFAULT_GROUP@@cloud-yblog-article is changed, add it to push queue.
+
+2021-08-17 17:14:38,675 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-article changed, schedule push for: 192.168.184.1:59479, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,59479,278438605716700
+
+2021-08-17 17:14:38,675 INFO send udp packet: 192.168.184.1,59479,278438605716700
+
+2021-08-17 17:14:38,681 INFO received ack: {"type": "push-ack", "lastRefTime":"278438605716700", "data":""} from: 192.168.184.1:59479, cost: 6 ms, unacked: 0, total push: 6
+
+2021-08-17 17:14:43,657 INFO DEFAULT_GROUP@@cloud-yblog-system is changed, add it to push queue.
+
+2021-08-17 17:14:43,659 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-system changed, schedule push for: 192.168.184.1:59485, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,59485,278443589143300
+
+2021-08-17 17:14:43,659 INFO send udp packet: 192.168.184.1,59485,278443589143300
+
+2021-08-17 17:14:43,666 INFO received ack: {"type": "push-ack", "lastRefTime":"278443589143300", "data":""} from: 192.168.184.1:59485, cost: 7 ms, unacked: 0, total push: 7
+
+2021-08-17 17:14:54,585 INFO DEFAULT_GROUP@@cloud-yblog-admin is changed, add it to push queue.
+
+2021-08-17 17:14:54,586 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-admin changed, schedule push for: 192.168.184.1:52223, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,52223,278454515942299
+
+2021-08-17 17:14:54,586 INFO send udp packet: 192.168.184.1,52223,278454515942299
+
+2021-08-17 17:14:54,594 INFO received ack: {"type": "push-ack", "lastRefTime":"278454515942299", "data":""} from: 192.168.184.1:52223, cost: 8 ms, unacked: 0, total push: 8
+
+2021-08-17 17:26:33,425 INFO DEFAULT_GROUP@@cloud-yblog-user is changed, add it to push queue.
+
+2021-08-17 17:26:33,929 INFO DEFAULT_GROUP@@cloud-yblog-system is changed, add it to push queue.
+
+2021-08-17 17:26:33,930 INFO DEFAULT_GROUP@@cloud-yblog-article is changed, add it to push queue.
+
+2021-08-17 17:26:34,417 INFO DEFAULT_GROUP@@cloud-yblog-web is changed, add it to push queue.
+
+2021-08-17 17:26:34,749 INFO DEFAULT_GROUP@@cloud-yblog-admin is changed, add it to push queue.
+
+2021-08-17 17:26:36,209 INFO DEFAULT_GROUP@@cloud-yblog-search is changed, add it to push queue.
+
+2021-08-17 17:26:36,976 INFO DEFAULT_GROUP@@cloud-yblog-log is changed, add it to push queue.
+
+2021-08-17 17:26:37,063 INFO DEFAULT_GROUP@@cloud-yblog-async is changed, add it to push queue.
+
+2021-08-17 17:26:40,065 INFO DEFAULT_GROUP@@cloud-yblog-log is changed, add it to push queue.
+
+2021-08-17 17:26:40,066 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-log changed, schedule push for: 192.168.184.1:51577, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,51577,279159995728300
+
+2021-08-17 17:26:40,066 INFO send udp packet: 192.168.184.1,51577,279159995728300
+
+2021-08-17 17:26:40,072 INFO received ack: {"type": "push-ack", "lastRefTime":"279159995728300", "data":""} from: 192.168.184.1:51577, cost: 6 ms, unacked: 0, total push: 9
+
+2021-08-17 17:26:45,067 INFO DEFAULT_GROUP@@cloud-yblog-log is changed, add it to push queue.
+
+2021-08-17 17:26:45,067 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-log changed, schedule push for: 192.168.184.1:51577, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,51577,279164997535199
+
+2021-08-17 17:26:45,068 INFO send udp packet: 192.168.184.1,51577,279164997535199
+
+2021-08-17 17:26:45,070 INFO received ack: {"type": "push-ack", "lastRefTime":"279164997535199", "data":""} from: 192.168.184.1:51577, cost: 2 ms, unacked: 0, total push: 10
+
+2021-08-17 17:26:46,266 INFO DEFAULT_GROUP@@cloud-yblog-async is changed, add it to push queue.
+
+2021-08-17 17:26:46,267 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-async changed, schedule push for: 192.168.184.1:51578, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,51578,279166197763199
+
+2021-08-17 17:26:46,267 INFO send udp packet: 192.168.184.1,51578,279166197763199
+
+2021-08-17 17:26:46,275 INFO received ack: {"type": "push-ack", "lastRefTime":"279166197763199", "data":""} from: 192.168.184.1:51578, cost: 8 ms, unacked: 0, total push: 11
+
+2021-08-17 17:26:48,672 INFO DEFAULT_GROUP@@cloud-yblog-user is changed, add it to push queue.
+
+2021-08-17 17:26:48,939 INFO DEFAULT_GROUP@@cloud-yblog-article is changed, add it to push queue.
+
+2021-08-17 17:26:48,941 INFO DEFAULT_GROUP@@cloud-yblog-system is changed, add it to push queue.
+
+2021-08-17 17:26:49,429 INFO DEFAULT_GROUP@@cloud-yblog-web is changed, add it to push queue.
+
+2021-08-17 17:26:49,762 INFO DEFAULT_GROUP@@cloud-yblog-admin is changed, add it to push queue.
+
+2021-08-17 17:26:51,214 INFO DEFAULT_GROUP@@cloud-yblog-search is changed, add it to push queue.
+
+2021-08-17 17:26:51,263 INFO DEFAULT_GROUP@@cloud-yblog-async is changed, add it to push queue.
+
+2021-08-17 17:26:51,263 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-async changed, schedule push for: 192.168.184.1:51578, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,51578,279171193772899
+
+2021-08-17 17:26:51,263 INFO send udp packet: 192.168.184.1,51578,279171193772899
+
+2021-08-17 17:26:51,265 INFO received ack: {"type": "push-ack", "lastRefTime":"279171193772899", "data":""} from: 192.168.184.1:51578, cost: 2 ms, unacked: 0, total push: 12
+
+2021-08-17 17:26:53,732 INFO DEFAULT_GROUP@@cloud-yblog-search is changed, add it to push queue.
+
+2021-08-17 17:26:53,733 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-search changed, schedule push for: 192.168.184.1:51579, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,51579,279173662932100
+
+2021-08-17 17:26:53,733 INFO send udp packet: 192.168.184.1,51579,279173662932100
+
+2021-08-17 17:26:53,737 INFO received ack: {"type": "push-ack", "lastRefTime":"279173662932100", "data":""} from: 192.168.184.1:51579, cost: 4 ms, unacked: 0, total push: 13
+
+2021-08-17 17:27:00,732 INFO DEFAULT_GROUP@@cloud-yblog-user is changed, add it to push queue.
+
+2021-08-17 17:27:00,733 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-user changed, schedule push for: 192.168.184.1:61396, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,61396,279180663963300
+
+2021-08-17 17:27:00,734 INFO send udp packet: 192.168.184.1,61396,279180663963300
+
+2021-08-17 17:27:00,744 INFO received ack: {"type": "push-ack", "lastRefTime":"279180663963300", "data":""} from: 192.168.184.1:61396, cost: 10 ms, unacked: 0, total push: 14
+
+2021-08-17 17:27:08,246 INFO DEFAULT_GROUP@@cloud-yblog-web is changed, add it to push queue.
+
+2021-08-17 17:27:08,247 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-web changed, schedule push for: 192.168.184.1:61397, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,61397,279188176990900
+
+2021-08-17 17:27:08,247 INFO send udp packet: 192.168.184.1,61397,279188176990900
+
+2021-08-17 17:27:08,251 INFO received ack: {"type": "push-ack", "lastRefTime":"279188176990900", "data":""} from: 192.168.184.1:61397, cost: 4 ms, unacked: 0, total push: 15
+
+2021-08-17 17:27:11,195 INFO DEFAULT_GROUP@@cloud-yblog-article is changed, add it to push queue.
+
+2021-08-17 17:27:11,196 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-article changed, schedule push for: 192.168.184.1:61398, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,61398,279191126258099
+
+2021-08-17 17:27:11,196 INFO send udp packet: 192.168.184.1,61398,279191126258099
+
+2021-08-17 17:27:11,207 INFO received ack: {"type": "push-ack", "lastRefTime":"279191126258099", "data":""} from: 192.168.184.1:61398, cost: 11 ms, unacked: 0, total push: 16
+
+2021-08-17 17:27:14,573 INFO DEFAULT_GROUP@@cloud-yblog-system is changed, add it to push queue.
+
+2021-08-17 17:27:14,574 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-system changed, schedule push for: 192.168.184.1:61400, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,61400,279194503851600
+
+2021-08-17 17:27:14,574 INFO send udp packet: 192.168.184.1,61400,279194503851600
+
+2021-08-17 17:27:14,577 INFO received ack: {"type": "push-ack", "lastRefTime":"279194503851600", "data":""} from: 192.168.184.1:61400, cost: 3 ms, unacked: 0, total push: 17
+
+2021-08-17 17:27:25,348 INFO DEFAULT_GROUP@@cloud-yblog-admin is changed, add it to push queue.
+
+2021-08-17 17:27:25,348 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-admin changed, schedule push for: 192.168.184.1:61401, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,61401,279205278773600
+
+2021-08-17 17:27:25,349 INFO send udp packet: 192.168.184.1,61401,279205278773600
+
+2021-08-17 17:27:25,357 INFO received ack: {"type": "push-ack", "lastRefTime":"279205278773600", "data":""} from: 192.168.184.1:61401, cost: 8 ms, unacked: 0, total push: 18
+
+2021-08-17 17:29:39,806 INFO DEFAULT_GROUP@@cloud-yblog-admin is changed, add it to push queue.
+
+2021-08-17 17:29:39,806 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-admin changed, schedule push for: 192.168.184.1:61943, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,61943,279339736503400
+
+2021-08-17 17:29:39,806 INFO send udp packet: 192.168.184.1,61943,279339736503400
+
+2021-08-17 17:29:39,810 INFO received ack: {"type": "push-ack", "lastRefTime":"279339736503400", "data":""} from: 192.168.184.1:61943, cost: 4 ms, unacked: 0, total push: 19
+
+2021-08-17 17:29:45,423 INFO DEFAULT_GROUP@@cloud-yblog-admin is changed, add it to push queue.
+
+2021-08-17 17:29:45,424 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-admin changed, schedule push for: 192.168.184.1:61943, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,61943,279345353762800
+
+2021-08-17 17:29:45,424 INFO send udp packet: 192.168.184.1,61943,279345353762800
+
+2021-08-17 17:29:45,426 INFO received ack: {"type": "push-ack", "lastRefTime":"279345353762800", "data":""} from: 192.168.184.1:61943, cost: 2 ms, unacked: 0, total push: 20
+
+2021-08-17 17:44:10,873 INFO DEFAULT_GROUP@@cloud-yblog-admin is changed, add it to push queue.
+
+2021-08-17 17:44:10,873 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-admin changed, schedule push for: 192.168.184.1:61921, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,61921,280210803697200
+
+2021-08-17 17:44:10,873 INFO send udp packet: 192.168.184.1,61921,280210803697200
+
+2021-08-17 17:44:10,876 INFO received ack: {"type": "push-ack", "lastRefTime":"280210803697200", "data":""} from: 192.168.184.1:61921, cost: 3 ms, unacked: 0, total push: 21
+
+2021-08-17 17:53:57,472 INFO DEFAULT_GROUP@@cloud-yblog-log is changed, add it to push queue.
+
+2021-08-17 17:53:59,300 INFO DEFAULT_GROUP@@cloud-yblog-user is changed, add it to push queue.
+
+2021-08-17 17:53:59,447 INFO DEFAULT_GROUP@@cloud-yblog-system is changed, add it to push queue.
+
+2021-08-17 17:53:59,448 INFO DEFAULT_GROUP@@cloud-yblog-article is changed, add it to push queue.
+
+2021-08-17 17:54:00,264 INFO DEFAULT_GROUP@@cloud-yblog-admin is changed, add it to push queue.
+
+2021-08-17 17:54:00,273 INFO DEFAULT_GROUP@@cloud-yblog-web is changed, add it to push queue.
+
+2021-08-17 17:54:01,632 INFO DEFAULT_GROUP@@cloud-yblog-search is changed, add it to push queue.
+
+2021-08-17 17:54:02,710 INFO DEFAULT_GROUP@@cloud-yblog-async is changed, add it to push queue.
+
+2021-08-17 17:54:12,593 INFO DEFAULT_GROUP@@cloud-yblog-log is changed, add it to push queue.
+
+2021-08-17 17:54:12,722 INFO DEFAULT_GROUP@@cloud-yblog-async is changed, add it to push queue.
+
+2021-08-17 17:54:14,349 INFO DEFAULT_GROUP@@cloud-yblog-user is changed, add it to push queue.
+
+2021-08-17 17:54:14,490 INFO DEFAULT_GROUP@@cloud-yblog-article is changed, add it to push queue.
+
+2021-08-17 17:54:14,490 INFO DEFAULT_GROUP@@cloud-yblog-system is changed, add it to push queue.
+
+2021-08-17 17:54:15,365 INFO DEFAULT_GROUP@@cloud-yblog-web is changed, add it to push queue.
+
+2021-08-17 17:54:15,365 INFO DEFAULT_GROUP@@cloud-yblog-admin is changed, add it to push queue.
+
+2021-08-17 17:54:16,689 INFO DEFAULT_GROUP@@cloud-yblog-search is changed, add it to push queue.
+
+2021-08-17 17:54:26,843 INFO DEFAULT_GROUP@@cloud-yblog-user is changed, add it to push queue.
+
+2021-08-17 17:54:26,843 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-user changed, schedule push for: 192.168.184.1:61287, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,61287,280826774072600
+
+2021-08-17 17:54:26,843 INFO send udp packet: 192.168.184.1,61287,280826774072600
+
+2021-08-17 17:54:26,848 INFO received ack: {"type": "push-ack", "lastRefTime":"280826774072600", "data":""} from: 192.168.184.1:61287, cost: 5 ms, unacked: 0, total push: 22
+
+2021-08-17 17:54:33,613 INFO DEFAULT_GROUP@@cloud-yblog-system is changed, add it to push queue.
+
+2021-08-17 17:54:33,614 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-system changed, schedule push for: 192.168.184.1:61288, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,61288,280833543755800
+
+2021-08-17 17:54:33,615 INFO send udp packet: 192.168.184.1,61288,280833543755800
+
+2021-08-17 17:54:33,619 INFO received ack: {"type": "push-ack", "lastRefTime":"280833543755800", "data":""} from: 192.168.184.1:61288, cost: 4 ms, unacked: 0, total push: 23
+
+2021-08-17 17:54:52,839 INFO DEFAULT_GROUP@@cloud-yblog-log is changed, add it to push queue.
+
+2021-08-17 17:54:52,840 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-log changed, schedule push for: 192.168.184.1:50594, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,50594,280852770339600
+
+2021-08-17 17:54:52,840 INFO send udp packet: 192.168.184.1,50594,280852770339600
+
+2021-08-17 17:54:52,874 INFO received ack: {"type": "push-ack", "lastRefTime":"280852770339600", "data":""} from: 192.168.184.1:50594, cost: 34 ms, unacked: 0, total push: 24
+
+2021-08-17 17:55:00,049 INFO DEFAULT_GROUP@@cloud-yblog-async is changed, add it to push queue.
+
+2021-08-17 17:55:00,049 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-async changed, schedule push for: 192.168.184.1:53097, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,53097,280859979771600
+
+2021-08-17 17:55:00,049 INFO send udp packet: 192.168.184.1,53097,280859979771600
+
+2021-08-17 17:55:00,056 INFO received ack: {"type": "push-ack", "lastRefTime":"280859979771600", "data":""} from: 192.168.184.1:53097, cost: 7 ms, unacked: 0, total push: 25
+
+2021-08-17 17:55:06,562 INFO DEFAULT_GROUP@@cloud-yblog-search is changed, add it to push queue.
+
+2021-08-17 17:55:06,563 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-search changed, schedule push for: 192.168.184.1:53098, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,53098,280866492925100
+
+2021-08-17 17:55:06,563 INFO send udp packet: 192.168.184.1,53098,280866492925100
+
+2021-08-17 17:55:06,569 INFO received ack: {"type": "push-ack", "lastRefTime":"280866492925100", "data":""} from: 192.168.184.1:53098, cost: 6 ms, unacked: 0, total push: 26
+
+2021-08-17 17:55:18,315 INFO DEFAULT_GROUP@@cloud-yblog-web is changed, add it to push queue.
+
+2021-08-17 17:55:18,329 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-web changed, schedule push for: 192.168.184.1:64220, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,64220,280878259049200
+
+2021-08-17 17:55:18,329 INFO send udp packet: 192.168.184.1,64220,280878259049200
+
+2021-08-17 17:55:18,334 INFO received ack: {"type": "push-ack", "lastRefTime":"280878259049200", "data":""} from: 192.168.184.1:64220, cost: 5 ms, unacked: 0, total push: 27
+
+2021-08-17 17:55:21,811 INFO DEFAULT_GROUP@@cloud-yblog-article is changed, add it to push queue.
+
+2021-08-17 17:55:21,811 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-article changed, schedule push for: 192.168.184.1:64221, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,64221,280881741323000
+
+2021-08-17 17:55:21,811 INFO send udp packet: 192.168.184.1,64221,280881741323000
+
+2021-08-17 17:55:21,815 INFO received ack: {"type": "push-ack", "lastRefTime":"280881741323000", "data":""} from: 192.168.184.1:64221, cost: 4 ms, unacked: 0, total push: 28
+
+2021-08-17 17:57:55,636 INFO DEFAULT_GROUP@@cloud-yblog-admin is changed, add it to push queue.
+
+2021-08-17 17:57:55,636 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-admin changed, schedule push for: 192.168.184.1:50356, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,50356,281035566685599
+
+2021-08-17 17:57:55,636 INFO send udp packet: 192.168.184.1,50356,281035566685599
+
+2021-08-17 17:57:55,639 INFO received ack: {"type": "push-ack", "lastRefTime":"281035566685599", "data":""} from: 192.168.184.1:50356, cost: 3 ms, unacked: 0, total push: 29
+
+2021-08-17 20:36:43,701 INFO DEFAULT_GROUP@@cloud-yblog-web is changed, add it to push queue.
+
+2021-08-17 20:36:43,701 INFO DEFAULT_GROUP@@cloud-yblog-admin is changed, add it to push queue.
+
+2021-08-17 20:36:43,701 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-admin changed, schedule push for: 192.168.184.1:50356, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,50356,290565146385700
+
+2021-08-17 20:36:43,702 INFO send udp packet: 192.168.184.1,50356,290565146385700
+
+2021-08-17 20:36:43,702 INFO DEFAULT_GROUP@@cloud-yblog-article is changed, add it to push queue.
+
+2021-08-17 20:36:43,702 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-article changed, schedule push for: 192.168.184.1:50356, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,50356,290565147113400
+
+2021-08-17 20:36:43,702 INFO send udp packet: 192.168.184.1,50356,290565147113400
+
+2021-08-17 20:36:43,702 INFO DEFAULT_GROUP@@cloud-yblog-system is changed, add it to push queue.
+
+2021-08-17 20:36:43,702 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-system changed, schedule push for: 192.168.184.1:50356, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,50356,290565147305700
+
+2021-08-17 20:36:43,702 INFO send udp packet: 192.168.184.1,50356,290565147305700
+
+2021-08-17 20:36:43,702 INFO DEFAULT_GROUP@@cloud-yblog-search is changed, add it to push queue.
+
+2021-08-17 20:36:43,702 INFO DEFAULT_GROUP@@cloud-yblog-log is changed, add it to push queue.
+
+2021-08-17 20:36:43,702 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-log changed, schedule push for: 192.168.184.1:50356, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,50356,290565147515400
+
+2021-08-17 20:36:43,702 INFO send udp packet: 192.168.184.1,50356,290565147515400
+
+2021-08-17 20:36:43,702 INFO DEFAULT_GROUP@@cloud-yblog-async is changed, add it to push queue.
+
+2021-08-17 20:36:43,702 INFO SEATA_GROUP@@seata-server is changed, add it to push queue.
+
+2021-08-17 20:36:43,702 INFO DEFAULT_GROUP@@cloud-yblog-user is changed, add it to push queue.
+
+2021-08-17 20:36:43,702 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-user changed, schedule push for: 192.168.184.1:50356, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,50356,290565147965300
+
+2021-08-17 20:36:43,702 INFO send udp packet: 192.168.184.1,50356,290565147965300
+
+2021-08-17 20:36:45,200 INFO DEFAULT_GROUP@@cloud-yblog-async is changed, add it to push queue.
+
+2021-08-17 20:36:45,201 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-async changed, schedule push for: 192.168.184.1:53097, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,53097,290566646596300
+
+2021-08-17 20:36:45,204 INFO send udp packet: 192.168.184.1,53097,290566646596300
+
+2021-08-17 20:36:45,887 INFO DEFAULT_GROUP@@cloud-yblog-admin is changed, add it to push queue.
+
+2021-08-17 20:36:45,887 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-admin changed, schedule push for: 192.168.184.1:50356, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,50356,290567332662400
+
+2021-08-17 20:36:45,887 INFO send udp packet: 192.168.184.1,50356,290567332662400
+
+2021-08-17 20:36:46,034 INFO SEATA_GROUP@@seata-server is changed, add it to push queue.
+
+2021-08-17 20:36:47,055 INFO DEFAULT_GROUP@@cloud-yblog-article is changed, add it to push queue.
+
+2021-08-17 20:36:47,055 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-article changed, schedule push for: 192.168.184.1:50356, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,50356,290568500179200
+
+2021-08-17 20:36:47,055 INFO send udp packet: 192.168.184.1,50356,290568500179200
+
+2021-08-17 20:36:47,055 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-article changed, schedule push for: 192.168.184.1:64221, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,64221,290568500179200
+
+2021-08-17 20:36:47,055 INFO send udp packet: 192.168.184.1,64221,290568500179200
+
+2021-08-17 20:36:47,056 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-article changed, schedule push for: 192.168.184.1:64220, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,64220,290568500179200
+
+2021-08-17 20:36:47,056 INFO send udp packet: 192.168.184.1,64220,290568500179200
+
+2021-08-17 20:36:47,249 INFO DEFAULT_GROUP@@cloud-yblog-user is changed, add it to push queue.
+
+2021-08-17 20:36:47,249 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-user changed, schedule push for: 192.168.184.1:50356, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,50356,290568694215000
+
+2021-08-17 20:36:47,249 INFO send udp packet: 192.168.184.1,50356,290568694215000
+
+2021-08-17 20:36:47,249 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-user changed, schedule push for: 192.168.184.1:61287, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,61287,290568694215000
+
+2021-08-17 20:36:47,249 INFO send udp packet: 192.168.184.1,61287,290568694215000
+
+2021-08-17 20:36:47,249 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-user changed, schedule push for: 192.168.184.1:64220, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,64220,290568694215000
+
+2021-08-17 20:36:47,249 INFO send udp packet: 192.168.184.1,64220,290568694215000
+
+2021-08-17 20:36:47,250 INFO DEFAULT_GROUP@@cloud-yblog-search is changed, add it to push queue.
+
+2021-08-17 20:36:48,405 INFO DEFAULT_GROUP@@cloud-yblog-log is changed, add it to push queue.
+
+2021-08-17 20:36:48,405 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-log changed, schedule push for: 192.168.184.1:50356, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,50356,290569850873600
+
+2021-08-17 20:36:48,405 INFO send udp packet: 192.168.184.1,50356,290569850873600
+
+2021-08-17 20:36:48,405 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-log changed, schedule push for: 192.168.184.1:61287, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,61287,290569850873600
+
+2021-08-17 20:36:48,405 INFO send udp packet: 192.168.184.1,61287,290569850873600
+
+2021-08-17 20:36:48,405 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-log changed, schedule push for: 192.168.184.1:50594, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,50594,290569850873600
+
+2021-08-17 20:36:48,406 INFO send udp packet: 192.168.184.1,50594,290569850873600
+
+2021-08-17 20:36:48,406 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-log changed, schedule push for: 192.168.184.1:64221, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,64221,290569850873600
+
+2021-08-17 20:36:48,406 INFO send udp packet: 192.168.184.1,64221,290569850873600
+
+2021-08-17 20:36:48,406 INFO received ack: {"type": "push-ack", "lastRefTime":"290569850873600", "data":""} from: 192.168.184.1:50356, cost: 1 ms, unacked: 16, total push: 46
+
+2021-08-17 20:36:48,406 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-log changed, schedule push for: 192.168.184.1:64220, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,64220,290569850873600
+
+2021-08-17 20:36:48,406 INFO send udp packet: 192.168.184.1,64220,290569850873600
+
+2021-08-17 20:36:48,407 INFO received ack: {"type": "push-ack", "lastRefTime":"290569850873600", "data":""} from: 192.168.184.1:64221, cost: 1 ms, unacked: 16, total push: 47
+
+2021-08-17 20:36:48,407 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-log changed, schedule push for: 192.168.184.1:50594, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,50594,290569850873600
+
+2021-08-17 20:36:48,407 INFO send udp packet: 192.168.184.1,50594,290569850873600
+
+2021-08-17 20:36:48,407 INFO received ack: {"type": "push-ack", "lastRefTime":"290569850873600", "data":""} from: 192.168.184.1:61287, cost: 2 ms, unacked: 15, total push: 47
+
+2021-08-17 20:36:48,407 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-log changed, schedule push for: 192.168.184.1:61288, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,61288,290569850873600
+
+2021-08-17 20:36:48,408 INFO send udp packet: 192.168.184.1,61288,290569850873600
+
+2021-08-17 20:36:48,408 INFO received ack: {"type": "push-ack", "lastRefTime":"290569850873600", "data":""} from: 192.168.184.1:50594, cost: 1 ms, unacked: 15, total push: 48
+
+2021-08-17 20:36:48,408 INFO received ack: {"type": "push-ack", "lastRefTime":"290569850873600", "data":""} from: 192.168.184.1:64220, cost: 2 ms, unacked: 14, total push: 48
+
+2021-08-17 20:36:48,409 INFO received ack: {"type": "push-ack", "lastRefTime":"290569850873600", "data":""} from: 192.168.184.1:61288, cost: 1 ms, unacked: 13, total push: 48
+
+2021-08-17 20:36:48,412 ERROR [NACOS-PUSH] error while receiving ack data
+
+java.lang.IllegalStateException: unable to find ackEntry for key: 192.168.184.1,50594,290569850873600, ack json: {"type": "push-ack", "lastRefTime":"290569850873600", "data":""}
+	at com.alibaba.nacos.naming.push.PushService$Receiver.run(PushService.java:680)
+	at java.base/java.lang.Thread.run(Thread.java:844)
+2021-08-17 20:36:48,596 INFO DEFAULT_GROUP@@cloud-yblog-web is changed, add it to push queue.
+
+2021-08-17 20:36:48,596 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-web changed, schedule push for: 192.168.184.1:64220, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,64220,290570041032100
+
+2021-08-17 20:36:48,596 INFO send udp packet: 192.168.184.1,64220,290570041032100
+
+2021-08-17 20:36:48,598 INFO received ack: {"type": "push-ack", "lastRefTime":"290570041032100", "data":""} from: 192.168.184.1:64220, cost: 2 ms, unacked: 13, total push: 49
+
+2021-08-17 20:36:53,703 INFO retry to push data, key: 192.168.184.1,50356,290565146385700
+
+2021-08-17 20:36:53,703 INFO send udp packet: 192.168.184.1,50356,290565146385700
+
+2021-08-17 20:36:53,703 INFO retry to push data, key: 192.168.184.1,50356,290565147113400
+
+2021-08-17 20:36:53,703 INFO send udp packet: 192.168.184.1,50356,290565147113400
+
+2021-08-17 20:36:53,703 INFO retry to push data, key: 192.168.184.1,50356,290565147305700
+
+2021-08-17 20:36:53,703 INFO send udp packet: 192.168.184.1,50356,290565147305700
+
+2021-08-17 20:36:53,704 INFO retry to push data, key: 192.168.184.1,50356,290565147515400
+
+2021-08-17 20:36:53,704 INFO send udp packet: 192.168.184.1,50356,290565147515400
+
+2021-08-17 20:36:53,704 INFO retry to push data, key: 192.168.184.1,50356,290565147965300
+
+2021-08-17 20:36:53,704 INFO send udp packet: 192.168.184.1,50356,290565147965300
+
+2021-08-17 20:36:53,705 WARN ack takes too long from /192.168.184.1:50356 ack json: {"type": "push-ack", "lastRefTime":"290565146385700", "data":""}
+
+2021-08-17 20:36:53,705 INFO received ack: {"type": "push-ack", "lastRefTime":"290565146385700", "data":""} from: 192.168.184.1:50356, cost: 2 ms, unacked: 12, total push: 49
+
+2021-08-17 20:36:53,706 WARN ack takes too long from /192.168.184.1:50356 ack json: {"type": "push-ack", "lastRefTime":"290565147113400", "data":""}
+
+2021-08-17 20:36:53,706 INFO received ack: {"type": "push-ack", "lastRefTime":"290565147113400", "data":""} from: 192.168.184.1:50356, cost: 3 ms, unacked: 11, total push: 49
+
+2021-08-17 20:36:53,706 WARN ack takes too long from /192.168.184.1:50356 ack json: {"type": "push-ack", "lastRefTime":"290565147305700", "data":""}
+
+2021-08-17 20:36:53,706 INFO received ack: {"type": "push-ack", "lastRefTime":"290565147305700", "data":""} from: 192.168.184.1:50356, cost: 3 ms, unacked: 10, total push: 49
+
+2021-08-17 20:36:53,707 WARN ack takes too long from /192.168.184.1:50356 ack json: {"type": "push-ack", "lastRefTime":"290565147515400", "data":""}
+
+2021-08-17 20:36:53,707 INFO received ack: {"type": "push-ack", "lastRefTime":"290565147515400", "data":""} from: 192.168.184.1:50356, cost: 3 ms, unacked: 9, total push: 49
+
+2021-08-17 20:36:53,708 WARN ack takes too long from /192.168.184.1:50356 ack json: {"type": "push-ack", "lastRefTime":"290565147965300", "data":""}
+
+2021-08-17 20:36:53,708 INFO received ack: {"type": "push-ack", "lastRefTime":"290565147965300", "data":""} from: 192.168.184.1:50356, cost: 4 ms, unacked: 8, total push: 49
+
+2021-08-17 20:36:55,206 INFO retry to push data, key: 192.168.184.1,53097,290566646596300
+
+2021-08-17 20:36:55,206 INFO send udp packet: 192.168.184.1,53097,290566646596300
+
+2021-08-17 20:36:55,207 WARN ack takes too long from /192.168.184.1:53097 ack json: {"type": "push-ack", "lastRefTime":"290566646596300", "data":""}
+
+2021-08-17 20:36:55,207 INFO received ack: {"type": "push-ack", "lastRefTime":"290566646596300", "data":""} from: 192.168.184.1:53097, cost: 1 ms, unacked: 7, total push: 49
+
+2021-08-17 20:36:55,889 INFO retry to push data, key: 192.168.184.1,50356,290567332662400
+
+2021-08-17 20:36:55,889 INFO send udp packet: 192.168.184.1,50356,290567332662400
+
+2021-08-17 20:36:55,891 WARN ack takes too long from /192.168.184.1:50356 ack json: {"type": "push-ack", "lastRefTime":"290567332662400", "data":""}
+
+2021-08-17 20:36:55,891 INFO received ack: {"type": "push-ack", "lastRefTime":"290567332662400", "data":""} from: 192.168.184.1:50356, cost: 2 ms, unacked: 6, total push: 49
+
+2021-08-17 20:36:57,057 INFO retry to push data, key: 192.168.184.1,50356,290568500179200
+
+2021-08-17 20:36:57,057 INFO send udp packet: 192.168.184.1,50356,290568500179200
+
+2021-08-17 20:36:57,057 INFO retry to push data, key: 192.168.184.1,64221,290568500179200
+
+2021-08-17 20:36:57,057 INFO send udp packet: 192.168.184.1,64221,290568500179200
+
+2021-08-17 20:36:57,057 INFO retry to push data, key: 192.168.184.1,64220,290568500179200
+
+2021-08-17 20:36:57,057 INFO send udp packet: 192.168.184.1,64220,290568500179200
+
+2021-08-17 20:36:57,058 WARN ack takes too long from /192.168.184.1:64221 ack json: {"type": "push-ack", "lastRefTime":"290568500179200", "data":""}
+
+2021-08-17 20:36:57,058 INFO received ack: {"type": "push-ack", "lastRefTime":"290568500179200", "data":""} from: 192.168.184.1:64221, cost: 1 ms, unacked: 5, total push: 49
+
+2021-08-17 20:36:57,059 WARN ack takes too long from /192.168.184.1:64220 ack json: {"type": "push-ack", "lastRefTime":"290568500179200", "data":""}
+
+2021-08-17 20:36:57,059 INFO received ack: {"type": "push-ack", "lastRefTime":"290568500179200", "data":""} from: 192.168.184.1:64220, cost: 2 ms, unacked: 4, total push: 49
+
+2021-08-17 20:36:57,059 WARN ack takes too long from /192.168.184.1:50356 ack json: {"type": "push-ack", "lastRefTime":"290568500179200", "data":""}
+
+2021-08-17 20:36:57,059 INFO received ack: {"type": "push-ack", "lastRefTime":"290568500179200", "data":""} from: 192.168.184.1:50356, cost: 2 ms, unacked: 3, total push: 49
+
+2021-08-17 20:36:57,251 INFO retry to push data, key: 192.168.184.1,50356,290568694215000
+
+2021-08-17 20:36:57,251 INFO send udp packet: 192.168.184.1,50356,290568694215000
+
+2021-08-17 20:36:57,251 INFO retry to push data, key: 192.168.184.1,61287,290568694215000
+
+2021-08-17 20:36:57,251 INFO send udp packet: 192.168.184.1,61287,290568694215000
+
+2021-08-17 20:36:57,251 INFO retry to push data, key: 192.168.184.1,64220,290568694215000
+
+2021-08-17 20:36:57,251 INFO send udp packet: 192.168.184.1,64220,290568694215000
+
+2021-08-17 20:36:57,252 WARN ack takes too long from /192.168.184.1:61287 ack json: {"type": "push-ack", "lastRefTime":"290568694215000", "data":""}
+
+2021-08-17 20:36:57,252 INFO received ack: {"type": "push-ack", "lastRefTime":"290568694215000", "data":""} from: 192.168.184.1:61287, cost: 1 ms, unacked: 2, total push: 49
+
+2021-08-17 20:36:57,252 WARN ack takes too long from /192.168.184.1:64220 ack json: {"type": "push-ack", "lastRefTime":"290568694215000", "data":""}
+
+2021-08-17 20:36:57,252 INFO received ack: {"type": "push-ack", "lastRefTime":"290568694215000", "data":""} from: 192.168.184.1:64220, cost: 1 ms, unacked: 1, total push: 49
+
+2021-08-17 20:36:57,253 WARN ack takes too long from /192.168.184.1:50356 ack json: {"type": "push-ack", "lastRefTime":"290568694215000", "data":""}
+
+2021-08-17 20:36:57,253 INFO received ack: {"type": "push-ack", "lastRefTime":"290568694215000", "data":""} from: 192.168.184.1:50356, cost: 2 ms, unacked: 0, total push: 49
+
+2021-08-17 21:10:04,062 INFO DEFAULT_GROUP@@cloud-yblog-user is changed, add it to push queue.
+
+2021-08-17 21:10:04,062 INFO DEFAULT_GROUP@@cloud-yblog-web is changed, add it to push queue.
+
+2021-08-17 21:10:04,063 INFO DEFAULT_GROUP@@cloud-yblog-search is changed, add it to push queue.
+
+2021-08-17 21:10:04,063 INFO DEFAULT_GROUP@@cloud-yblog-system is changed, add it to push queue.
+
+2021-08-17 21:10:04,063 INFO DEFAULT_GROUP@@cloud-yblog-log is changed, add it to push queue.
+
+2021-08-17 21:10:04,063 INFO DEFAULT_GROUP@@cloud-yblog-admin is changed, add it to push queue.
+
+2021-08-17 21:10:04,063 INFO DEFAULT_GROUP@@cloud-yblog-article is changed, add it to push queue.
+
+2021-08-17 21:10:04,063 INFO DEFAULT_GROUP@@cloud-yblog-async is changed, add it to push queue.
+
+2021-08-17 21:10:19,070 INFO DEFAULT_GROUP@@cloud-yblog-user is changed, add it to push queue.
+
+2021-08-17 21:10:19,070 INFO DEFAULT_GROUP@@cloud-yblog-search is changed, add it to push queue.
+
+2021-08-17 21:10:19,070 INFO DEFAULT_GROUP@@cloud-yblog-article is changed, add it to push queue.
+
+2021-08-17 21:10:19,070 INFO DEFAULT_GROUP@@cloud-yblog-admin is changed, add it to push queue.
+
+2021-08-17 21:10:19,072 INFO DEFAULT_GROUP@@cloud-yblog-async is changed, add it to push queue.
+
+2021-08-17 21:10:19,072 INFO DEFAULT_GROUP@@cloud-yblog-system is changed, add it to push queue.
+
+2021-08-17 21:10:19,072 INFO DEFAULT_GROUP@@cloud-yblog-web is changed, add it to push queue.
+
+2021-08-17 21:10:19,072 INFO DEFAULT_GROUP@@cloud-yblog-log is changed, add it to push queue.
+
+2021-08-17 21:36:16,175 INFO DEFAULT_GROUP@@cloud-yblog-log is changed, add it to push queue.
+
+2021-08-17 21:36:16,176 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-log changed, schedule push for: 192.168.184.1:56241, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,56241,294137621141900
+
+2021-08-17 21:36:16,182 INFO send udp packet: 192.168.184.1,56241,294137621141900
+
+2021-08-17 21:36:16,189 INFO received ack: {"type": "push-ack", "lastRefTime":"294137621141900", "data":""} from: 192.168.184.1:56241, cost: 7 ms, unacked: 0, total push: 50
+
+2021-08-17 21:36:29,685 INFO DEFAULT_GROUP@@cloud-yblog-async is changed, add it to push queue.
+
+2021-08-17 21:36:29,685 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-async changed, schedule push for: 192.168.184.1:56243, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,56243,294151130221500
+
+2021-08-17 21:36:29,685 INFO send udp packet: 192.168.184.1,56243,294151130221500
+
+2021-08-17 21:36:29,712 INFO received ack: {"type": "push-ack", "lastRefTime":"294151130221500", "data":""} from: 192.168.184.1:56243, cost: 27 ms, unacked: 0, total push: 51
+
+2021-08-17 21:36:34,186 INFO DEFAULT_GROUP@@cloud-yblog-search is changed, add it to push queue.
+
+2021-08-17 21:36:34,186 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-search changed, schedule push for: 192.168.184.1:56244, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,56244,294155631158700
+
+2021-08-17 21:36:34,186 INFO send udp packet: 192.168.184.1,56244,294155631158700
+
+2021-08-17 21:36:34,189 INFO received ack: {"type": "push-ack", "lastRefTime":"294155631158700", "data":""} from: 192.168.184.1:56244, cost: 3 ms, unacked: 0, total push: 52
+
+2021-08-17 21:36:38,612 INFO DEFAULT_GROUP@@cloud-yblog-user is changed, add it to push queue.
+
+2021-08-17 21:36:38,612 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-user changed, schedule push for: 192.168.184.1:60585, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,60585,294160057496800
+
+2021-08-17 21:36:38,612 INFO send udp packet: 192.168.184.1,60585,294160057496800
+
+2021-08-17 21:36:38,616 INFO received ack: {"type": "push-ack", "lastRefTime":"294160057496800", "data":""} from: 192.168.184.1:60585, cost: 4 ms, unacked: 0, total push: 53
+
+2021-08-17 21:36:44,692 INFO DEFAULT_GROUP@@cloud-yblog-web is changed, add it to push queue.
+
+2021-08-17 21:36:44,693 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-web changed, schedule push for: 192.168.184.1:60586, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,60586,294166138265900
+
+2021-08-17 21:36:44,693 INFO send udp packet: 192.168.184.1,60586,294166138265900
+
+2021-08-17 21:36:44,697 INFO received ack: {"type": "push-ack", "lastRefTime":"294166138265900", "data":""} from: 192.168.184.1:60586, cost: 4 ms, unacked: 0, total push: 54
+
+2021-08-17 21:36:47,192 INFO DEFAULT_GROUP@@cloud-yblog-article is changed, add it to push queue.
+
+2021-08-17 21:36:47,192 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-article changed, schedule push for: 192.168.184.1:58616, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,58616,294168637503100
+
+2021-08-17 21:36:47,192 INFO send udp packet: 192.168.184.1,58616,294168637503100
+
+2021-08-17 21:36:47,195 INFO received ack: {"type": "push-ack", "lastRefTime":"294168637503100", "data":""} from: 192.168.184.1:58616, cost: 3 ms, unacked: 0, total push: 55
+
+2021-08-17 21:36:49,250 INFO DEFAULT_GROUP@@cloud-yblog-system is changed, add it to push queue.
+
+2021-08-17 21:36:49,250 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-system changed, schedule push for: 192.168.184.1:60595, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,60595,294170695810300
+
+2021-08-17 21:36:49,250 INFO send udp packet: 192.168.184.1,60595,294170695810300
+
+2021-08-17 21:36:49,253 INFO received ack: {"type": "push-ack", "lastRefTime":"294170695810300", "data":""} from: 192.168.184.1:60595, cost: 3 ms, unacked: 0, total push: 56
+
+2021-08-17 21:40:54,027 INFO DEFAULT_GROUP@@cloud-yblog-admin is changed, add it to push queue.
+
+2021-08-17 21:40:54,027 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-admin changed, schedule push for: 192.168.184.1:51744, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,51744,294415472447100
+
+2021-08-17 21:40:54,027 INFO send udp packet: 192.168.184.1,51744,294415472447100
+
+2021-08-17 21:40:54,030 INFO received ack: {"type": "push-ack", "lastRefTime":"294415472447100", "data":""} from: 192.168.184.1:51744, cost: 3 ms, unacked: 0, total push: 57
+
+2021-08-17 22:11:25,060 INFO DEFAULT_GROUP@@cloud-yblog-web is changed, add it to push queue.
+
+2021-08-17 22:11:25,061 INFO DEFAULT_GROUP@@cloud-yblog-async is changed, add it to push queue.
+
+2021-08-17 22:11:26,703 INFO DEFAULT_GROUP@@cloud-yblog-log is changed, add it to push queue.
+
+2021-08-17 22:11:26,703 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-log changed, schedule push for: 192.168.184.1:64002, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,64002,296248148389100
+
+2021-08-17 22:11:26,703 INFO send udp packet: 192.168.184.1,64002,296248148389100
+
+2021-08-17 22:11:26,708 INFO received ack: {"type": "push-ack", "lastRefTime":"296248148389100", "data":""} from: 192.168.184.1:64002, cost: 5 ms, unacked: 0, total push: 58
+
+2021-08-17 22:11:27,662 INFO DEFAULT_GROUP@@cloud-yblog-article is changed, add it to push queue.
+
+2021-08-17 22:11:29,046 INFO DEFAULT_GROUP@@cloud-yblog-user is changed, add it to push queue.
+
+2021-08-17 22:11:29,440 INFO DEFAULT_GROUP@@cloud-yblog-admin is changed, add it to push queue.
+
+2021-08-17 22:11:29,593 INFO DEFAULT_GROUP@@cloud-yblog-search is changed, add it to push queue.
+
+2021-08-17 22:11:29,632 INFO DEFAULT_GROUP@@cloud-yblog-system is changed, add it to push queue.
+
+2021-08-17 22:11:30,609 INFO DEFAULT_GROUP@@cloud-yblog-user is changed, add it to push queue.
+
+2021-08-17 22:11:30,609 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-user changed, schedule push for: 192.168.184.1:64003, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,64003,296252054819000
+
+2021-08-17 22:11:30,609 INFO send udp packet: 192.168.184.1,64003,296252054819000
+
+2021-08-17 22:11:30,613 INFO received ack: {"type": "push-ack", "lastRefTime":"296252054819000", "data":""} from: 192.168.184.1:64003, cost: 4 ms, unacked: 0, total push: 59
+
+2021-08-17 22:11:31,807 INFO DEFAULT_GROUP@@cloud-yblog-log is changed, add it to push queue.
+
+2021-08-17 22:11:31,810 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-log changed, schedule push for: 192.168.184.1:64002, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,64002,296253256127600
+
+2021-08-17 22:11:31,814 INFO send udp packet: 192.168.184.1,64002,296253256127600
+
+2021-08-17 22:11:31,829 INFO received ack: {"type": "push-ack", "lastRefTime":"296253256127600", "data":""} from: 192.168.184.1:64002, cost: 15 ms, unacked: 0, total push: 60
+
+2021-08-17 22:11:35,587 INFO DEFAULT_GROUP@@cloud-yblog-web is changed, add it to push queue.
+
+2021-08-17 22:11:35,587 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-web changed, schedule push for: 192.168.184.1:64004, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,64004,296257032716600
+
+2021-08-17 22:11:35,587 INFO send udp packet: 192.168.184.1,64004,296257032716600
+
+2021-08-17 22:11:35,592 INFO received ack: {"type": "push-ack", "lastRefTime":"296257032716600", "data":""} from: 192.168.184.1:64004, cost: 5 ms, unacked: 0, total push: 61
+
+2021-08-17 22:11:35,617 INFO DEFAULT_GROUP@@cloud-yblog-user is changed, add it to push queue.
+
+2021-08-17 22:11:35,618 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-user changed, schedule push for: 192.168.184.1:64003, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,64003,296257063112900
+
+2021-08-17 22:11:35,618 INFO send udp packet: 192.168.184.1,64003,296257063112900
+
+2021-08-17 22:11:35,619 INFO received ack: {"type": "push-ack", "lastRefTime":"296257063112900", "data":""} from: 192.168.184.1:64003, cost: 1 ms, unacked: 0, total push: 62
+
+2021-08-17 22:11:40,061 INFO DEFAULT_GROUP@@cloud-yblog-async is changed, add it to push queue.
+
+2021-08-17 22:11:40,602 INFO DEFAULT_GROUP@@cloud-yblog-web is changed, add it to push queue.
+
+2021-08-17 22:11:40,602 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-web changed, schedule push for: 192.168.184.1:64004, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,64004,296262047419700
+
+2021-08-17 22:11:40,602 INFO send udp packet: 192.168.184.1,64004,296262047419700
+
+2021-08-17 22:11:40,604 INFO received ack: {"type": "push-ack", "lastRefTime":"296262047419700", "data":""} from: 192.168.184.1:64004, cost: 2 ms, unacked: 0, total push: 63
+
+2021-08-17 22:11:42,688 INFO DEFAULT_GROUP@@cloud-yblog-article is changed, add it to push queue.
+
+2021-08-17 22:11:44,449 INFO DEFAULT_GROUP@@cloud-yblog-admin is changed, add it to push queue.
+
+2021-08-17 22:11:44,599 INFO DEFAULT_GROUP@@cloud-yblog-search is changed, add it to push queue.
+
+2021-08-17 22:11:44,638 INFO DEFAULT_GROUP@@cloud-yblog-system is changed, add it to push queue.
+
+2021-08-17 22:11:44,638 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-system changed, schedule push for: 192.168.184.1:60181, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,60181,296266083278800
+
+2021-08-17 22:11:44,638 INFO send udp packet: 192.168.184.1,60181,296266083278800
+
+2021-08-17 22:11:44,655 INFO received ack: {"type": "push-ack", "lastRefTime":"296266083278800", "data":""} from: 192.168.184.1:60181, cost: 17 ms, unacked: 0, total push: 64
+
+2021-08-17 22:11:50,084 INFO DEFAULT_GROUP@@cloud-yblog-async is changed, add it to push queue.
+
+2021-08-17 22:11:50,084 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-async changed, schedule push for: 192.168.184.1:60183, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,60183,296271529051600
+
+2021-08-17 22:11:50,084 INFO send udp packet: 192.168.184.1,60183,296271529051600
+
+2021-08-17 22:11:50,087 INFO received ack: {"type": "push-ack", "lastRefTime":"296271529051600", "data":""} from: 192.168.184.1:60183, cost: 3 ms, unacked: 0, total push: 65
+
+2021-08-17 22:11:52,053 INFO DEFAULT_GROUP@@cloud-yblog-search is changed, add it to push queue.
+
+2021-08-17 22:11:52,053 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-search changed, schedule push for: 192.168.184.1:60184, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,60184,296273498198000
+
+2021-08-17 22:11:52,053 INFO send udp packet: 192.168.184.1,60184,296273498198000
+
+2021-08-17 22:11:52,056 INFO received ack: {"type": "push-ack", "lastRefTime":"296273498198000", "data":""} from: 192.168.184.1:60184, cost: 3 ms, unacked: 0, total push: 66
+
+2021-08-17 22:13:19,440 INFO DEFAULT_GROUP@@cloud-yblog-article is changed, add it to push queue.
+
+2021-08-17 22:13:19,440 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-article changed, schedule push for: 192.168.184.1:57875, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,57875,296360885023400
+
+2021-08-17 22:13:19,440 INFO send udp packet: 192.168.184.1,57875,296360885023400
+
+2021-08-17 22:13:19,442 INFO received ack: {"type": "push-ack", "lastRefTime":"296360885023400", "data":""} from: 192.168.184.1:57875, cost: 2 ms, unacked: 0, total push: 67
+
+2021-08-17 22:13:36,314 INFO DEFAULT_GROUP@@cloud-yblog-admin is changed, add it to push queue.
+
+2021-08-17 22:13:36,314 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-admin changed, schedule push for: 192.168.184.1:57876, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,57876,296377759295900
+
+2021-08-17 22:13:36,314 INFO send udp packet: 192.168.184.1,57876,296377759295900
+
+2021-08-17 22:13:36,317 INFO received ack: {"type": "push-ack", "lastRefTime":"296377759295900", "data":""} from: 192.168.184.1:57876, cost: 3 ms, unacked: 0, total push: 68
+
+2021-08-17 22:21:02,011 INFO DEFAULT_GROUP@@cloud-yblog-article is changed, add it to push queue.
+
+2021-08-17 22:21:02,011 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-article changed, schedule push for: 192.168.184.1:58369, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,58369,296823456355300
+
+2021-08-17 22:21:02,011 INFO send udp packet: 192.168.184.1,58369,296823456355300
+
+2021-08-17 22:21:02,011 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-article changed, schedule push for: 192.168.184.1:57876, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,57876,296823456355300
+
+2021-08-17 22:21:02,011 INFO send udp packet: 192.168.184.1,57876,296823456355300
+
+2021-08-17 22:21:02,012 INFO received ack: {"type": "push-ack", "lastRefTime":"296823456355300", "data":""} from: 192.168.184.1:57876, cost: 1 ms, unacked: 1, total push: 70
+
+2021-08-17 22:21:02,014 INFO received ack: {"type": "push-ack", "lastRefTime":"296823456355300", "data":""} from: 192.168.184.1:58369, cost: 3 ms, unacked: 0, total push: 70
+
+2021-08-17 22:22:53,745 INFO DEFAULT_GROUP@@cloud-yblog-admin is changed, add it to push queue.
+
+2021-08-17 22:22:53,745 INFO serviceName: DEFAULT_GROUP@@cloud-yblog-admin changed, schedule push for: 192.168.184.1:56771, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,56771,296935190728100
+
+2021-08-17 22:22:53,745 INFO send udp packet: 192.168.184.1,56771,296935190728100
+
+2021-08-17 22:22:53,748 INFO received ack: {"type": "push-ack", "lastRefTime":"296935190728100", "data":""} from: 192.168.184.1:56771, cost: 3 ms, unacked: 0, total push: 71
+
+2021-08-17 22:26:19,627 INFO DEFAULT_GROUP@@cloud-yblog-admin is changed, add it to push queue.
+
+2021-08-17 22:26:22,856 INFO DEFAULT_GROUP@@cloud-yblog-article is changed, add it to push queue.
+
+2021-08-17 22:26:24,214 INFO DEFAULT_GROUP@@cloud-yblog-user is changed, add it to push queue.
+
+2021-08-17 22:26:24,786 INFO DEFAULT_GROUP@@cloud-yblog-search is changed, add it to push queue.
+
+2021-08-17 22:26:24,881 INFO DEFAULT_GROUP@@cloud-yblog-system is changed, add it to push queue.
+
+2021-08-17 22:26:25,220 INFO DEFAULT_GROUP@@cloud-yblog-async is changed, add it to push queue.
+
+2021-08-17 22:26:25,220 INFO DEFAULT_GROUP@@cloud-yblog-web is changed, add it to push queue.
+
+2021-08-17 22:26:26,937 INFO DEFAULT_GROUP@@cloud-yblog-log is changed, add it to push queue.
+
+2021-08-17 22:26:34,686 INFO DEFAULT_GROUP@@cloud-yblog-admin is changed, add it to push queue.
+
+2021-08-17 22:26:37,862 INFO DEFAULT_GROUP@@cloud-yblog-article is changed, add it to push queue.
+
+2021-08-17 22:26:39,217 INFO DEFAULT_GROUP@@cloud-yblog-user is changed, add it to push queue.
+
+2021-08-17 22:26:39,792 INFO DEFAULT_GROUP@@cloud-yblog-search is changed, add it to push queue.
+
+2021-08-17 22:26:39,884 INFO DEFAULT_GROUP@@cloud-yblog-system is changed, add it to push queue.
+
+2021-08-17 22:26:40,223 INFO DEFAULT_GROUP@@cloud-yblog-async is changed, add it to push queue.
+
+2021-08-17 22:26:40,223 INFO DEFAULT_GROUP@@cloud-yblog-web is changed, add it to push queue.
+
+2021-08-17 22:26:41,941 INFO DEFAULT_GROUP@@cloud-yblog-log is changed, add it to push queue.
+
+2021-08-17 22:35:43,004 INFO DEFAULT_GROUP@@cloud-alibaba-seata-article is changed, add it to push queue.
+
+2021-08-17 22:35:43,005 INFO serviceName: DEFAULT_GROUP@@cloud-alibaba-seata-article changed, schedule push for: 192.168.184.1:52767, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,52767,297704450234000
+
+2021-08-17 22:35:43,006 INFO send udp packet: 192.168.184.1,52767,297704450234000
+
+2021-08-17 22:35:43,058 INFO received ack: {"type": "push-ack", "lastRefTime":"297704450234000", "data":""} from: 192.168.184.1:52767, cost: 52 ms, unacked: 0, total push: 72
+
+2021-08-17 22:35:47,006 INFO DEFAULT_GROUP@@cloud-alibaba-seata-tag is changed, add it to push queue.
+
+2021-08-17 22:35:47,006 INFO serviceName: DEFAULT_GROUP@@cloud-alibaba-seata-tag changed, schedule push for: 192.168.184.1:52768, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,52768,297708451078500
+
+2021-08-17 22:35:47,006 INFO send udp packet: 192.168.184.1,52768,297708451078500
+
+2021-08-17 22:35:47,008 INFO received ack: {"type": "push-ack", "lastRefTime":"297708451078500", "data":""} from: 192.168.184.1:52768, cost: 2 ms, unacked: 0, total push: 73
+
+2021-08-17 22:36:48,749 INFO DEFAULT_GROUP@@seata-web is changed, add it to push queue.
+
+2021-08-17 22:36:48,749 INFO serviceName: DEFAULT_GROUP@@seata-web changed, schedule push for: 192.168.184.1:64346, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,64346,297770194580300
+
+2021-08-17 22:36:48,749 INFO send udp packet: 192.168.184.1,64346,297770194580300
+
+2021-08-17 22:36:48,752 INFO received ack: {"type": "push-ack", "lastRefTime":"297770194580300", "data":""} from: 192.168.184.1:64346, cost: 3 ms, unacked: 0, total push: 74
+
+2021-08-17 22:38:47,040 INFO DEFAULT_GROUP@@cloud-alibaba-seata-tag is changed, add it to push queue.
+
+2021-08-17 22:38:48,026 INFO DEFAULT_GROUP@@cloud-alibaba-seata-article is changed, add it to push queue.
+
+2021-08-17 22:38:48,026 INFO serviceName: DEFAULT_GROUP@@cloud-alibaba-seata-article changed, schedule push for: 192.168.184.1:64346, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,64346,297889471533100
+
+2021-08-17 22:38:48,026 INFO send udp packet: 192.168.184.1,64346,297889471533100
+
+2021-08-17 22:38:48,028 INFO received ack: {"type": "push-ack", "lastRefTime":"297889471533100", "data":""} from: 192.168.184.1:64346, cost: 2 ms, unacked: 0, total push: 75
+
+2021-08-17 22:39:02,049 INFO DEFAULT_GROUP@@cloud-alibaba-seata-tag is changed, add it to push queue.
+
+2021-08-17 22:39:03,033 INFO DEFAULT_GROUP@@cloud-alibaba-seata-article is changed, add it to push queue.
+
+2021-08-17 22:39:03,033 INFO serviceName: DEFAULT_GROUP@@cloud-alibaba-seata-article changed, schedule push for: 192.168.184.1:64346, agent: Nacos-Java-Client:v1.3.3, key: 192.168.184.1,64346,297904478083900
+
+2021-08-17 22:39:03,033 INFO send udp packet: 192.168.184.1,64346,297904478083900
+
+2021-08-17 22:39:13,035 INFO retry to push data, key: 192.168.184.1,64346,297904478083900
+
+2021-08-17 22:39:13,035 INFO send udp packet: 192.168.184.1,64346,297904478083900
+
+2021-08-17 22:39:18,780 INFO DEFAULT_GROUP@@seata-web is changed, add it to push queue.
+
+2021-08-17 22:39:23,037 INFO retry to push data, key: 192.168.184.1,64346,297904478083900
+
+2021-08-17 22:39:23,037 WARN max re-push times reached, retry times 2, key: 192.168.184.1,64346,297904478083900
+
+2021-08-17 22:39:33,784 INFO DEFAULT_GROUP@@seata-web is changed, add it to push queue.
+
