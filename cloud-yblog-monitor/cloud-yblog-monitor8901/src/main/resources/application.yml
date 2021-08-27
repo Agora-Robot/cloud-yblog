@@ -4,17 +4,8 @@ server:
 spring:
   application:
     name: cloud-yblog-monitor
-  cloud:
-    nacos:
-      discovery:
-        server-addr: localhost:8848
-        username: nacos
-        password: nacos
-        enabled: true
-
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
+  #为SpringBoot admin设置帐号密码
+  security:
+    user:
+      name: root
+      password: 18420163207
