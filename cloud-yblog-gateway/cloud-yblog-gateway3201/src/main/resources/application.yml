@@ -1,0 +1,89 @@
+server:
+  port: 3201
+
+
+spring:
+  application:
+    name: cloud-yblog-gateway
+  #zipkin服务所在地址
+  zipkin:
+    base-url: http://localhost:9411/
+  #配置采样百分比,开发环境可以设置为1，表示全部，生产就用默认
+  sleuth:
+    sampler:
+      probability: 1
+  #配置springBoot admin
+  boot:
+    admin:
+      client:
+        url:  http://localhost:8901   #这里配置admin server 的地址
+        username: root
+        password: 18420163207
+  redis:
+    port: 6379
+    password:
+    host: localhost
+    database: 12     #使用db12
+#配置注册中心
+  cloud:
+    nacos:
+      discovery:
+        enabled: true
+        username: nacos
+        password: nacos
+        server-addr: localhost:8848
+#配置sentinel
+    sentinel:
+      transport:
+        port: 8720
+        dashboard: localhost:8080
+#配置网关gateway和注册中心进行结合,只有这样gateway才能有负载均衡的能力
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+#配置网关路由
+      routes:
+        #可以配置多个路由，但是id必须唯一
+
+        #配置article模块路由
+        - id: cloud-yblog-article
+          uri: lb://cloud-yblog-article
+          predicates:
+            - Path=/feign/**
+
+        #配置log模块路由
+        - id: cloud-yblog-log
+          uri: lb://cloud-yblog-log
+          predicates:
+            - Path=/feign/**
+
+        #配置system模块路由
+        - id: cloud-yblog-system
+          uri: lb://cloud-yblog-system
+          predicates:
+            - Path=/feign/**
+
+        #配置user模块路由
+        - id: cloud-yblog-user
+          uri: lb://cloud-yblog-user
+          predicates:
+            - Path=/feign/**
+
+        #配置admin模块路由1
+        - id: cloud-yblog-admin1
+          uri: lb://cloud-yblog-admin
+          predicates:
+            - Path=/pear/**
+
+        #配置admin模块路由2
+        - id: cloud-yblog-admin2
+          uri: lb://cloud-yblog-admin
+          predicates:
+            - Path=/admin/**
+
+        #配置admin模块路由3
+        - id: cloud-yblog-admin3
+          uri: lb://cloud-yblog-admin
+          predicates:
+            - Path=/logout
