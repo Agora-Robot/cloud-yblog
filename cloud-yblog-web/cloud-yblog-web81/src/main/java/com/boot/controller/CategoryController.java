@@ -40,7 +40,7 @@ import java.util.concurrent.TimeUnit;
  */
 @Controller
 @Api("客户端分类 web api")
-@RequestMapping(path = "/category")
+@RequestMapping(path = "/web/category")
 public class CategoryController {
 
     @Autowired

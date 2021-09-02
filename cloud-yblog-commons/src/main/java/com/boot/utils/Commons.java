@@ -35,7 +35,7 @@ public class Commons {
      * @return
      */
     public static String site_url() {
-        return site_url("/page/1");
+        return site_url("/web/page/1");
     }
     /**
      * 返回网站链接下的全址
@@ -102,7 +102,7 @@ public class Commons {
      * @return
      */
     public static String permalink(Long aid) {
-        return site_url("/article/" + aid.toString());
+        return site_url("/web/article/" + aid.toString());
     }
 
     /**

@@ -5,7 +5,7 @@
     <meta th:name="_csrf" th:content="${_csrf.token}"/>
     <!-- 默认的header name是X-CSRF-TOKEN -->
     <meta th:name="_csrf_header" th:content="${_csrf.headerName}"/>
-    <title>Login Page</title>
+    <title>用户登录</title>
 <!--    jquery-->
     <script th:src="@{/assets/js/jquery.min.js}"></script>
     <!-- 样 式 文 件 -->
@@ -15,7 +15,7 @@
 </head>
 <!-- 代 码 结 构 -->
 <body background="/pear-admin/images/background.svg" style="background-size: cover;">
-<form id="fm" class="layui-form" th:action="@{/login}" autocomplete="off" method="post">
+<form id="fm" class="layui-form" th:action="@{/web/login}" autocomplete="off" method="post">
     <div class="layui-form-item">
         <img class="logo" th:src="@{/pear-admin/images/logo2.png}" />
         <div class="title">cloud yblog</div>

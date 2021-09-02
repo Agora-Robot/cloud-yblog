@@ -60,7 +60,7 @@
                 <ul class="pagination">
 
                     <li th:if="${pageInfo.pageNum!=1}">
-                        <a th:href="@{'/page/'+${pageInfo.pageNum-1}}" aria-label="Previous">
+                        <a th:href="@{'/web/page/'+${pageInfo.pageNum-1}}" aria-label="Previous">
                             <span aria-hidden="true">&laquo;</span>
                         </a>
                     </li>
@@ -72,24 +72,24 @@
                 </ul>
 
                 <ul class="pagination" th:each="index:${#numbers.sequence(pageInfo.pageNum, pageInfo.pageNum+7)}" th:if="${pageInfo.getPages()>=7}">
-                    <li th:if="${pageInfo.pageNum==index} and ${index<=pageInfo.pages}" class="active"><a th:href="@{'/page/'+${index}}"
+                    <li th:if="${pageInfo.pageNum==index} and ${index<=pageInfo.pages}" class="active"><a th:href="@{'/web/page/'+${index}}"
                                                                              th:text="${index}"></a></li>
-                    <li th:if="${pageInfo.pageNum!=index} and ${index<=pageInfo.pages}"><a th:href="@{'/page/'+${index}}" th:text="${index}"></a>
+                    <li th:if="${pageInfo.pageNum!=index} and ${index<=pageInfo.pages}"><a th:href="@{'/web/page/'+${index}}" th:text="${index}"></a>
                     </li>
 
                 </ul>
 
                 <ul class="pagination" th:each="index:${#numbers.sequence(1, pageInfo.getPages())}" th:if="${pageInfo.getPages()<7}">
-                    <li th:if="${pageInfo.pageNum==index}" class="active"><a th:href="@{'/page/'+${index}}"
+                    <li th:if="${pageInfo.pageNum==index}" class="active"><a th:href="@{'/web/page/'+${index}}"
                                                                              th:text="${index}"></a></li>
-                    <li th:if="${pageInfo.pageNum!=index}"><a th:href="@{'/page/'+${index}}" th:text="${index}"></a>
+                    <li th:if="${pageInfo.pageNum!=index}"><a th:href="@{'/web/page/'+${index}}" th:text="${index}"></a>
                     </li>
 
                 </ul>
 
                 <ul class="pagination">
                     <li th:if="${pageInfo.pageNum!=pageInfo.pages}">
-                        <a th:href="@{'/page/'+${pageInfo.pageNum+1}}" aria-label="Next">
+                        <a th:href="@{'/web/page/'+${pageInfo.pageNum+1}}" aria-label="Next">
                             <span aria-hidden="true">&raquo;</span>
                         </a>
                     </li>
@@ -179,7 +179,7 @@
             <h2 class="blog-text-center blog-title"><span>阅读排行榜</span></h2>
             <div style="text-align: left">
                 <th:block th:each="articleOrder :${articleOrders}">
-                    <a style="font-size: 15px;" th:href="@{'/article/'+${articleOrder.id}}" target="_blank"
+                    <a style="font-size: 15px;" th:href="@{'/web/article/'+${articleOrder.id}}" target="_blank"
                        th:text="${articleOrderStat.index+1}+'、'+${articleOrder.title}+'('+${articleOrder.statistic.hits}+')'">
                     </a>
                     <hr style="margin-top: 0.6rem;margin-bottom: 0.4rem"/>

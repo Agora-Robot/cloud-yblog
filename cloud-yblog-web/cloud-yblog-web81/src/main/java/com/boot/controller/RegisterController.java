@@ -26,6 +26,7 @@ import java.util.concurrent.TimeUnit;
  */
 @Controller
 @Api("注册帐号控制器")
+@RequestMapping(path = "/web")
 public class RegisterController {
 
     @Autowired

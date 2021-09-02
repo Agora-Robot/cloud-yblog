@@ -107,6 +107,7 @@ Gitee: https://gitee.com/youzhengjie/springBootBlog
 
 * 启动Nginx服务器,Nginx.conf配置文件如下：
 ```text
+
 worker_processes  2;
 worker_rlimit_nofile 10240;
 events {
@@ -147,7 +148,7 @@ http {
 	
 
 	upstream cloudYblog.index.cn{
-		server localhost:81 weight=1;
+		server localhost:3201 weight=1;
 	}
 	
 	
@@ -191,7 +192,10 @@ http {
             root   html;
         }
     
-    }	 	
+    }
+	
+	
+	 	
 }
 ```
 

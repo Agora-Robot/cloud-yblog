@@ -1,15 +1,7 @@
 package com.boot.config;
 
-import com.alibaba.fastjson.JSON;
-import com.boot.constant.LoginType;
-import com.boot.constant.ThemeConstant;
-import com.boot.data.ResponseData.RememberJSON;
-import com.boot.feign.log.LoginLogFeign;
-import com.boot.feign.system.fallback.SettingFallbackFeign;
-import com.boot.feign.user.fallback.UserDetailFallbackFeign;
 import com.boot.feign.user.fallback.UserFallbackFeign;
 import com.boot.filter.VerifyCodeFilter;
-import com.boot.pojo.LoginLog;
 import com.boot.utils.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

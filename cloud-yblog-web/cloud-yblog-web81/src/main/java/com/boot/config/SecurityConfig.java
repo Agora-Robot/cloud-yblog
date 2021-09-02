@@ -65,6 +65,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
   private final String REMEMBER_KEY = "REMEMBER_"; // 记住我的Redis key前缀
 
+  private final String GATEWAY_URL="http://localhost:80"; //gateway网关前缀url
+
   @Autowired private UserFallbackFeign userFallbackFeign;
 
   @Override
@@ -93,8 +95,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         .usernameParameter("username")
         .passwordParameter("password")
         //                .loginPage("/login")
-        .loginPage("/loginPage") // 登录页接口
-        .loginProcessingUrl("/login") // 登录过程接口（也就是登录表单提交的接口）
+        .loginPage("/web/loginPage") // 登录页接口
+        .loginProcessingUrl("/web/login") // 登录过程接口（也就是登录表单提交的接口）
         // 登录成功处理
         .successHandler(
             new AuthenticationSuccessHandler() {
@@ -155,19 +157,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
                 // 这里不要用转发，不然会有一些bug
                 //
-                // request.getRequestDispatcher("/").forward(request,httpServletResponse);
-                httpServletResponse.sendRedirect("/");
+                // request.getRequestDispatcher("/web/").forward(request,httpServletResponse);
+                httpServletResponse.sendRedirect(GATEWAY_URL+"/web/");
               }
             })
-        .failureForwardUrl("/LoginfailPage")
+        .failureForwardUrl(GATEWAY_URL+"/web/LoginfailPage")
         .and()
         // 不写这段代码，druid监控sql将失效（原因未明）
         .csrf()
         .ignoringAntMatchers("/druid/**")
         .and()
         .logout()
-        .logoutUrl("/logout")
-        .logoutSuccessUrl("/page/1")
+        .logoutUrl("/web/logout")
+        .logoutSuccessUrl(GATEWAY_URL+"/web/page/1")
         .logoutSuccessHandler(
             new LogoutSuccessHandler() {
               @Override
@@ -181,20 +183,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
                 // 退出从Redis删除记住我记录
                 redisTemplate.delete(REMEMBER_KEY + IpUtils.getIpAddr(httpServletRequest));
-                httpServletResponse.sendRedirect("/page/1");
+                httpServletResponse.sendRedirect(GATEWAY_URL+"/web/page/1");
               }
             })
         .and()
         .authorizeRequests()
-        .antMatchers("/page/**")
+        .antMatchers("/web/page/**")
         .permitAll()
-        .antMatchers("/")
+        .antMatchers("/web/")
         .permitAll()
-        .antMatchers("/loginPage")
+        .antMatchers("/web/loginPage")
         .permitAll()
-        .antMatchers("/login")
+        .antMatchers("/web/login")
         .permitAll()
-        .antMatchers("/article/**")
+        .antMatchers("/web/article/**")
         .permitAll()
         .antMatchers("/druid/**")
         .permitAll()
@@ -226,7 +228,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         .hasRole("admin")
         .antMatchers("/myuser/**", "/img/**", "/catchArticle/**", "/like/**", "/admin/")
         .hasAnyRole("admin", "common")
-        .antMatchers("/sliderCaptcha/**", "/logout")
+        .antMatchers("/web/sliderCaptcha/**", "/web/logout")
         .permitAll()
         .anyRequest()
         .permitAll()

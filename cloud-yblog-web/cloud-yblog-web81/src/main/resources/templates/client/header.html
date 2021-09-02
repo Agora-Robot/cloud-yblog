@@ -41,28 +41,28 @@
 <![endif]-->
 <header id="header" class="header bg-white">
     <div class="navbar-container">
-        <a th:href="@{/page/1}" class="navbar-logo" th:if="${userDetail} ne null">
+        <a th:href="@{/web/page/1}" class="navbar-logo" th:if="${userDetail} ne null">
             <span th:text="${userDetail.blogName}+'个人博客小站'"></span>
         </a>
-        <a th:href="@{/page/1}" class="navbar-logo" th:if="${userDetail} eq null">
+        <a th:href="@{/web/page/1}" class="navbar-logo" th:if="${userDetail} eq null">
             <span>游客个人博客小站</span>
         </a>
         <div class="navbar-menu">
-            <form name="logoutform" th:action="@{/logout}" method="post"></form>
-            <a class="header-info" sec:authorize="isAnonymous()" th:href="@{/loginPage}">登录</a>
+            <form name="logoutform" th:action="@{/web/logout}" method="post"></form>
+            <a class="header-info" sec:authorize="isAnonymous()" th:href="@{/web/loginPage}">登录</a>
             <a class="header-info" sec:authorize="isAuthenticated()"
                href="javascript:document.logoutform.submit();">退出</a>
-            <a class="header-info" th:href="@{/toSendEmailPage}">注册</a>
-            <a class="header-info" th:href="@{/archive/list}">归档</a>
+            <a class="header-info" th:href="@{/web/toSendEmailPage}">注册</a>
+            <a class="header-info" th:href="@{/web/archive/list}">归档</a>
             <a id="link" class="header-info" data-toggle="modal" data-target="#myModal">友链</a>
-            <a class="header-info" href="http://localhost:90/admin/" target="_blank">后台管理</a>
+            <a class="header-info" href="http://localhost:80/admin/" target="_blank">后台管理</a>
 
 
         </div>
 
         <div id="searchbox" class="navbar-search">
             <span class="icon-search" onclick="submitData()"></span>
-            <form id="form" role="search" th:action="@{/search/1}">
+            <form id="form" role="search" th:action="@{/web/search/1}">
                 <span class="search-box">
                     <input type="text" name="searchText" id="search-inp" class="input" placeholder="全站搜索..."
                            maxlength="30"

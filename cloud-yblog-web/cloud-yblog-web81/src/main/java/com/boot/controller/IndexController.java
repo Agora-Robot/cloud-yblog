@@ -44,6 +44,7 @@ import java.util.concurrent.TimeUnit;
 @Api("客户端首页 web api")
 @Slf4j
 @CrossOrigin
+@RequestMapping(path = "/web")
 public class IndexController {
 
   @Autowired private ArticleFallbackFeign articleFallbackFeign;

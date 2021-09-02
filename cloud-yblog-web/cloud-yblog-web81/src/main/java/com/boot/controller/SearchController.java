@@ -31,6 +31,7 @@ import java.util.concurrent.TimeUnit;
 /** @author 游政杰 2021/5/22 15:54 */
 @Controller
 @Api("搜索 web api")
+@RequestMapping(path = "/web")
 public class SearchController {
 
   @Autowired private ArticleFallbackFeign articleFallbackFeign;

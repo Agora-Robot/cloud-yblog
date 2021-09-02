@@ -126,10 +126,10 @@ public class GithubController {
         securityContext.setAuthentication(usernamePasswordAuthenticationToken);
         session.setAttribute("SPRING_SECURITY_CONTEXT", securityContext);
       }
-      response.sendRedirect("/");
+      response.sendRedirect("/web/");
     } catch (Exception e) {
       e.printStackTrace();
-      response.sendRedirect("/loginPage");
+      response.sendRedirect("/web/loginPage");
     }
   }
 }

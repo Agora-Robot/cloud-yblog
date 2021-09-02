@@ -35,17 +35,5 @@ public class WebApplication81 {
       SpringApplication.run(WebApplication81.class,args);
   }
 
-  @Autowired
-  private RedisTemplate redisTemplate;
-
-  @PostConstruct
-  public void initStaticPath() throws FileNotFoundException {
-
-      String staticPath = FileUtil.getStaticPath();
-
-      redisTemplate.opsForValue().set("staticPath",staticPath);
-      
-  }
-
 
 }

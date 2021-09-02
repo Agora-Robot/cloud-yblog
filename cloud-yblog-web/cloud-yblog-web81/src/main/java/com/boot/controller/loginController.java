@@ -27,6 +27,7 @@ import java.io.IOException;
  */
 @Controller
 @Api("登录 web api")
+@RequestMapping(path = "/web")
 public class loginController {
 
     @Autowired
@@ -51,7 +52,7 @@ public class loginController {
     public void login(String username, String password, String code, HttpServletResponse response, HttpServletRequest request) throws IOException {
 
 
-        response.sendRedirect("/");
+        response.sendRedirect("http://localhost:80/web/");
     }
 
     @RequestMapping(path = "/check")

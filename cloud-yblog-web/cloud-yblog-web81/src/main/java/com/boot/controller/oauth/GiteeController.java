@@ -130,7 +130,7 @@ public class GiteeController {
             e.printStackTrace();
         }
         // 否则返回到登陆页面
-        response.sendRedirect("http://localhost:80/");
+        response.sendRedirect("http://localhost:80/web/");
     }
 
 

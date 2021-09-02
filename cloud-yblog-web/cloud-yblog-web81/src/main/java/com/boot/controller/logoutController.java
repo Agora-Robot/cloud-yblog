@@ -13,13 +13,14 @@ import java.io.IOException;
  */
 @Controller
 @Api("注销 web api")
+@RequestMapping(path = "/web")
 public class logoutController {
 
 
     @RequestMapping(path = "/logout")
     public void logout(HttpServletResponse response) throws IOException {
 
-        response.sendRedirect("/page/1");
+        response.sendRedirect("http://localhost:80/web/page/99999");
     }
 
 

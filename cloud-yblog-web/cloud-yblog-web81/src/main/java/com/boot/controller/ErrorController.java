@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @Api("例如跳转重定向、转发页面")
-@RequestMapping(path = "/err")
+@RequestMapping(path = "/web/err")
 public class ErrorController {
 
     /**

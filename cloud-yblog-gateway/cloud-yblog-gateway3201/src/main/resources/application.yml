@@ -24,7 +24,7 @@ spring:
     password:
     host: localhost
     database: 12     #使用db12
-#配置注册中心
+  #配置注册中心
   cloud:
     nacos:
       discovery:
@@ -32,17 +32,17 @@ spring:
         username: nacos
         password: nacos
         server-addr: localhost:8848
-#配置sentinel
+    #配置sentinel
     sentinel:
       transport:
         port: 8720
         dashboard: localhost:8080
-#配置网关gateway和注册中心进行结合,只有这样gateway才能有负载均衡的能力
+    #配置网关gateway和注册中心进行结合,只有这样gateway才能有负载均衡的能力
     gateway:
       discovery:
         locator:
           enabled: true
-#配置网关路由
+      #配置网关路由
       routes:
         #可以配置多个路由，但是id必须唯一
 
@@ -87,3 +87,28 @@ spring:
           uri: lb://cloud-yblog-admin
           predicates:
             - Path=/logout
+
+        #配置search模块路由
+        - id: cloud-yblog-search
+          uri: lb://cloud-yblog-search
+          predicates:
+            - Path=/feign/**
+
+        #配置web模块路由1
+        - id: cloud-yblog-web1
+          uri: lb://cloud-yblog-web
+          predicates:
+            - Path=/gitee/**
+
+        #配置web模块路由2
+        - id: cloud-yblog-web2
+          uri: lb://cloud-yblog-web
+          predicates:
+            - Path=/github/**
+
+        #配置web模块路由3
+        - id: cloud-yblog-web3
+          uri: lb://cloud-yblog-web
+          predicates:
+            - Path=/web/**
+

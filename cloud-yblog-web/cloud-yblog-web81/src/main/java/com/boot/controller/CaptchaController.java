@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @Controller("Captcha")
-@RequestMapping(path = "/pear")
+@RequestMapping(path = "/web/pear")
 public class CaptchaController {
 
 

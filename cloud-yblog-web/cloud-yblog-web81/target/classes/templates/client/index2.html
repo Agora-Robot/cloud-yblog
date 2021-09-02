@@ -95,7 +95,7 @@
                     <li class="nav-item">
                         <div id="searchbox" class="navbar-search" style="height: 40px;">
                             <span class="icon-search" onclick="submitData()"></span>
-                            <form id="form" role="search" th:action="@{/search/1}">
+                            <form id="form" role="search" th:action="@{/web/search/1}">
                            <span class="search-box">
                                 <input style="height: 40px;" type="text" name="searchText" id="search-inp" class="input"
                                        placeholder="全站搜索..."
@@ -109,31 +109,31 @@
 
 
                     <li th:if="${indexAc} ne null" class="nav-item active">
-                        <a class="nav-link" th:href="@{/page/1}">首页<span class="sr-only"></span></a>
+                        <a class="nav-link" th:href="@{/web/page/1}">首页<span class="sr-only"></span></a>
                     </li>
                     <li th:if="${indexAc} eq null" class="nav-item">
-                        <a class="nav-link" th:href="@{/page/1}">首页<span class="sr-only"></span></a>
+                        <a class="nav-link" th:href="@{/web/page/1}">首页<span class="sr-only"></span></a>
                     </li>
                     <li  class="nav-item ">
-                        <a class="nav-link" th:href="@{/category/list}">分类<span class="sr-only"></span></a>
+                        <a class="nav-link" th:href="@{/web/category/list}">分类<span class="sr-only"></span></a>
                     </li>
 
                     <li th:if="${archiveAc} ne null" class="nav-item active">
-                        <a class="nav-link" th:href="@{/archive/list}">归档<span class="sr-only"></span></a>
+                        <a class="nav-link" th:href="@{/web/archive/list}">归档<span class="sr-only"></span></a>
                     </li>
                     <li th:if="${archiveAc} eq null" class="nav-item">
-                        <a class="nav-link" th:href="@{/archive/list}">归档<span class="sr-only"></span></a>
+                        <a class="nav-link" th:href="@{/web/archive/list}">归档<span class="sr-only"></span></a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="http://localhost:90/admin/" target="_blank">后台管理</a>
+                        <a class="nav-link" href="http://localhost:80/admin/" target="_blank">后台管理</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{/toregister}">注册</a>
+                        <a class="nav-link" th:href="@{/web/toregister}">注册</a>
                     </li>
-                    <form name="logoutform" th:action="@{/logout}" method="post"></form>
+                    <form name="logoutform" th:action="@{/web/logout}" method="post"></form>
                     <li class="nav-item">
-                        <a class="nav-link" sec:authorize="isAnonymous()" th:href="@{/loginPage}">登录</a>
+                        <a class="nav-link" sec:authorize="isAnonymous()" th:href="@{/web/loginPage}">登录</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" sec:authorize="isAuthenticated()"
@@ -195,7 +195,7 @@
                 <ul class="pagination justify-content-center">
 
                     <li th:if="${pageInfo.pageNum!=1}" class="page-item">
-                        <a class="page-link" th:href="@{'/page/'+${pageInfo.pageNum-1}}" aria-label="Previous">
+                        <a class="page-link" th:href="@{'/web/page/'+${pageInfo.pageNum-1}}" aria-label="Previous">
                             <span aria-hidden="true">&laquo;</span>
                         </a>
                     </li>
@@ -209,26 +209,26 @@
                     <div th:each="index:${#numbers.sequence(pageInfo.pageNum, pageInfo.pageNum+7)}"
                          th:if="${pageInfo.getPages()>=7}">
                         <li th:if="${pageInfo.pageNum==index} and ${index<=pageInfo.pages}" class="page-item active">
-                            <a class="page-link" th:href="@{'/page/'+${index}}" th:text="${index}"></a>
+                            <a class="page-link" th:href="@{'/web/page/'+${index}}" th:text="${index}"></a>
                         </li>
                         <li th:if="${pageInfo.pageNum!=index} and ${index<=pageInfo.pages}" class="page-item">
-                            <a class="page-link" th:href="@{'/page/'+${index}}" th:text="${index}"></a>
+                            <a class="page-link" th:href="@{'/web/page/'+${index}}" th:text="${index}"></a>
                         </li>
                     </div>
 
 
                     <div th:each="index:${#numbers.sequence(1, pageInfo.getPages())}" th:if="${pageInfo.getPages()<8}">
                         <li th:if="${pageInfo.pageNum==index}" class="page-item active">
-                            <a class="page-link" th:href="@{'/page/'+${index}}" th:text="${index}"></a>
+                            <a class="page-link" th:href="@{'/web/page/'+${index}}" th:text="${index}"></a>
                         </li>
                         <li th:if="${pageInfo.pageNum!=index}" class="page-item">
-                            <a class="page-link" th:href="@{'/page/'+${index}}" th:text="${index}"></a>
+                            <a class="page-link" th:href="@{'/web/page/'+${index}}" th:text="${index}"></a>
                         </li>
                     </div>
 
 
                     <li class="page-item" th:if="${pageInfo.pageNum!=pageInfo.pages}">
-                        <a class="page-link" th:href="@{'/page/'+${pageInfo.pageNum+1}}" aria-label="Next">
+                        <a class="page-link" th:href="@{'/web/page/'+${pageInfo.pageNum+1}}" aria-label="Next">
                             <span aria-hidden="true">&raquo;</span>
                         </a>
                     </li>
@@ -347,7 +347,7 @@
                     <!--                    <div class="right-recommended"><a href="#"><img src="#" class="img-fluid" alt=""></a></div>-->
                     <ul class="right-recommended-list">
                         <li th:each="articleOrder :${articleOrders}">
-                            <a th:href="@{'/article/'+${articleOrder.id}}" target="_blank">
+                            <a th:href="@{'/web/article/'+${articleOrder.id}}" target="_blank">
                                 <i class="fa fa-angle-right" aria-hidden="true"></i>
                                 <span th:text="${articleOrderStat.index+1}+'、'+${articleOrder.title}+'('+${articleOrder.statistic.hits}+')'"></span>
                             </a>
@@ -489,7 +489,7 @@
         let header = $("meta[name='_csrf_header']").attr("content");
         let token = $("meta[name='_csrf']").attr("content");
         $.ajax({
-            url: "/like/art",
+            url: "/web/like/art",
             data: {
                 "article_id": id
             },
@@ -499,7 +499,7 @@
             },
             success: function (data) {
                 if (data.length > 6000) { //data是被SpringSecurity拦截的页面，大小肯定大于6000，我们便可以手动跳转页面
-                    window.location.href = "/loginPage";
+                    window.location.href = "/web/loginPage";
                     return;
                 }
                 var json = JSON.parse(data);
@@ -521,14 +521,14 @@
 
 
     function toPage() {
-        window.location.href = '/page/' + $('#t1').val();
+        window.location.href = '/web/page/' + $('#t1').val();
     }
 
 
     //ajax局部刷新归档数据
     function archiveChange(date) {
         $.ajax({
-            url: "/archive/data",
+            url: "/web/archive/data",
             data: {
                 "date": date
             },
@@ -542,7 +542,7 @@
                 var html='';
 
                 for (let i = 0; i < obj.length; i++) {
-                    let hf= '/article/'+obj[i].id;
+                    let hf= '/web/article/'+obj[i].id;
                     html+='<li class="list-item layui-card">'+'<a href="'+hf+'" target="_blank">'
                         +'<span class="title">'+obj[i].title+'</span>'+'</a>'+'</li>'
                 }

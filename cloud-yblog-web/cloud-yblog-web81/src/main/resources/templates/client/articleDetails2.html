@@ -43,23 +43,23 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a class="nav-link" th:href="@{/page/1}">首页<span class="sr-only"></span></a>
+                        <a class="nav-link" th:href="@{/web/page/1}">首页<span class="sr-only"></span></a>
                     </li>
                     <li  class="nav-item ">
-                        <a class="nav-link" th:href="@{/category/list}">分类<span class="sr-only"></span></a>
+                        <a class="nav-link" th:href="@{/web/category/list}">分类<span class="sr-only"></span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{/archive/list}">归档<span class="sr-only"></span></a>
+                        <a class="nav-link" th:href="@{/web/archive/list}">归档<span class="sr-only"></span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="http://localhost:90/admin/" target="_blank">后台管理</a>
+                        <a class="nav-link" href="http://localhost:80/admin/" target="_blank">后台管理</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{/toSendEmailPage}">注册</a>
+                        <a class="nav-link" th:href="@{/web/toSendEmailPage}">注册</a>
                     </li>
-                    <form name="logoutform" th:action="@{/logout}" method="post"></form>
+                    <form name="logoutform" th:action="@{/web/logout}" method="post"></form>
                     <li class="nav-item">
-                        <a class="nav-link" sec:authorize="isAnonymous()" th:href="@{/loginPage}">登录</a>
+                        <a class="nav-link" sec:authorize="isAnonymous()" th:href="@{/web/loginPage}">登录</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" sec:authorize="isAuthenticated()"
@@ -97,17 +97,16 @@
                     <div id="comments" class="clearfix">
                         <div th:if="${article.allowComment}">
                 <span class="response">
-                    <form name="logoutform" th:action="@{/logout}" method="post"></form>
+                    <form name="logoutform" th:action="@{/web/logout}" method="post"></form>
                     <th:block sec:authorize="isAuthenticated()">
                         Hello，<a data-no-instant="" sec:authentication="name"></a>
                         如果你想 <a href="javascript:document.logoutform.submit();">注销</a> ?
                         <span style="color: pink">评论或者回复时,请单击一下下面的昵称文本框！</span>
                     </th:block>
                     <th:block sec:authorize="isAnonymous()">
-                        用户想要评论或者查看评论，请先<a th:href="@{/loginPage}" title="登录" data-no-instant="">登录</a>!
+                        用户想要评论或者查看评论，请先<a th:href="@{/web/loginPage}" title="登录" data-no-instant="">登录</a>!
                     </th:block>
                 </span>
-
                             <div id="vcomments" sec:authorize="isAuthenticated()">
                             </div>
 
@@ -161,7 +160,7 @@
                     <!--                    <div class="right-recommended"><a href="#"><img src="#" class="img-fluid" alt=""></a></div>-->
                     <ul class="right-recommended-list">
                         <li th:each="articleOrder :${articleOrders}">
-                            <a th:href="@{'/article/'+${articleOrder.id}}" target="_blank">
+                            <a th:href="@{'/web/article/'+${articleOrder.id}}" target="_blank">
                                 <i class="fa fa-angle-right" aria-hidden="true"></i>
                                 <span th:text="${articleOrderStat.index+1}+'、'+${articleOrder.title}+'('+${articleOrder.statistic.hits}+')'"></span>
                             </a>
