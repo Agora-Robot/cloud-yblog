@@ -54,5 +54,4 @@
         select count(*) from t_intercept
     </select>
 
-
 </mapper>

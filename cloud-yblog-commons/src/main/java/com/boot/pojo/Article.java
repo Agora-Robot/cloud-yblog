@@ -25,9 +25,7 @@ public class Article implements Serializable {
 
     private int likes;            //文章点赞数
 
-
     private Statistic statistic;
-
 
 
     public Article() {

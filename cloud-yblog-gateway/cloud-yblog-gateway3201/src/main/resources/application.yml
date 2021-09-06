@@ -43,6 +43,7 @@ spring:
         locator:
           enabled: true
       #配置网关路由
+      #注意：- Path的值最好不要一样，不然可能会访问404----------------
       routes:
         #可以配置多个路由，但是id必须唯一
 
@@ -111,4 +112,10 @@ spring:
           uri: lb://cloud-yblog-web
           predicates:
             - Path=/web/**
+
+        #配置generate模块路由
+        - id: cloud-yblog-generate
+          uri: lb://cloud-yblog-generate
+          predicates:
+            - Path=/generate/**
 

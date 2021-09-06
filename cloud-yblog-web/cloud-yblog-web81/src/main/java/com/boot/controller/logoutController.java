@@ -20,7 +20,7 @@ public class logoutController {
     @RequestMapping(path = "/logout")
     public void logout(HttpServletResponse response) throws IOException {
 
-        response.sendRedirect("http://localhost:80/web/page/99999");
+        response.sendRedirect("http://localhost:80/web/page/1");
     }
 
 

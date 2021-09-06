@@ -8,12 +8,11 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
 import org.springframework.util.ResourceUtils;
 
-import javax.annotation.PostConstruct;
 import java.io.FileNotFoundException;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableRedisHttpSession(maxInactiveIntervalInSeconds = 60*60*3) //开启springSession+redis解决分布式session问题
+//@EnableRedisHttpSession(maxInactiveIntervalInSeconds = 60*60*3) //开启springSession+redis解决分布式session问题
 public class GatewayApplication3201 {
   private static RedisTemplate redisTemplate;
 
