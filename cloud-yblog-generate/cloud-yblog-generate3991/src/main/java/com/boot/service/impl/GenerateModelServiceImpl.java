@@ -45,10 +45,10 @@ public class GenerateModelServiceImpl implements GenerateModelService {
             modelPackage,
             generateModelPath);
       }
+      log.info("自动生成代码成功......");
 
       return true;
     } catch (Exception e) {
-
       log.info("自动生成代码出现异常,生成失败......");
 
       return false;
@@ -70,12 +70,14 @@ public class GenerateModelServiceImpl implements GenerateModelService {
       // StringBuilder也行，但是StringBuffer的优势是在多线程的情况下使用的，刚好我们现在的场景符合。
       StringBuffer codeString = new StringBuffer();
 
-      String[] split = modelPackage.split(".");
+      String[] split = modelPackage.split("\\."); //***split之间分隔'.'是没有用的,要"\\."
 
       String packageName = split[split.length - 1];
+
       String modelPackagePath = generateModelPath + "\\" + packageName; // 实体类的包路径
 
       File pg = new File(modelPackagePath);
+
       // 创建包的操作
       if (!pg.exists()) { // 如果实体类的包不存在，则创建一个
 
@@ -97,6 +99,8 @@ public class GenerateModelServiceImpl implements GenerateModelService {
       // 写代码生成文件
       codeString.append("package " + modelPackage + ";\n\n");
 
+      //写导入类
+      codeString.append("import lombok.ToString;\n");
       codeString.append("import java.util.*;\n"); // 导入java.util包
 
       if (modelSerialize) { // 如果需要序列化
@@ -111,11 +115,15 @@ public class GenerateModelServiceImpl implements GenerateModelService {
       SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
       String dateTime = simpleDateFormat.format(date);
 
-      codeString.append(" * @date " + dateTime + "\n */\n\n");
+      codeString.append(" * @date " + dateTime + "\n */\n");
 
       // 写入注释完成
 
       // 开始写入类
+
+      //生成lombok的@ToString注解
+      codeString.append("@ToString //lombok生成toString方法\n");
+
       if (modelSerialize) {
 
         codeString.append("public class " + className + " implements Serializable {");
@@ -125,6 +133,7 @@ public class GenerateModelServiceImpl implements GenerateModelService {
         codeString.append("public class " + className + " {");
       }
 
+      //生成字段
       for (int i = 0; i < attributes.size(); i++) {
         String[] data = parseData(attributes.get(i));
         String dataType= data[0];
@@ -133,7 +142,7 @@ public class GenerateModelServiceImpl implements GenerateModelService {
         codeString.append("\n\tprivate " + dataType + " " + dataObject + ";");
       }
 
-      codeString.append("\n\n\n\n");
+      codeString.append("\n\n");
 
       if (modelConstructor) { // 如果生成构造方法
 
@@ -142,7 +151,7 @@ public class GenerateModelServiceImpl implements GenerateModelService {
         codeString.append("\tpublic " + className + "(){\n\t}");
 
         // 写入有参构造
-        codeString.append("\n\npublic " + className + "(");
+        codeString.append("\n\n\tpublic " + className + "(");
 
         for (int i = 0; i < attributes.size()-1; i++) {
           String[] data = parseData(attributes.get(i));
@@ -190,7 +199,7 @@ public class GenerateModelServiceImpl implements GenerateModelService {
               }
             }
             //get方法
-            codeString.append("\tpublic "+dataType+" get"+parseDataObject+" {\n");
+            codeString.append("\tpublic "+dataType+" get"+parseDataObject+"() {\n");
             codeString.append("\t\treturn "+dataObject+";\n\t}\n\n");
             //set方法
             codeString.append("\tpublic void set"+parseDataObject+"("+dataType+" "+dataObject+") {\n");
@@ -198,7 +207,7 @@ public class GenerateModelServiceImpl implements GenerateModelService {
 
           }else {//不用转换
             //get方法
-            codeString.append("\tpublic "+dataType+" get"+dataObject+" {\n");
+            codeString.append("\tpublic "+dataType+" get"+dataObject+"() {\n");
             codeString.append("\t\treturn "+dataObject+";\n\t}\n\n");
             //set方法
             codeString.append("\tpublic void set"+dataObject+"("+dataType+" "+dataObject+") {\n");
@@ -208,9 +217,9 @@ public class GenerateModelServiceImpl implements GenerateModelService {
         }
       }
 
+
       //类的结束
       codeString.append("\n}");
-
 
       //生成文件
       fileOutputStream = new FileOutputStream(modelClassPath);
@@ -218,7 +227,9 @@ public class GenerateModelServiceImpl implements GenerateModelService {
 
       String codeStr = codeString.toString();
       byte[] classToBytes = codeStr.getBytes();
+
       bufferedOutputStream.write(classToBytes);
+
       bufferedOutputStream.flush(); //刷新缓冲区
 
     }catch (Exception e){

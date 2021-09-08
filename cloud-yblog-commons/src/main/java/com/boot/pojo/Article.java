@@ -1,6 +1,7 @@
 package com.boot.pojo;
 
 import io.swagger.annotations.ApiModel;
+import lombok.ToString;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -142,6 +143,7 @@ public class Article implements Serializable {
     public void setLikes(int likes) {
         this.likes = likes;
     }
+
 
     @Override
     public String toString() {

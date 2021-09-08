@@ -64,7 +64,7 @@ cloud:
       modelPackage: com.boot.generate #存放生成的实体类的包名
       #生成实体类的路径（**默认使用这个路径**）
       generateModelPath: C:\\Users\\youzhengjie666\\Desktop\\U\\cloud-yblog\\cloud-yblog-generate\\cloud-yblog-generate3991\\src\\main\\java\\com\\boot
-
+#      generateModelPath: C:\\Users\\youzhengjie666\\Desktop\\U\\Java tool
 
 
 
