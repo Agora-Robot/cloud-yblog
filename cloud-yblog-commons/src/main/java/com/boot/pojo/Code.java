@@ -10,6 +10,24 @@ public class Code implements Serializable {
 
     private String className; //类名
     private List<String> attributes; //格式为:属性,对象
+    private String databaseName; //数据库名
+    private String primaryKey; //主键
+
+    public String getPrimaryKey() {
+        return primaryKey;
+    }
+
+    public void setPrimaryKey(String primaryKey) {
+        this.primaryKey = primaryKey;
+    }
+
+    public String getDatabaseName() {
+        return databaseName;
+    }
+
+    public void setDatabaseName(String databaseName) {
+        this.databaseName = databaseName;
+    }
 
     public String getClassName() {
         return className;
@@ -32,6 +50,8 @@ public class Code implements Serializable {
         return "Code{" +
                 "className='" + className + '\'' +
                 ", attributes=" + attributes +
+                ", databaseName='" + databaseName + '\'' +
+                ", primaryKey='" + primaryKey + '\'' +
                 '}';
     }
 }

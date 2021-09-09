@@ -11,10 +11,27 @@ public class GenerateProperties {
     private boolean modelSerialize; //实体类是否序列化
     private boolean modelGetterAndSetter; //是否生成get/set方法
     private boolean modelConstructor; //是否生成构造方法
-    private String modelPackage; //存放生成的实体类的包名（后面会和generateModelPath+modelPackage进行拼接作为路径）
+    private String generatePackage; //存放生成的实体类的包名（后面会和generateModelPath+generatePackage进行拼接作为路径）
     private String generateModelPath; //生成实体类的路径（**默认使用这个路径**）
+    private boolean generateDatabase; //是否生成数据库
+    private String databaseHost; //数据库主机
+    private int databasePort; //数据库端口号
+    private String databaseUser; //数据库用户名
+    private String databasePassword; //数据库密码
+    private String databaseDriver; //数据库驱动
+    private boolean generateTable; //是否生成数据库表
+    private boolean generateMapper; //是否生成Mapper接口
+    private boolean generateMapperXml; //是否生成Mapper对应的XML文件
+    private boolean generateServiceAndImpl; //是否生成Service接口和Service的实现类
 
 
+    public void setDatabasePort(int databasePort) {
+        this.databasePort = databasePort;
+    }
+
+    public int getDatabasePort() {
+        return databasePort;
+    }
     public boolean getGenerateModel() {
         return generateModel;
     }
@@ -47,14 +64,12 @@ public class GenerateProperties {
         this.modelConstructor = modelConstructor;
     }
 
-
-
-    public String getModelPackage() {
-        return modelPackage;
+    public String getGeneratePackage() {
+        return generatePackage;
     }
 
-    public void setModelPackage(String modelPackage) {
-        this.modelPackage = modelPackage;
+    public void setGeneratePackage(String generatePackage) {
+        this.generatePackage = generatePackage;
     }
 
     public String getGenerateModelPath() {
@@ -65,6 +80,78 @@ public class GenerateProperties {
         this.generateModelPath = generateModelPath;
     }
 
+    public boolean getGenerateDatabase() {
+        return generateDatabase;
+    }
+
+    public void setGenerateDatabase(boolean generateDatabase) {
+        this.generateDatabase = generateDatabase;
+    }
+
+    public String getDatabaseHost() {
+        return databaseHost;
+    }
+
+    public void setDatabaseHost(String databaseHost) {
+        this.databaseHost = databaseHost;
+    }
+
+    public String getDatabaseUser() {
+        return databaseUser;
+    }
+
+    public void setDatabaseUser(String databaseUser) {
+        this.databaseUser = databaseUser;
+    }
+
+    public String getDatabasePassword() {
+        return databasePassword;
+    }
+
+    public void setDatabasePassword(String databasePassword) {
+        this.databasePassword = databasePassword;
+    }
+
+    public String getDatabaseDriver() {
+        return databaseDriver;
+    }
+
+    public void setDatabaseDriver(String databaseDriver) {
+        this.databaseDriver = databaseDriver;
+    }
+
+    public boolean getGenerateTable() {
+        return generateTable;
+    }
+
+    public void setGenerateTable(boolean generateTable) {
+        this.generateTable = generateTable;
+    }
+
+    public boolean getGenerateMapper() {
+        return generateMapper;
+    }
+
+    public void setGenerateMapper(boolean generateMapper) {
+        this.generateMapper = generateMapper;
+    }
+
+    public boolean getGenerateMapperXml() {
+        return generateMapperXml;
+    }
+
+    public void setGenerateMapperXml(boolean generateMapperXml) {
+        this.generateMapperXml = generateMapperXml;
+    }
+
+    public boolean getGenerateServiceAndImpl() {
+        return generateServiceAndImpl;
+    }
+
+    public void setGenerateServiceAndImpl(boolean generateServiceAndImpl) {
+        this.generateServiceAndImpl = generateServiceAndImpl;
+    }
+
     @Override
     public String toString() {
         return "GenerateProperties{" +
@@ -72,8 +159,18 @@ public class GenerateProperties {
                 ", modelSerialize=" + modelSerialize +
                 ", modelGetterAndSetter=" + modelGetterAndSetter +
                 ", modelConstructor=" + modelConstructor +
-                ", modelPackage='" + modelPackage + '\'' +
+                ", generatePackage='" + generatePackage + '\'' +
                 ", generateModelPath='" + generateModelPath + '\'' +
+                ", generateDatabase=" + generateDatabase +
+                ", databaseHost='" + databaseHost + '\'' +
+                ", databasePort=" + databasePort +
+                ", databaseUser='" + databaseUser + '\'' +
+                ", databasePassword='" + databasePassword + '\'' +
+                ", databaseDriver='" + databaseDriver + '\'' +
+                ", generateTable=" + generateTable +
+                ", generateMapper=" + generateMapper +
+                ", generateMapperXml=" + generateMapperXml +
+                ", generateServiceAndImpl=" + generateServiceAndImpl +
                 '}';
     }
 }
