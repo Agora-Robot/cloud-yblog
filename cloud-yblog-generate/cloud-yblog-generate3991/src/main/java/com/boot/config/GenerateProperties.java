@@ -21,7 +21,6 @@ public class GenerateProperties {
     private String databaseDriver; //数据库驱动
     private boolean generateTable; //是否生成数据库表
     private boolean generateMapper; //是否生成Mapper接口
-    private boolean generateMapperXml; //是否生成Mapper对应的XML文件
     private boolean generateServiceAndImpl; //是否生成Service接口和Service的实现类
 
 
@@ -136,14 +135,6 @@ public class GenerateProperties {
         this.generateMapper = generateMapper;
     }
 
-    public boolean getGenerateMapperXml() {
-        return generateMapperXml;
-    }
-
-    public void setGenerateMapperXml(boolean generateMapperXml) {
-        this.generateMapperXml = generateMapperXml;
-    }
-
     public boolean getGenerateServiceAndImpl() {
         return generateServiceAndImpl;
     }
@@ -169,7 +160,6 @@ public class GenerateProperties {
                 ", databaseDriver='" + databaseDriver + '\'' +
                 ", generateTable=" + generateTable +
                 ", generateMapper=" + generateMapper +
-                ", generateMapperXml=" + generateMapperXml +
                 ", generateServiceAndImpl=" + generateServiceAndImpl +
                 '}';
     }

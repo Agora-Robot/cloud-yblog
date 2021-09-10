@@ -80,7 +80,5 @@ cloud:
       generateTable: true
       #是否生成Mapper接口
       generateMapper: true
-      #是否生成Mapper对应的XML文件
-      generateMapperXml: true
       #是否生成Service接口和Service的实现类
       generateServiceAndImpl: true
