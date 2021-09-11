@@ -26,7 +26,7 @@ public class GenerateController {
   @ResponseBody
   public String autoGenerate(@RequestBody Code code) {
 
-        long start = System.currentTimeMillis();
+      long start = System.currentTimeMillis();
         boolean res = generateModelService.generate(code);
 
         if(res){
