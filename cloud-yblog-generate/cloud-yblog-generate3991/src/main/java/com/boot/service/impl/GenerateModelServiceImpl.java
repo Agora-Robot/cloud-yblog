@@ -25,8 +25,8 @@ public class GenerateModelServiceImpl implements GenerateModelService {
 
   private FileOutputStream fileOutputStream = null;
   private BufferedOutputStream bufferedOutputStream = null;
-  private Connection connection=null;
-  private Statement statement=null;
+  private Connection connection = null;
+  private Statement statement = null;
 
   @Override
   public boolean generate(Code code) {
@@ -92,6 +92,20 @@ public class GenerateModelServiceImpl implements GenerateModelService {
         log.info("生成Mapper接口成功......");
       }
 
+      // 如果需要生成service和Impl
+      if (generateServiceAndImpl) {
+        log.info("正在生成Service接口......");
+        generateService(code, generatePackage, generateModelPath);
+
+        log.info("生成Service接口成功......");
+
+        log.info("正在生成Service实现类......");
+        generateServiceImpl(code, generatePackage, generateModelPath);
+        log.info("生成Service实现类成功......");
+
+
+      }
+
       return true;
     } catch (Exception e) {
       log.info("自动生成代码出现异常,生成失败......");
@@ -100,12 +114,150 @@ public class GenerateModelServiceImpl implements GenerateModelService {
     }
   }
 
-  //自动生成Mapper接口
-  private void generateMapper(Code code, String generatePackage, String generateModelPath) throws IOException {
+  //生成service实现类Impl
+  private void generateServiceImpl(Code code, String generatePackage, String generateModelPath) throws IOException {
+
+    try{
+
+
+
+    } catch (Exception e) {
+      log.error("Service实现类代码生成失败...");
+      throw new RuntimeException("Service实现类代码生成失败...");
+
+    } finally {
+
+      if (bufferedOutputStream != null) {
+        bufferedOutputStream.close();
+      }
+      if (fileOutputStream != null) {
+        fileOutputStream.close();
+      }
+    }
+
+  }
+
+  // 生成service接口
+  private void generateService(Code code, String generatePackage, String generateModelPath) throws IOException {
 
     try{
       String primaryKey = code.getPrimaryKey();
-      StringBuffer codeString=new StringBuffer();
+      List<String> attributes = code.getAttributes(); // 获取属性,对象
+      StringBuffer codeString = new StringBuffer();
+      String[] split = generatePackage.split("\\.");
+      String packageName = split[split.length - 1];
+
+      String servicePackagePath = generateModelPath + "\\\\" + packageName + "\\\\service"; // Service的包路径
+
+      File pg = new File(servicePackagePath);
+
+      // 创建包的操作
+      if (!pg.exists()) { // 如果Service的包不存在，则创建一个
+
+        boolean mkdir = pg.mkdirs(); // 这里不能用mkdir，因为防止父目录有其中某个没有被创建也会失败
+
+      } else {
+        if (pg.isFile()) {
+          boolean delete = pg.delete();
+        }
+      }
+
+      String classname = parseBig(code.getClassName()); // 接口名
+
+      String serviceClassPath =
+              servicePackagePath + "\\\\" + classname + "Service.java"; // Service接口的路径**
+
+      // 写代码生成文件
+      codeString.append("package " + generatePackage + ".service;\n\n");
+
+      // 写导入类
+      codeString.append("import java.util.*;\n");
+      codeString.append("import " + generatePackage + ".pojo." + classname + ";\n");
+
+      // 写入代码生成注释信息
+      codeString.append("\n\n/**\n");
+      codeString.append(" * 该Service接口由cloud-yblog内置的代码器生成\n");
+      Date date = new Date();
+      SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+      String dateTime = simpleDateFormat.format(date);
+      codeString.append(" * @date " + dateTime + "\n */\n");
+      // 写入注释完成
+      String ServiceName = classname + "Service";
+      codeString.append("public interface " + ServiceName + " {\n\n");
+
+      codeString.append(
+              "\tint insert" + classname + "(" + classname + " " + classname.toLowerCase() + ");\n\n");
+
+      codeString.append(
+              "\tint update" + classname + "(" + classname + " " + classname.toLowerCase() + ");\n\n");
+
+      String[] data = parseData(attributes.get(0)); // 默认是实体类第一个属性为主键
+      String dataType = data[0];
+      String dataObject = data[1];
+      codeString.append("\t//根据主键查询单个数据\n");
+      codeString.append(
+              "\t"
+                      + classname
+                      + " select"
+                      + classname
+                      + "By"
+                      + parseBig(primaryKey)
+                      + "("
+                      + dataType
+                      + " "
+                      + dataObject
+                      + ");\n\n");
+
+
+      codeString.append("\tList<" + classname + "> selectAll" + classname + "();\n\n");
+
+      codeString.append(
+              "\tint delete"
+                      + classname
+                      + "By"
+                      + parseBig(primaryKey)
+                      + "("
+                      + dataType
+                      + " "
+                      + dataObject
+                      + ");\n\n}");
+
+      // 生成文件
+      fileOutputStream = new FileOutputStream(serviceClassPath);
+      bufferedOutputStream = new BufferedOutputStream(fileOutputStream);
+
+      String codeStr = codeString.toString();
+      byte[] classToBytes = codeStr.getBytes();
+
+      bufferedOutputStream.write(classToBytes);
+
+      bufferedOutputStream.flush(); // 刷新缓冲区
+
+
+    } catch (Exception e) {
+      log.error("Service接口代码生成失败...");
+      throw new RuntimeException("Service接口代码生成失败...");
+
+    } finally {
+
+      if (bufferedOutputStream != null) {
+        bufferedOutputStream.close();
+      }
+      if (fileOutputStream != null) {
+        fileOutputStream.close();
+      }
+    }
+
+
+  }
+
+  // 自动生成Mapper接口
+  private void generateMapper(Code code, String generatePackage, String generateModelPath)
+      throws IOException {
+
+    try {
+      String primaryKey = code.getPrimaryKey();
+      StringBuffer codeString = new StringBuffer();
       String[] split = generatePackage.split("\\.");
       String packageName = split[split.length - 1];
 
@@ -116,7 +268,7 @@ public class GenerateModelServiceImpl implements GenerateModelService {
       // 创建包的操作
       if (!pg.exists()) { // 如果Mapper的包不存在，则创建一个
 
-        boolean mkdir = pg.mkdirs(); //这里不能用mkdir，因为防止父目录有其中某个没有被创建也会失败
+        boolean mkdir = pg.mkdirs(); // 这里不能用mkdir，因为防止父目录有其中某个没有被创建也会失败
 
       } else {
 
@@ -125,10 +277,10 @@ public class GenerateModelServiceImpl implements GenerateModelService {
         }
       }
 
+      String classname = parseBig(code.getClassName()); // 接口名
 
-      String classname=parseBig(code.getClassName()); //接口名
-
-      String mapperClassPath = MapperPackagePath + "\\\\" + classname + "Mapper.java"; // Mapper接口的路径**
+      String mapperClassPath =
+          MapperPackagePath + "\\\\" + classname + "Mapper.java"; // Mapper接口的路径**
 
       List<String> attributes = code.getAttributes(); // 获取属性,对象
 
@@ -139,7 +291,7 @@ public class GenerateModelServiceImpl implements GenerateModelService {
       codeString.append("import org.apache.ibatis.annotations.*;\n");
       codeString.append("import org.springframework.stereotype.Repository;\n");
       codeString.append("import java.util.*;\n");
-      codeString.append("import "+generatePackage+".pojo."+classname+";\n");
+      codeString.append("import " + generatePackage + ".pojo." + classname + ";\n");
 
       // 写入代码生成注释信息
       codeString.append("\n\n/**\n");
@@ -154,86 +306,113 @@ public class GenerateModelServiceImpl implements GenerateModelService {
       codeString.append("@Mapper //表示当前接口是Mapper接口\n");
       codeString.append("@Repository //该接口作为组件添加到Spring容器中\n");
 
-      String MapperName=classname+"Mapper";
+      String MapperName = classname + "Mapper";
       String tableName = "t_" + code.getClassName(); // 数据库表名（默认）
 
-      //插入sql
-      StringBuffer insertSql=new StringBuffer();
-      insertSql.append("insert into "+tableName+"(");
-      for (int i = 0; i < attributes.size()-1; i++) {
+      // 插入sql
+      StringBuffer insertSql = new StringBuffer();
+      insertSql.append("insert into " + tableName + "(");
+      for (int i = 0; i < attributes.size() - 1; i++) {
         String[] data = parseData(attributes.get(i));
         String dataObject = data[1];
 
-        insertSql.append(dataObject+",");
+        insertSql.append(dataObject + ",");
       }
-      String[] d1 = parseData(attributes.get(attributes.size()-1));
+      String[] d1 = parseData(attributes.get(attributes.size() - 1));
       String lastdataObject = d1[1];
 
-      insertSql.append(lastdataObject+")");
+      insertSql.append(lastdataObject + ")");
 
       insertSql.append("values(");
       for (int i = 0; i < attributes.size() - 1; i++) {
         String[] data = parseData(attributes.get(i));
         String dataObject = data[1];
-        insertSql.append("#{"+dataObject+"},");
+        insertSql.append("#{" + dataObject + "},");
       }
 
-      insertSql.append("#{"+lastdataObject+"})");
+      insertSql.append("#{" + lastdataObject + "})");
 
-
-      //修改sql ----默认是实体类第一个属性为主键
+      // 修改sql ----默认是实体类第一个属性为主键
       StringBuffer updateSql = new StringBuffer();
-      updateSql.append("update "+tableName+" set ");
-      for (int i = 1; i < attributes.size() - 1; i++) { //从下标1开始遍历，下标0是主键
+      updateSql.append("update " + tableName + " set ");
+      for (int i = 1; i < attributes.size() - 1; i++) { // 从下标1开始遍历，下标0是主键
         String[] data = parseData(attributes.get(i));
         String dataObject = data[1];
 
-        updateSql.append(dataObject+"=#{"+dataObject+"},");
+        updateSql.append(dataObject + "=#{" + dataObject + "},");
       }
-      updateSql.append(lastdataObject+"=#{"+lastdataObject+"} where "+primaryKey+"=#{"+primaryKey+"}");
+      updateSql.append(
+          lastdataObject
+              + "=#{"
+              + lastdataObject
+              + "} where "
+              + primaryKey
+              + "=#{"
+              + primaryKey
+              + "}");
 
-      //查询一个结果的sql
+      // 查询一个结果的sql
 
       StringBuffer selectOneSql = new StringBuffer();
-      selectOneSql.append("select * from "+tableName+" where "+primaryKey+"=#{"+primaryKey+"}");
+      selectOneSql.append(
+          "select * from " + tableName + " where " + primaryKey + "=#{" + primaryKey + "}");
 
-      //查询多个结果的sql
+      // 查询多个结果的sql
 
       StringBuffer selectAllSql = new StringBuffer();
-      selectAllSql.append("select * from "+tableName);
+      selectAllSql.append("select * from " + tableName);
 
-      //删除sql
+      // 删除sql
       StringBuffer deleteSql = new StringBuffer();
-      deleteSql.append("delete from "+tableName+" where "+primaryKey+"=#{"+primaryKey+"}");
-
+      deleteSql.append(
+          "delete from " + tableName + " where " + primaryKey + "=#{" + primaryKey + "}");
 
       codeString.append("public interface " + MapperName + " {\n\n");
 
-      codeString.append("\t//插入"+classname+"\n");
-      codeString.append("\t@Insert(\""+insertSql.toString()+"\")\n");
-      codeString.append("\tint insert"+classname+"("+classname+" "+classname.toLowerCase()+");\n\n");
+      codeString.append("\t//插入" + classname + "\n");
+      codeString.append("\t@Insert(\"" + insertSql.toString() + "\")\n");
+      codeString.append(
+          "\tint insert" + classname + "(" + classname + " " + classname.toLowerCase() + ");\n\n");
 
+      codeString.append("\t//修改" + classname + "\n");
+      codeString.append("\t@Update(\"" + updateSql.toString() + "\")\n");
+      codeString.append(
+          "\tint update" + classname + "(" + classname + " " + classname.toLowerCase() + ");\n\n");
 
-      codeString.append("\t//修改"+classname+"\n");
-      codeString.append("\t@Update(\""+updateSql.toString()+"\")\n");
-      codeString.append("\tint update"+classname+"("+classname+" "+classname.toLowerCase()+");\n\n");
-
-
-      String[] data = parseData(attributes.get(0)); //默认是实体类第一个属性为主键
-      String dataType=data[0];
+      String[] data = parseData(attributes.get(0)); // 默认是实体类第一个属性为主键
+      String dataType = data[0];
       String dataObject = data[1];
       codeString.append("\t//根据主键查询单个数据\n");
-      codeString.append("\t@Select(\""+selectOneSql.toString()+"\")\n");
-      codeString.append("\t"+classname+" select"+classname+"By"+parseBig(primaryKey)+"("+dataType+" "+dataObject+");\n\n");
+      codeString.append("\t@Select(\"" + selectOneSql.toString() + "\")\n");
+      codeString.append(
+          "\t"
+              + classname
+              + " select"
+              + classname
+              + "By"
+              + parseBig(primaryKey)
+              + "("
+              + dataType
+              + " "
+              + dataObject
+              + ");\n\n");
 
       codeString.append("\t//查询表的所有数据\n");
-      codeString.append("\t@Select(\""+selectAllSql.toString()+"\")\n");
-      codeString.append("\tList<"+classname+"> selectAll"+classname+"();\n\n");
+      codeString.append("\t@Select(\"" + selectAllSql.toString() + "\")\n");
+      codeString.append("\tList<" + classname + "> selectAll" + classname + "();\n\n");
 
       codeString.append("\t//根据主键删除表数据\n");
-      codeString.append("\t@Delete(\""+deleteSql.toString()+"\")\n");
-      codeString.append("\tint delete"+classname+"By"+parseBig(primaryKey)+"("+dataType+" "+dataObject+");\n\n}");
-
+      codeString.append("\t@Delete(\"" + deleteSql.toString() + "\")\n");
+      codeString.append(
+          "\tint delete"
+              + classname
+              + "By"
+              + parseBig(primaryKey)
+              + "("
+              + dataType
+              + " "
+              + dataObject
+              + ");\n\n}");
 
       // 生成文件
       fileOutputStream = new FileOutputStream(mapperClassPath);
@@ -245,7 +424,6 @@ public class GenerateModelServiceImpl implements GenerateModelService {
       bufferedOutputStream.write(classToBytes);
 
       bufferedOutputStream.flush(); // 刷新缓冲区
-
 
     } catch (Exception e) {
       log.error("Mapper接口代码生成失败...");
@@ -260,9 +438,7 @@ public class GenerateModelServiceImpl implements GenerateModelService {
         fileOutputStream.close();
       }
     }
-
   }
-
 
   // 自动生成数据库表
   private void generateTable(
@@ -274,16 +450,18 @@ public class GenerateModelServiceImpl implements GenerateModelService {
       String databaseDriver)
       throws ClassNotFoundException, SQLException {
 
-    try{
+    try {
 
       ResourceBundle mysqlDataType = ResourceBundle.getBundle("mysqlDataType");
 
       Class.forName(databaseDriver);
 
-      String urlArgs = "?useSSL=false&serverTimezone=Asia/Shanghai&characterEncoding=UTF-8"; // url参数
+      String urlArgs =
+          "?useSSL=false&serverTimezone=Asia/Shanghai&characterEncoding=UTF-8"; // url参数
 
       String databaseName = code.getDatabaseName();
-      String url = "jdbc:mysql://" + databaseHost + ":" + databasePort + "/" + databaseName + urlArgs;
+      String url =
+          "jdbc:mysql://" + databaseHost + ":" + databasePort + "/" + databaseName + urlArgs;
 
       connection = DriverManager.getConnection(url, databaseUser, databasePassword);
       statement = connection.createStatement();
@@ -314,21 +492,19 @@ public class GenerateModelServiceImpl implements GenerateModelService {
 
       int res = statement.executeUpdate(sql);
 
-    }catch (Exception e){
+    } catch (Exception e) {
 
       log.error("自动生成数据库表失败......");
       throw new RuntimeException("自动生成数据库表失败......");
-    }finally{
+    } finally {
 
-      if(statement!=null){
+      if (statement != null) {
         statement.close();
       }
-      if(connection!=null){
+      if (connection != null) {
         connection.close();
       }
-
     }
-
   }
 
   // 自动生成数据库
@@ -341,8 +517,7 @@ public class GenerateModelServiceImpl implements GenerateModelService {
       String databaseDriver)
       throws ClassNotFoundException, SQLException {
 
-
-    try{
+    try {
 
       // 加载数据库驱动
       Class.forName(databaseDriver);
@@ -351,31 +526,30 @@ public class GenerateModelServiceImpl implements GenerateModelService {
 
       String sql = "create database if not exists " + databaseName + ";";
 
-      String urlArgs = "?useSSL=false&serverTimezone=Asia/Shanghai&characterEncoding=UTF-8"; // url参数
+      String urlArgs =
+          "?useSSL=false&serverTimezone=Asia/Shanghai&characterEncoding=UTF-8"; // url参数
 
-      String url = "jdbc:mysql://" + databaseHost + ":" + databasePort + "/cloud_yblog_log" + urlArgs;
+      String url =
+          "jdbc:mysql://" + databaseHost + ":" + databasePort + "/cloud_yblog_log" + urlArgs;
       connection = DriverManager.getConnection(url, databaseUser, databasePassword);
 
       statement = connection.createStatement();
 
       int res = statement.executeUpdate(sql); // 创建数据库
 
-    }catch (Exception e){
+    } catch (Exception e) {
       log.error("自动生成数据库失败......");
       throw new RuntimeException("自动生成数据库失败");
 
-    }finally{
+    } finally {
 
-      if(statement!=null){
+      if (statement != null) {
         statement.close();
       }
-      if(connection!=null){
+      if (connection != null) {
         connection.close();
       }
-
     }
-
-
   }
 
   // 自动生成实体类
@@ -404,7 +578,7 @@ public class GenerateModelServiceImpl implements GenerateModelService {
 
       // 创建包的操作
       if (!pg.exists()) { // 如果实体类的包不存在，则创建一个
-        boolean mkdir = pg.mkdirs(); //这里不能用mkdir，因为防止父目录有其中某个没有被创建也会失败
+        boolean mkdir = pg.mkdirs(); // 这里不能用mkdir，因为防止父目录有其中某个没有被创建也会失败
 
       } else {
 
@@ -454,7 +628,6 @@ public class GenerateModelServiceImpl implements GenerateModelService {
 
         codeString.append("public class " + className + " {");
       }
-
 
       // 生成字段
       for (int i = 0; i < attributes.size(); i++) {
@@ -583,9 +756,8 @@ public class GenerateModelServiceImpl implements GenerateModelService {
     return split;
   }
 
-
-  //首字母变大写
-  private String parseBig(String dataObject){
+  // 首字母变大写
+  private String parseBig(String dataObject) {
 
     // dataObject首字母大写
     String parseDataObject = "";
@@ -601,7 +773,6 @@ public class GenerateModelServiceImpl implements GenerateModelService {
           parseDataObject += dataObject.charAt(j);
         }
       }
-
     }
     return parseDataObject;
   }
@@ -625,5 +796,4 @@ public class GenerateModelServiceImpl implements GenerateModelService {
     }
     return parseDataObject;
   }
-
 }
