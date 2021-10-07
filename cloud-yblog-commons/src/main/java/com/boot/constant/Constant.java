@@ -11,4 +11,6 @@ public final class Constant {
 
     public static final String OK="success";
 
+    public static final String FAILED="failed";
+
 }

@@ -16,8 +16,12 @@
 <img src="https://img.shields.io/badge/SpringCloud alibaba-2.2.3.RELEASE-brightgreen"/>
 </p>
 
- &emsp;&emsp;cloud-yblog是基于SpringCloud+springCloud alibaba分布式微服务框架开发的博客：**博文管理**、**统计图表**、**接口监控**、**访问记录**、**附件管理**、**用户管理**、**友链管理**、**监控管理**、**抓取博文**，以及**第三方登录**等功能，且一直会对本项目进行加强，请各位大佬多多指点，一起共同进步。
+ &emsp;&emsp;cloud-yblog是基于SpringCloud+springCloud alibaba分布式微服务框架开发的博客：**博文管理**、**统计图表**、**接口监控**、**访问记录**、**附件管理**、**用户管理**、**友链管理**、**监控管理**、**抓取博文**、**代码生成器**，以及**第三方登录**等功能，且一直会对本项目进行加强，请各位大佬多多指点，一起共同进步。
 文章无需自己写，可以使用作者自己编写的全自动爬虫工具即可，只需轻轻一点，万千文章到手。
+
+### 新增功能
+* **cloud-yblog内置代码生成器,目前可以生成pojo、dao、service以及数据库/表，因为是自己写的生成器，所以会有一些不足，有关代码生成功能后续会进行优化**
+
 
 ### SpringBoot版的yblog仓库地址
 GitHub: https://github.com/youzhengjie9/yblog <br/>
@@ -245,6 +249,8 @@ new Valine({
     });
 ````
 
+* 然后访问首页的地址：http://localhost/web/
+
 
 ##### Linux+Docker容器化部署
 * 前提：你的Linux系统必须要安装了Docker。（然后按顺序执行下面的命令）
@@ -355,3 +361,8 @@ new Valine({
 ![20.png](https://gitee.com/youzhengjie/cloud-yblog/raw/master/cloud-yblog-doc/images/20.png)
 注册界面👇
 ![21.png](https://gitee.com/youzhengjie/cloud-yblog/raw/master/cloud-yblog-doc/images/21.png)
+代码生成器👇
+![23.png](https://gitee.com/youzhengjie/cloud-yblog/raw/master/cloud-yblog-doc/images/23.png)
+生成效果展示👇
+![24.png](https://gitee.com/youzhengjie/cloud-yblog/raw/master/cloud-yblog-doc/images/24.png)
+![25.png](https://gitee.com/youzhengjie/cloud-yblog/raw/master/cloud-yblog-doc/images/25.png)

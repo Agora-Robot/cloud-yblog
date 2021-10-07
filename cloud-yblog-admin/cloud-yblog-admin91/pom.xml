@@ -10,6 +10,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>cloud-yblog-admin91</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>org.youzj</groupId>
+            <artifactId>cloud-yblog-generate3991</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
 
 
 </project>

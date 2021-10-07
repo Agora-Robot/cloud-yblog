@@ -1,11 +1,9 @@
 package com.boot.service.impl;
 
-import com.boot.config.GenerateProperties;
 import com.boot.pojo.Code;
 import com.boot.service.GenerateModelService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
@@ -21,7 +19,6 @@ import java.util.*;
 @Slf4j
 public class GenerateModelServiceImpl implements GenerateModelService {
 
-  @Autowired private GenerateProperties generateProperties;
 
   private FileOutputStream fileOutputStream = null;
   private BufferedOutputStream bufferedOutputStream = null;
@@ -33,22 +30,21 @@ public class GenerateModelServiceImpl implements GenerateModelService {
 
     try {
 
-      log.info("加载配置文件内容......");
-      boolean generateModel = generateProperties.getGenerateModel();
-      boolean modelSerialize = generateProperties.getModelSerialize();
-      boolean modelGetterAndSetter = generateProperties.getModelGetterAndSetter();
-      boolean modelConstructor = generateProperties.getModelConstructor();
-      String generatePackage = generateProperties.getGeneratePackage();
-      String generateModelPath = generateProperties.getGenerateModelPath();
-      boolean generateDatabase = generateProperties.getGenerateDatabase();
-      String databaseHost = generateProperties.getDatabaseHost();
-      int databasePort = generateProperties.getDatabasePort();
-      String databaseUser = generateProperties.getDatabaseUser();
-      String databasePassword = generateProperties.getDatabasePassword();
-      String databaseDriver = generateProperties.getDatabaseDriver();
-      boolean generateTable = generateProperties.getGenerateTable();
-      boolean generateMapper = generateProperties.getGenerateMapper();
-      boolean generateServiceAndImpl = generateProperties.getGenerateServiceAndImpl();
+      boolean generateModel = code.getGenerateModel();
+      boolean modelSerialize = code.getModelSerialize();
+      boolean modelGetterAndSetter = code.getModelGetterAndSetter();
+      boolean modelConstructor = code.getModelConstructor();
+      String generatePackage = code.getGeneratePackage();
+      String generateModelPath = code.getGenerateModelPath();
+      boolean generateDatabase = code.getGenerateDatabase();
+      String databaseHost = code.getDatabaseHost();
+      int databasePort = code.getDatabasePort();
+      String databaseUser = code.getDatabaseUser();
+      String databasePassword = code.getDatabasePassword();
+      String databaseDriver = code.getDatabaseDriver();
+      boolean generateTable = code.getGenerateTable();
+      boolean generateMapper = code.getGenerateMapper();
+      boolean generateServiceAndImpl = code.getGenerateServiceAndImpl();
 
       // 如果需要生成实体类
       if (generateModel) {
@@ -99,12 +95,14 @@ public class GenerateModelServiceImpl implements GenerateModelService {
 
         log.info("生成Service接口成功......");
 
-        log.info("正在生成Service实现类......");
+        log.info("正在生成Service Impl......");
         generateServiceImpl(code, generatePackage, generateModelPath);
-        log.info("生成Service实现类成功......");
-
+        log.info("生成Service Impl成功......");
 
       }
+
+ 
+
 
       return true;
     } catch (Exception e) {
@@ -118,12 +116,134 @@ public class GenerateModelServiceImpl implements GenerateModelService {
   private void generateServiceImpl(Code code, String generatePackage, String generateModelPath) throws IOException {
 
     try{
+      String primaryKey = code.getPrimaryKey();
+      List<String> attributes = code.getAttributes(); // 获取属性,对象
+      StringBuffer codeString = new StringBuffer();
+      String[] split = generatePackage.split("\\.");
+      String packageName = split[split.length - 1];
 
+      String servicePackagePath = generateModelPath + "\\\\" + packageName + "\\\\service"; // Service的包路径
+
+      File pg = new File(servicePackagePath);
+
+      // 创建包的操作
+      if (!pg.exists()) { // 如果Service的包不存在，则创建一个
+
+        boolean mkdir = pg.mkdirs(); // 这里不能用mkdir，因为防止父目录有其中某个没有被创建也会失败
+
+      } else {
+        if (pg.isFile()) {
+          boolean delete = pg.delete();
+        }
+      }
+
+      String classname = parseBig(code.getClassName()); // 接口名
+
+      String serviceClassPath =
+              servicePackagePath + "\\\\" + classname + "Service.java"; // Service接口的路径**
+
+      String serviceImplClassPath =
+              servicePackagePath + "\\\\" + classname + "ServiceImpl.java"; // Service impl的路径**
+
+      // 写代码生成文件
+      codeString.append("package " + generatePackage + ".service;\n\n");
+
+      // 写导入类
+      codeString.append("import java.util.*;\n");
+      codeString.append("import " + generatePackage + ".pojo." + classname + ";\n");
+      codeString.append("import org.springframework.beans.factory.annotation.Autowired;\n");
+      codeString.append("import org.springframework.stereotype.Service;\n");
+      codeString.append("import " + generatePackage + ".dao." + classname + "Mapper;\n");
+
+      // 写入代码生成注释信息
+      codeString.append("\n\n/**\n");
+      codeString.append(" * 该ServiceImpl由cloud-yblog内置的代码器生成\n");
+      Date date = new Date();
+      SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+      String dateTime = simpleDateFormat.format(date);
+      codeString.append(" * @date " + dateTime + "\n */\n");
+
+      //写入注解
+      codeString.append("@Service\n");
+      // 写入注释完成
+      String ServiceImplName = classname + "ServiceImpl";
+      String ServiceImplObject=parseSmall(classname)+"Mapper";
+      codeString.append("public class " + ServiceImplName + " implements "+classname+"Service"+" {\n\n");
+
+      codeString.append("\t@Autowired\n");
+      codeString.append("\tprivate "+classname+"Mapper "+ServiceImplObject+";\n\n");
+
+      codeString.append("\t@Override\n");
+      codeString.append(
+              "\tpublic int insert" + classname + "(" + classname + " " + classname.toLowerCase() + "){\n");
+
+      codeString.append("\t\treturn "+ServiceImplObject+".insert"+classname + "(" +classname.toLowerCase()+ ");\n\t}");
+
+      codeString.append("\n\t@Override\n");
+      codeString.append(
+              "\tpublic int update" + classname + "(" + classname + " " + classname.toLowerCase() + "){\n");
+
+
+      codeString.append("\t\treturn "+ServiceImplObject+".update"+classname + "(" +classname.toLowerCase()+ ");\n\t}");
+
+      String[] data = parseData(attributes.get(0)); // 默认是实体类第一个属性为主键
+      String dataType = data[0];
+      String dataObject = data[1];
+      codeString.append("\n\t//根据主键查询单个数据\n");
+      codeString.append("\t@Override\n");
+      codeString.append(
+              "\tpublic "
+                      + classname
+                      + " select"
+                      + classname
+                      + "By"
+                      + parseBig(primaryKey)
+                      + "("
+                      + dataType
+                      + " "
+                      + dataObject
+                      + "){\n");
+
+
+      codeString.append("\t\treturn "+ServiceImplObject+".select"+classname+"By"+parseBig(primaryKey)+"("+dataObject+");\n\t}");
+
+      codeString.append("\n\t@Override\n");
+      codeString.append("\tpublic List<" + classname + "> selectAll" + classname + "(){\n");
+
+
+      codeString.append("\t\treturn "+ServiceImplObject+".selectAll"+classname+"("+");\n\t}");
+
+      codeString.append("\n\t@Override\n");
+      codeString.append(
+              "\tpublic int delete"
+                      + classname
+                      + "By"
+                      + parseBig(primaryKey)
+                      + "("
+                      + dataType
+                      + " "
+                      + dataObject
+                      + "){\n");
+
+      codeString.append("\t\treturn "+ServiceImplObject+".delete"+classname+"By"+parseBig(primaryKey)+"("+dataObject+");\n\t}");
+
+      codeString.append("\n}");
+
+      // 生成文件
+      fileOutputStream = new FileOutputStream(serviceImplClassPath);
+      bufferedOutputStream = new BufferedOutputStream(fileOutputStream);
+
+      String codeStr = codeString.toString();
+      byte[] classToBytes = codeStr.getBytes();
+
+      bufferedOutputStream.write(classToBytes);
+
+      bufferedOutputStream.flush(); // 刷新缓冲区
 
 
     } catch (Exception e) {
-      log.error("Service实现类代码生成失败...");
-      throw new RuntimeException("Service实现类代码生成失败...");
+      log.error("Service Impl代码生成失败...");
+      throw new RuntimeException("Service Impl代码生成失败...");
 
     } finally {
 

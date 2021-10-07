@@ -3,6 +3,7 @@ package com.boot.config;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
+//代码生成默认配置
 @ConfigurationProperties(prefix = "cloud.yblog.generate")
 @Configuration
 public class GenerateProperties {

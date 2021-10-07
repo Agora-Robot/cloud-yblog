@@ -235,6 +235,23 @@
 			"href": "/pear/toEcharts"
 		}]
 	},
+
+	{
+		"id": "generate",
+		"title": "代码生成",
+		"icon": "layui-icon layui-icon-chart",
+		"type": 0,
+		"href": "",
+		"children": [{
+			"id": 13033,
+			"title": "代码生成",
+			"icon": "layui-icon layui-icon-face-smile",
+			"type": 1,
+			"openType": "_iframe",
+			"href": "/pear/togenerate"
+		}]
+	},
+
 	{
 		"id": "code",
 		"title": "系统设置",

@@ -1,5 +1,6 @@
 package com.boot.controller;
 
+import com.boot.constant.Constant;
 import com.boot.pojo.Code;
 import com.boot.service.GenerateModelService;
 import io.swagger.annotations.Api;
@@ -27,17 +28,17 @@ public class GenerateController {
   public String autoGenerate(@RequestBody Code code) {
 
       long start = System.currentTimeMillis();
-        boolean res = generateModelService.generate(code);
+      boolean res = generateModelService.generate(code);
 
         if(res){
             long end = System.currentTimeMillis();
             log.info("生成代码耗时："+(end-start)+"ms");
 
-            return "生成实体类成功";
+            return Constant.OK;
 
         }else {
 
-            return "生成实体类失败";
+            return Constant.FAILED;
         }
 
     }
